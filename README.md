@@ -1,2 +1,2 @@
 # VTornos
-Trabalho de concluso de curso
+Trabalho de conclusão de curso
