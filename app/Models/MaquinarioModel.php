@@ -7,12 +7,14 @@ use CodeIgniter\Model;
 class MaquinarioModel extends Model
 {
     protected $table            = 'maquinarios';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'idMaquinario';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
+    protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        "nome"
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -28,7 +30,9 @@ class MaquinarioModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
+    protected $validationRules      = [
+        "nome" => "required|max_length[200]|min_length[3]"
+    ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;

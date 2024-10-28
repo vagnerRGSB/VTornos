@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1729983906;_ci_previous_url|s:34:"http://localhost:8080/usuario/novo";erro|a:3:{s:4:"nome";s:26:"O campo nome é requerido.";s:5:"email";s:27:"O campo email é requerido.";s:5:"senha";s:27:"O campo senha é requerido.";}__ci_vars|a:1:{s:4:"erro";s:3:"old";}
