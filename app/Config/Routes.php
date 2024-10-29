@@ -200,3 +200,33 @@ $routes->get(
     "SerieController::onDelete/$1",
     ["as" => "serie.onDelete", "filter" => "auth"]
 );
+
+
+/**
+ * ROTAS ESTOQUE DE PECAS
+ */
+$routes->get(
+    "/estoque-pecas/listar",
+    "EstoqueController::listar",
+    ["as" => "estoque.listar", "filter" => "auth"]
+);
+$routes->get(
+    "/estoque-pecas/inserir",
+    "EstoqueController::inserir",
+    ["as" => "estoque.inserir", "filter" => "auth"]
+);
+$routes->get(
+    "/estoque-pecas/editar/(:num)",
+    "EstoqueController::editar/$1",
+    ["as" => "estoque.editar", "filter" => "auth"]
+);
+$routes->post(
+    "/estoque-pecas/onSave",
+    "EstoqueController::onSave",
+    ["as" => "estoque.onSave", "filter" => "auth"]
+);
+$routes->get(
+    "/estoque-pecas/onDelete/(:num)",
+    "EstoqueController::onDelete/$1",
+    ["as" => "estoque.onDelete", "filter" => "auth"]
+);
