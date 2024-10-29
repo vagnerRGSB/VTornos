@@ -201,6 +201,34 @@ $routes->get(
     ["as" => "serie.onDelete", "filter" => "auth"]
 );
 
+/**
+ * ROTAS PARA CATEGORIAS DE PECAS
+ */
+$routes->get(
+    "/categorias-pecas/listar",
+    "PecaController::listar",
+    ["as" => "peca.listar", "filter" => "auth"]
+);
+$routes->get(
+    "/categorias-pecas/inserir",
+    "PecaController::inserir",
+    ["as" => "peca.inserir", "filter" => "auth"]
+);
+$routes->get(
+    "/categorias-pecas/editar/(:num)",
+    "PecaController::editar/$1",
+    ["as" => "peca.editar", "filter" => "auth"]
+);
+$routes->post(
+    "/categorias-pecas/onSave",
+    "PecaController::onSave",
+    ["as" => "peca.onSave"]
+);
+$routes->get(
+    "/categorias-pecas/onDelete/(:num)",
+    "PecaController::onDelete/$1",
+    ["as" => "peca.onDelete", "filter" => "auth"]
+);
 
 /**
  * ROTAS ESTOQUE DE PECAS

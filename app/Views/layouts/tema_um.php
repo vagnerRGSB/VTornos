@@ -27,7 +27,7 @@
               Operações
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#"> lista produtos para comercialização</a></li>
+              <li><a class="dropdown-item" href="<?= url_to("estoque.listar") ?>"> lista produtos para comercialização</a></li>
               <li><a class="dropdown-item" href="<?= url_to("serie.listar") ?>"> lista maquinários para prestação de serviço</a></li>
             </ul>
           </li>
