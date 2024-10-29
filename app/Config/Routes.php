@@ -104,7 +104,6 @@ $routes->get(
 /**
  * ROTAS PARA MAQUINARIO
  */
-
 $routes->get(
     "/maquinario/listar",
     "MaquinarioController::listar",
@@ -136,9 +135,42 @@ $routes->get(
 );
 
 /**
+ *  ROTAS PARA MODELO
+ */
+$routes->get(
+    "/modelo/listar",
+    "ModeloController::listar",
+    ["as" => "modelo.listar", "filter" => "auth"]
+);
+
+$routes->get(
+    "/modelo/inserir",
+    "ModeloController::inserir",
+    ["as" => "modelo.inserir", "filter" => "auth"]
+);
+
+$routes->get(
+    "/modelo/editar/(:num)",
+    "ModeloController::editar/$1",
+    ["as" => "modelo.editar", "filter" => "auth"]
+);
+
+$routes->post(
+    "/modelo/onSave",
+    "ModeloController::onSave",
+    ["as" => "modelo.onSave", "filter" => "auth"]
+);
+
+$routes->get(
+    "/modelo/onDelete/(:num)",
+    "ModeloController::onDelete/$1",
+    ["as" => "modelo.onDelete", "filter" => "auth"]
+);
+
+
+/**
  * ROTAS PARA SERIE
  */
-
 $routes->get(
     "/serie/listar",
     "SerieController::listar",
@@ -149,4 +181,22 @@ $routes->get(
     "/serie/inserir",
     "SerieController::inserir",
     ["as" => "serie.inserir", "filter" => "auth"]
+);
+
+$routes->get(
+    "/serie/editar/(:num)",
+    "SerieController::editar/$1",
+    ["as" => "serie.editar", "filter" => "auth"]
+);
+
+$routes->post(
+    "/serie/onSave",
+    "SerieController::onSave",
+    ["as" => "serie.onSave", "filter" => "auth"]
+);
+
+$routes->get(
+    "/serie/onDelete/(:num)",
+    "SerieController::onDelete/$1",
+    ["as" => "serie.onDelete", "filter" => "auth"]
 );

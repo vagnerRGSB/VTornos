@@ -4,6 +4,18 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 
+<ul class="nav justify-content-center m-3">
+    <li class="nav-item">
+        <a class="nav-link" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Series</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= url_to("modelo.listar") ?>"> <i class="bi bi-list"></i> Modelos</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?= url_to("maquinario.listar") ?>"> <i class="bi bi-list"></i> Maquinários</a>
+    </li>
+</ul>
+
 <div class="m-3">
     <?php if (session()->has("infoInsercao")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -45,14 +57,16 @@
                         <td scope="row"><?= esc($marca->idMarca) ?></td>
                         <td><?= esc($marca->nome) ?></td>
                         <td colspan="3" class="text-end">
-                            <a href="<?= base_url("marca/editar/".$marca->idMarca) ?>" class="btn btn-warning btn-sm"> <i class="bi bi-pencil"></i> Editar</a>
-                            <a href="" class="btn btn-danger btn-sm"> <i class="bi bi-trash"></i> Excluir</a>
+                            <a href="<?= base_url("marca/editar/" . $marca->idMarca) ?>" class="btn btn-warning btn-sm"> <i class="bi bi-pencil"></i> Editar</a>
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            <i class="bi bi-trash"></i> Excluir
+                            </button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="3" class="text-center">Nenhuma marca foi encontrada</td>
+                    <td colspan="3" class="text-center"> Nenhum registro foi encontrado no sistema</td>
                 </tr>
             <?php endif; ?>
         </tbody>
@@ -62,7 +76,27 @@
     </div>
 </div>
 
+<!-- MODAL PARA DELETAR -->
 
+<?php if(!empty($modelos)) : ?>
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Tem certeza de que deseja excluir este registro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <a href="<?= base_url("marca/onDelete/".$marca->idMarca) ?>" class="btn btn-danger"> Deletar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
 <?= $this->endSection() ?>
 <?= $this->section("script") ?>
 

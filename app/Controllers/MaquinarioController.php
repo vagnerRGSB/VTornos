@@ -58,5 +58,15 @@ class MaquinarioController extends BaseController
         }
     }
 
+    public function onDelete(int $param){
+        $dados = $this->maquinario->find($param);
+
+        if($this->maquinario->delete($param)){
+            return redirect()->route("maquinario.listar");
+        }else{
+            return redirect()->route("maquinario.listar");
+        }
+    }
+
 
 }

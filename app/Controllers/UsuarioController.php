@@ -66,4 +66,12 @@ class UsuarioController extends BaseController
             }
         }
     }
+
+    public function onDelete(int $param){
+        if($this->usuario->delete($param)){
+            return redirect()->route("usuario.listar");
+        }else{
+            return redirect()->route("usuario.listar");
+        }
+    }
 }

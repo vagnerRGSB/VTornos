@@ -59,4 +59,12 @@ class MarcaController extends BaseController
             }
         }
     }
+
+    public function onDelete( int $param){
+        if($this->marca->delete($param)){
+            return redirect()->route("marca.listar");
+        }else{
+            return redirect()->route("marca.listar");
+        }
+    }
 }
