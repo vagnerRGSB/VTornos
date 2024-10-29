@@ -68,7 +68,7 @@
                 <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="3" scope="row"> Nenhum maquinário encontrado </td>
+                    <td colspan="3" scope="row" class="text-center"> Nenhum maquinário encontrado </td>
                 </tr>
             <?php endif; ?>
         </tbody>
@@ -79,6 +79,7 @@
 </div>
 
 <!-- MODAL PARA DELETAR -->
+ <?php if(!empty($maquinarios)) : ?>
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -96,6 +97,7 @@
         </div>
     </div>
 </div>
+<?php endif; ?>
 <?= $this->endSection() ?>
 <?= $this->section("script") ?>
 

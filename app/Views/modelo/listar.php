@@ -4,7 +4,7 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 
-<ul class="nav justify-content-center">
+<ul class="nav justify-content-center m-3">
     <li class="nav-item">
         <a class="nav-link" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Series</a>
     </li>
@@ -68,7 +68,7 @@
                 <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="3" scope="row" class="text-center">Nenhum modelo encontrado no sistema</td>
+                    <td colspan="3" scope="row" class="text-center">Nenhum registro foi localizado no sistema</td>
                 </tr>
             <?php endif; ?>
         </tbody>

@@ -31,7 +31,7 @@
         <?php endforeach; ?>
       <?php else : ?>
         <tr>
-          <td colspan="3" class="text-center">Nenhum usuário cadastrado</td>
+          <td colspan="3" class="text-center">Nenhum registro foi localizado no sistema</td>
         </tr>
       <?php endif; ?>
     </tbody>

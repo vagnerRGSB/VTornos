@@ -7,12 +7,13 @@
 <div class="border m-3">
     <h3 class="h3 text-center m-3">Formulário Serie</h3>
     <div class="container">
-        <form action="">
+        <form action="<?= url_to("serie.onSave") ?>" method="post">
+        <input type="hidden" name="idSerie" value="<?= $serie->idSerie ?>">
             <div class="col m-3">
                 <label for="idModelo" class="form-label">Modelo</label>
                 <select class="form-select" name="idModelo" id="idModelo" aria-describedby="info-idModelo">
                     <?php foreach ($modelos as $modelo) : ?>
-                        <option <?php $modelo->idModelo == $serie->idModelo ? "selected" : "" ?>
+                        <option <?= $modelo->idModelo == $serie->idSerie ? "selected" : " " ?>
                         value="<?= esc($modelo->idModelo) ?>"><?= esc($modelo->nome) ?></option>
                     <?php endforeach; ?>
                 </select>
@@ -25,8 +26,9 @@
             <div class="row">
                 <div class="col mt-3 mb-3">
                     <label for="descricao" class="form-label">Descrição serie</label>
-                    <input type="text" class="form-control" aria-describedby="info-descricao"
-                        placeholder="Informe descrição (Obrigatório)">
+                    <input type="text" name="descricao" class="form-control" aria-describedby="info-descricao"
+                        placeholder="Informe descrição (Obrigatório)"
+                        value="<?= $serie->descricao ?>">
                     <div id="info-descricao" class="form-label">
                         <span class="text-danger">
                             <?= session()->getFlashdata("erro")["descricao"] ?? "" ?>
@@ -35,8 +37,9 @@
                 </div>
                 <div class="col mt-3 mb-3">
                     <label for="ano" class="form-label">Ano</label>
-                    <input type="number" class="form-control" aria-describedby="info-ano" placeholder="Informe Ano (Obrigatório)"
-                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                    <input type="number" name="ano" class="form-control" aria-describedby="info-ano" placeholder="Informe Ano (Obrigatório)"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        value="<?= $serie->ano ?>">
                     <div id="info-ano" class="form-label">
                         <span class="text-danger">
                             <?= session()->getFlashdata("erro")["ano"] ?? "" ?>

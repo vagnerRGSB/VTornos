@@ -11,6 +11,7 @@
         <form action="<?= url_to("modelo.onSave") ?>" method="post">
             <div class="row">
                 <div class="col">
+                    <input type="hidden" name="idModelo" value="<?= $modelo->idModelo ?>">
                     <label for="idMaquinario" class="form-label"> Maquinário </label>
                     <select class="form-select form-select-sm" name="idMaquinario" id="idMaquinario" aria-describedby="info-maquinario">
                         <?php foreach ($maquinarios as $maquinario) : ?>
