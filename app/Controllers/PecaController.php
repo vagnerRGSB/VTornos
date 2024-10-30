@@ -3,32 +3,72 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\PecaModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class PecaController extends BaseController
 {
-    public function listar(){
-        
-        return view("peca/listar");
+    private $peca;
+
+    public function __construct()
+    {
+        $this->peca = new PecaModel();
+    }
+    public function listar()
+    {
+        $pecas = $this->peca->paginate(10);
+        $pager = $this->peca->pager;
+        return view("peca/listar", [
+            "pecas" => $pecas,
+            "pager" => $pager
+        ]);
     }
 
-    public function inserir(){
+    public function inserir()
+    {
 
         return view("peca/inserir");
     }
 
-    public function editar(int $param){
-
-        return view("peca/editar");
+    public function editar(int $param)
+    {
+        //var_dump($param);die;
+        $peca = $this->peca->find($param);
+        return view("peca/editar",[
+            "peca" => $peca
+        ]);
     }
 
-    public function onSave(){
-
-        var_dump("Estou entrando");
-    }
-
-    public function onDelete($param){
+    public function onSave()
+    {
+        $dados = [
+            "idPeca" => $this->request->getPost("idPeca"),
+            "nome" => $this->request->getPost("nome")
+        ];
         
-        var_dump("Estou saindo no codigo".$param);
+        if(empty($dados["idPeca"])){
+            if($this->peca->save($dados)){
+                return redirect()->route("peca.listar")->with("infoInsercao",$dados["nome"]);
+            }else{
+                return redirect()->back()->with("erro",$this->peca->errors());
+            }
+        }else{
+            if($this->peca->save($dados)){
+                return redirect()->route("peca.listar")->with("infoAtualizacao",$dados["nome"]);
+            }else{
+                return redirect()->back()->with("erro",$this->peca->errors());
+            }
+        }
+    }
+
+    public function onDelete($param)
+    {
+        $dados = $this->peca->find($param);
+
+        if($this->peca->delete($param)){
+            return redirect()->route("peca.listar")->with("infoExclusao",$dados->nome);
+        }else{
+            return redirect()->route("peca.listar");
+        }
     }
 }

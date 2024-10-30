@@ -12,7 +12,7 @@
         <a class="nav-link" href="#"> <i class="bi bi-list"></i> Especificações</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#"> <i class="bi bi-list"></i> Categorias</a>
+        <a class="nav-link" href="<?= url_to("peca.listar") ?>"> <i class="bi bi-list"></i> Categorias</a>
     </li>
 </ul>
 
