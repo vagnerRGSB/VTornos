@@ -32,7 +32,11 @@ class EspecificacaoModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
+    protected $validationRules      = [
+        "idPeca" => "required",
+        "dimensao" => "required|max_length[200]|min_length[10]",
+        "especificacao" => "required|max_length[200]|min_length[10]"
+    ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;

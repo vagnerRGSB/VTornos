@@ -234,27 +234,27 @@ $routes->get(
  * ROTAS ESPECIFICAO DE PECA
  */
 $routes->get(
-    "/especificacoes-pecas/listar",
-    "EspecificaoController::listar",
-    ["as" => "especificacao.listar", "filter" => "auth"]
+    "/especificacao-pecas/listar",
+    "EspecificacaoController::listar",
+    ["as"=>"especificacao.listar", "filter" => "auth"]
 );
 $routes->get(
-    "/especificacoes-pecas/inserir",
+    "/especificacao-pecas/inserir",
     "EspecificacaoController::inserir",
     ["as" => "especificacao.inserir"]
 );
 $routes->get(
-    "/especificacoes-pecas/editar/(:num)",
+    "/especificao-pecas/editar/(:num)",
     "EspecificacaoController::editar/$1",
     ["as" => "especificacao.editar", "filter" => "auth"]
 );
 $routes->post(
-    "/especificacoes-pecas/onSave",
+    "/especificao-pecas/onSave",
     "EspecificacaoController::onSave",
     ["as" => "especificacao.onSave", "filter" => "auth"]
 );
 $routes->get(
-    "/especificacoes-pecas/onDelete/(:num)",
+    "/especificao-pecas/onDelete/(:num)",
     "EspecificacaoController::onDelete/$1",
     ["as" => "Especificacao.onDelete", "filter" => "auth"]
 );
