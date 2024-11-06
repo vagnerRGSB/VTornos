@@ -4,34 +4,21 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 
-<ul class="nav justify-content-center m-3">
-    <li class="nav-item">
-        <a class="nav-link" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Series</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= url_to("maquinario.listar") ?>"> <i class="bi bi-list"></i> Maquinários</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= url_to("marca.listar") ?>"> <i class="bi bi-list"></i> Marcas</a>
-    </li>
-</ul>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3 mb-3">
+<a class="btn btn-secondary btn-sm" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Series</a>
+<a class="btn btn-secondary btn-sm" href="<?= url_to("maquinario.listar") ?>"> <i class="bi bi-list"></i> Maquinários</a>
+<a class="btn btn-secondary btn-sm" href="<?= url_to("marca.listar") ?>"> <i class="bi bi-list"></i> Marcas</a>
+</div>
 
 <div class="m-3">
-    <?php if (session()->has("infoInsercao")) : ?>
+    <?php if (session()->has("info")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong> <i class="bi bi-check"></i> Registro realizado com sucesso : </strong> <?= session()->getFlashdata("infoInsercao") ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
 
-    <?php if (session()->has("infoAtualizacao")) : ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Atualização concluída com sucesso : </strong> <?= session()->getFlashdata("infoAtualizacao") ?>
-            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
-
-    <?php if (session()->has("infoExclusao")) : ?>
+    <?php if (session()->has("errors")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong> <i class="bi bi-check"></i> Dados removidos com sucesso : </strong> <?= session()->getFlashdata("infoExclusao") ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>

@@ -4,15 +4,21 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 
+<div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3 mb-3 m-3">
+<a class="btn btn-secondary btn-sm" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Series</a>
+<a class="btn btn-secondary btn-sm" href="<?= url_to("modelo.listar") ?>"> <i class="bi bi-list"></i> Modelos</a>
+<a class="btn btn-secondary btn-sm" href="<?= url_to("maquinario.listar") ?>"> <i class="bi bi-list"></i> Maquinários</a>
+</div>
+
 <ul class="nav justify-content-center m-3">
     <li class="nav-item">
-        <a class="nav-link" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Series</a>
+        
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= url_to("modelo.listar") ?>"> <i class="bi bi-list"></i> Modelos</a>
+        
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?= url_to("maquinario.listar") ?>"> <i class="bi bi-list"></i> Maquinários</a>
+        
     </li>
 </ul>
 

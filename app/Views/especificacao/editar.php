@@ -8,6 +8,8 @@
     <div class="container">
         <form action="<?= url_to("especificacao.onSave") ?>" method="post">
             <div class="m-3">
+                <input type="hidden" name="idEspecificacao" 
+                value="<?= $especificacao->idEspecificacao ?>">
                 <label for="idPeca" class="form-label">Tipo de peça</label>
                 <select name="idPeca" id="idPeca" class="form-select" aria-describedby="info-peca">
                     <?php foreach ($pecas as $peca) : ?>
@@ -44,6 +46,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-success m-3"> <i class="bi bi-floppy"></i> Salvar</button>
+            <a href="<?= url_to("especificacao.listar") ?>" class="btn btn-danger"> <i class="bi bi-x"></i> Voltar</a>
         </form>
     </div>
 </div>

@@ -8,15 +8,16 @@
 
     <div class="container">
         <form action="<?= url_to("maquinario.onSave") ?>" method="post">
-        <div class="m-3">
-            <label for="nome" class="form-label">Nome maquinário</label>
-            <input type="text" id="nome" name="nome" class="form-control" aria-describedby="info-nome"
-            placeholder="Informe nome maquinário (Obrigatório)">
-            <div id="info-nome" class="form-text">
-                <span class="text-danger"><?= session()->getFlashdata("erro")["nome"] ?? "" ?></span>
+            <div class="m-3">
+                <label for="nome" class="form-label">Nome maquinário</label>
+                <input type="text" id="nome" name="nome" class="form-control" aria-describedby="info-nome"
+                    placeholder="Informe nome maquinário (Obrigatório)">
+                <div id="info-nome" class="form-text">
+                    <span class="text-danger"><?= session()->getFlashdata("erro")["nome"] ?? "" ?></span>
+                </div>
             </div>
-        </div>
-        <button class="btn btn-success btn-sm m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar </button>
+            <button class="btn btn-success btn-sm m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar </button>
+            <a href="<?= url_to("maquinario.listar") ?>" class="btn btn-danger"> <i class="bi bi-x"></i> Voltar</a>
         </form>
     </div>
 </div>

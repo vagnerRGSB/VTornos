@@ -48,6 +48,7 @@
                 </div>
             </div>
             <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar </button>
+            <a href="<?= url_to("serie.listar") ?>"> <i class="bi bi-x"></i> Voltar </a>
         </form>
     </div>
 </div>

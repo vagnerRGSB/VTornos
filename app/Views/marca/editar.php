@@ -22,6 +22,7 @@
                 </div>
             </div>
             <button class="btn btn-success btn-sm m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar </button>
+            <a href="<?= url_to("marca.listar") ?>" class="btn btn-danger"> <i class="bi bi-x"></i> Voltar</a>
         </form>
     </div>
 </div>

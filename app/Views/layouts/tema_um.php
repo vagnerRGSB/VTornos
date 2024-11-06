@@ -32,7 +32,10 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="<?= url_to("localidade.listar") ?>">Gestão localizações das cidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gestão serviços dos clientes</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

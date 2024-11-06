@@ -40,6 +40,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success btn m-3"> <i class="bi bi-floppy"></i> Salvar</button>
+                <a href="<?= url_to("usuarios.listar") ?>" class="btn btn-secondary"><i class="bi bi-x"></i> Voltar</a>
             </form>
         </div>
 

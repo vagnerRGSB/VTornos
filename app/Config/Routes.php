@@ -236,7 +236,7 @@ $routes->get(
 $routes->get(
     "/especificacao-pecas/listar",
     "EspecificacaoController::listar",
-    ["as"=>"especificacao.listar", "filter" => "auth"]
+    ["as" => "especificacao.listar", "filter" => "auth"]
 );
 $routes->get(
     "/especificacao-pecas/inserir",
@@ -286,4 +286,62 @@ $routes->get(
     "/estoque-pecas/onDelete/(:num)",
     "EstoqueController::onDelete/$1",
     ["as" => "estoque.onDelete", "filter" => "auth"]
+);
+
+/**
+ * ROTAS Estados
+ */
+$routes->get(
+    "/estado/listar",
+    "EstadoController::listar",
+    ["as" => "estado.listar", "filter" => "auth"]
+);
+$routes->get(
+    "/estado/inserir",
+    "EstadoController::inserir",
+    ["as" => "estado.inserir", "filter" => "auth"]
+);
+$routes->get(
+    "/estado/editar/(:num)",
+    "EstadoController::editar/$1",
+    ["as" => "estado.editar", "filter" => "auth"]
+);
+$routes->post(
+    "/estado/onSave",
+    "EstadoController::onSave",
+    ["as" => "estado.onSave", "filter" => "auth"]
+);
+$routes->get(
+    "/estado/onDelete/(:num)",
+    "EstadoController::onDelete/$1",
+    ["as" => "estado.onDelete", "filter" => "auth"]
+);
+
+/**
+ * ROTAS PARA LOCALIDADES
+ */
+$routes->get(
+    "/localidade/listar",
+    "LocalidadeController::listar",
+    ["as" => "localidade.listar", "filter" => "auth"]
+);
+$routes->get(
+    "/localidade/inseir",
+    "LocalidadeController::inserir",
+    ["as" => "localidade.inserir", "filter" => "auth"]
+);
+$routes->get(
+    "/localidade/editar/(:num)",
+    "LocalidadeController::editar/(:num)",
+    ["as" => "localidade.editar", "filter" => "auth"]
+);
+$routes->post(
+    "/localidade/onSave",
+    "LocalidadeController::onSave",
+    ["as"=>"localidade.onSave", "filter"=>"auth"]
+);
+$routes->get(
+    "/localidade/onDelete/(:num)",
+    "LocalidadeController::onDelete/$1",
+    ["as"=>"localidade.onDelete","filter"=>"auth"]
 );

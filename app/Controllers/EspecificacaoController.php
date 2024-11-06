@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\EspecificacaoModel;
 use App\Models\PecaModel;
+use CodeIgniter\Entity\Cast\ObjectCast;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class EspecificacaoController extends BaseController
@@ -69,7 +70,7 @@ class EspecificacaoController extends BaseController
         if (empty($dados["especificacao"])) {
             if ($this->especificacao->save($dados)) {
                 return redirect()->route("especificacao.listar")->with(
-                    "inforInsercao",
+                    "insert",
                     $dados["dimensao"] . " " . $dados["especificacao"]
                 );
             }else{
@@ -78,7 +79,7 @@ class EspecificacaoController extends BaseController
         } else {
             if ($this->especificacao->save($dados)) {
                 return redirect()->route("especificacao.listar")->with(
-                    "infoAtualizacao",
+                    "update",
                     $dados["dimensao"] . " " . $dados["especificacao"]
                 );
             }else{

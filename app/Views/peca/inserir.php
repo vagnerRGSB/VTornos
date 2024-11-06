@@ -19,6 +19,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-success m-3"> Salvar</button>
+            <a href="<?= url_to("peca.listar") ?>" class="btn btn-danger"> <i class="bi bi-x"></i> Voltar</a>
         </form>
     </div>
 </div>
