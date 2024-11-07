@@ -3,50 +3,48 @@
 
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
+
 <div class="m-3">
-    
-    <?php if (session()->has("insert")) : ?>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a class="btn btn-secondary btn-sm" href="<?= url_to("localidade.listar") ?>"> <i class="bi bi-list"></i> Localidades</a>
+        <a class="btn btn-secondary btn-sm" href="<?= url_to("cidade.listar") ?>"> <i class="bi bi-list"></i> Cidades</a>
+    </div>
+</div>
+<div class="m-3">
+    <?php if (session()->has("info")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Registro realizado com sucesso : </strong> <?= session()->getFlashdata("insert") ?>
+            <?= session()->getFlashdata("info") ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
 
-    <?php if (session()->has("update")) : ?>
+    <?php if (session()->has("error")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Atualização concluída com sucesso : </strong> <?= session()->getFlashdata("update") ?>
-            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
-
-    <?php if (session()->has("delete")) : ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Dados removidos com sucesso : </strong> <?= session()->getFlashdata("delete") ?>
+            <?= session()->getFlashdata("delete") ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
 </div>
-
 <div class="border m-3">
     <h3 class="h3 text-center">Lista de Estados</h3>
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-                <th scope="col">Código</th>
-                <th scope="col">Nome</th>
+                <th scope="col" class="text-start">Código</th>
+                <th scope="col" class="text-start">Nome</th>
                 <td class="text-end">
                     <a href="<?= url_to("estado.inserir") ?>" class="btn btn-primary btn-sm"> <i class="bi bi-plus"></i> Inserir</a>
                 </td>
             </tr>
         </thead>
         <tbody>
-            <?php if(!empty($estados)) : ?>
-                <?php foreach($estados as $estado) : ?>
+            <?php if (!empty($estados)) : ?>
+                <?php foreach ($estados as $estado) : ?>
                     <tr>
-                        <td><?= $estado->idEstado ?></td>
-                        <td><?= $estado->nome ?></td>
-                        <td>
-                        <a href="<?= base_url("estado/editar/" . $estado->idEstado)  ?>" class="btn btn-warning btn-sm"> <i class="bi bi-pencil"></i> Editar</a>
+                        <th class="text-start"><?= $estado->idEstado ?></th>
+                        <td class="text-start"><?= $estado->nome ?></td>
+                        <td class="text-end">
+                            <a href="<?= base_url("estado/editar/" . $estado->idEstado)  ?>" class="btn btn-warning btn-sm"> <i class="bi bi-pencil"></i> Editar</a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                 <i class="bi bi-trash"></i> Excluir
                             </button>
@@ -55,11 +53,14 @@
                 <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="3" class="text-center">Nenhum registro foi encontrado</td>
+                    <td colspan="3" class="text-center">Nenhum registro foi encontrado no sistema</td>
                 </tr>
             <?php endif; ?>
         </tbody>
     </table>
+    <div class="m-3">
+        <?= $pager->links(); ?>
+    </div>
 </div>
 <?= $this->endSection() ?>
 <?= $this->section("script") ?>

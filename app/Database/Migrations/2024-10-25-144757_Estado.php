@@ -18,6 +18,10 @@ class Estado extends Migration
             "nome" => [
                 "type" => "varchar",
                 "constraint" => 200
+            ],
+            "sigla" => [
+                "type" => "varchar",
+                "constraint" => 2
             ]
             ]);
             $this->forge->addPrimaryKey("idEstado");

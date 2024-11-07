@@ -16,9 +16,11 @@ class EstadoController extends BaseController
     }
     public function listar()
     {
-        $estados = $this->estado->findAll();
-        return view("estado/listar",[
-            "estados" => $estados
+        $estados = $this->estado->paginate(10);
+        $pager = $this->estado->pager;
+        return view("estado/listar", [
+            "estados" => $estados,
+            "pager" => $pager
         ]);
     }
     public function inserir()
@@ -34,38 +36,44 @@ class EstadoController extends BaseController
             "estado" => $estado
         ]);
     }
-    public function onSave(){
+    public function onSave()
+    {
 
         $dados = [
             "idEstado" => $this->request->getPost("idEstado"),
-            "nome" => $this->request->getPost("nome")
+            "nome" => $this->request->getPost("nome"),
+            "sigla" => $this->request->getPost("sigla")
         ];
         //var_dump($dados);die;
 
-        if(empty($dados["idEstado"])){
-            if($this->estado->save($dados)){
-                return redirect()->route("estado.listar")->with("info",
-                "<strong>Inserção realizada com sucesso : </strong> ".$dados["nome"]);
-            }else{
+        if (empty($dados["idEstado"])) {
+            if ($this->estado->save($dados)) {
+                return redirect()->route("estado.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso : </strong> " . $dados["nome"]
+                );
+            } else {
                 return redirect()->back()->with("error", $this->estado->errors());
             }
-        }else{
-            if($this->estado->save($dados)){
-                return redirect()->route("estado.listar")->with("info",
-                "<strong> Atualização realizada com sucesso : </strong> ".$dados["nome"]);
-            }else{
+        } else {
+            if ($this->estado->save($dados)) {
+                return redirect()->route("estado.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso : </strong> " . $dados["nome"]
+                );
+            } else {
                 return redirect()->back()->with("error", $this->estado->errors());
             }
         }
-                
     }
-    public function onDelete(int $param){
+    public function onDelete(int $param)
+    {
         $estado = $this->estado->find($param);
 
-        if($this->estado->delete($param)){
-            return redirect()->route("estado.listar")->with("info","Cadastro");
-        }else{
-            return redirect()->route("estado.listar")->with("errors","Não foi possivel realiza exclusão no sistema");
+        if ($this->estado->delete($param)) {
+            return redirect()->route("estado.listar")->with("info", "Cadastro");
+        } else {
+            return redirect()->route("estado.listar")->with("errors", "Não foi possivel realiza exclusão no sistema");
         }
     }
 }

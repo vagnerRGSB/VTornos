@@ -4,9 +4,9 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 
-<div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3 mb-3">
-<a class="btn btn-secondary btn-sm" href=""> Cidades</a>
-<a class="btn btn-secondary btn-sm" href="<?= url_to("estado.listar") ?>"> Estados</a>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end m-3">
+<a class="btn btn-secondary btn-sm" href="<?= url_to("cidade.listar") ?>"> <i class="bi bi-list"></i> Cidades</a>
+<a class="btn btn-secondary btn-sm" href="<?= url_to("estado.listar") ?>"> <i class="bi bi-list"></i> Estados</a>
 </div>
 
 <div class="m-3">
@@ -17,9 +17,9 @@
         </div>
     <?php endif; ?>
 
-    <?php if (session()->has("errors")) : ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?= session()->getFlashdata("errors") ?>
+    <?php if (session()->has("error")) : ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata("error") ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>

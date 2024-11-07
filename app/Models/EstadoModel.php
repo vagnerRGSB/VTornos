@@ -13,7 +13,8 @@ class EstadoModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "nome"
+        "nome",
+        "sigla"
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -31,7 +32,8 @@ class EstadoModel extends Model
 
     // Validation
     protected $validationRules      = [
-        "nome" => "required|max_length[200]|min_length[3]"
+        "nome" => "required|max_length[200]|min_length[3]",
+        "sigla" => "required|max_length[2]|min_length[2]"
     ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;

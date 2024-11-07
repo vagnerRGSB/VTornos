@@ -30,8 +30,8 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Código</th>
-                <th scope="col">Marca do modelo da serie</th>
+                <th scope="col" class="text-start">Código</th>
+                <th scope="col" class="text-start">Marca do modelo da serie</th>
                 <th scope="col" class="text-end">
                     <a class="btn btn-primary btn-sm" href="<?= url_to("serie.inserir") ?>"> <i class="bi bi-plus"></i> Inserir</a>
                 </th>
@@ -41,8 +41,8 @@
             <?php if (!empty($series)) : ?>
                 <?php foreach ($series as $serie) : ?>
                     <tr>
-                        <td scope="row"> <?= $serie->idSerie ?></td>
-                        <td> <?= $serie->nomeMarca . " " . $serie->nomeModelo . " " . $serie->descricaoSerie ?> </td>
+                        <td scope="row" class="text-start"> <?= $serie->idSerie ?></td>
+                        <td class="text-start"> <?= $serie->nomeMarca . " " . $serie->nomeModelo . " " . $serie->descricaoSerie ?> </td>
                         <td class="text-end">
                             <a href="<?= base_url("serie/editar/" . $serie->idSerie) ?>" class="btn btn-warning btn-sm "> <i class="bi bi-pencil"></i> Editar</a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">

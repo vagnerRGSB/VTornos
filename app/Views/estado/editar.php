@@ -6,7 +6,7 @@
 
 <div class="border mt-3 mt-3">
     <div class="container">
-        <h3 class="h3 text-center">Formulario Estado</h3>
+        <h3 class="h3 text-center">Formulário Estado</h3>
         <form action="<?= url_to("estado.onSave") ?>" method="post">
             <div class="m-3">
                 <input type="hidden" name="idEstado" value="<?= $estado->idEstado ?>">
@@ -22,7 +22,7 @@
             <button class="btn btn-success m-3" type="submit">
             <i class="bi bi-floppy"></i> Salvar
             </button>
-            <a class="btn btn-danger" href="<?= url_to("estado.listar") ?>"> <i class="bi bi-x-lg"></i>  Cancelar </a>
+            <a class="btn btn-danger" href="<?= url_to("estado.listar") ?>"> <i class="bi bi-x-lg"></i> Voltar </a>
         </form>
 
     </div>

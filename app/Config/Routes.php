@@ -318,6 +318,35 @@ $routes->get(
 );
 
 /**
+ * ROTAS PARA CIDADES NOS ESTADOS
+ */
+$routes->get(
+    "/cidade/listar",
+    "CidadeController::listar",
+    ["as" => "cidade.listar", "filter" => "auth"]
+);
+$routes->get(
+    "/cidade/inserir",
+    "CidadeController::inserir",
+    ["as" => "cidade.inserir", "filter" => "auth"]
+);
+$routes->get(
+    "/cidade/editar/(:num)",
+    "CidadeController::editar/$1",
+    ["as" => "cidade.listar", "filter" => "auth"]
+);
+$routes->post(
+    "/cidade/onSave",
+    "CidadeController::onSave",
+    ["as" => "cidade.onSave", "filter" => "auth"]
+);
+$routes->get(
+    "/cidade/onDelete/(:num)",
+    "CidadeController::onDelete/$1",
+    ["as" => "cidade.onDelete", "filter" => "auth"]
+);
+
+/**
  * ROTAS PARA LOCALIDADES
  */
 $routes->get(
@@ -338,10 +367,10 @@ $routes->get(
 $routes->post(
     "/localidade/onSave",
     "LocalidadeController::onSave",
-    ["as"=>"localidade.onSave", "filter"=>"auth"]
+    ["as" => "localidade.onSave", "filter" => "auth"]
 );
 $routes->get(
     "/localidade/onDelete/(:num)",
     "LocalidadeController::onDelete/$1",
-    ["as"=>"localidade.onDelete","filter"=>"auth"]
+    ["as" => "localidade.onDelete", "filter" => "auth"]
 );
