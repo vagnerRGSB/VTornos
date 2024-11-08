@@ -38,7 +38,9 @@ class EspecificacaoModel extends Model
         "especificacao" => "required|max_length[200]|min_length[10]"
     ];
     protected $validationMessages   = [
-        
+        "idPeca" => [
+            "required" => "O campo peça é requirido"
+        ]
     ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;

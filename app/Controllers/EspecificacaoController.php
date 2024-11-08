@@ -70,8 +70,8 @@ class EspecificacaoController extends BaseController
         if (empty($dados["especificacao"])) {
             if ($this->especificacao->save($dados)) {
                 return redirect()->route("especificacao.listar")->with(
-                    "insert",
-                    $dados["dimensao"] . " " . $dados["especificacao"]
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>".$dados["dimensao"]." ".$dados["especificacao"]
                 );
             }else{
                 return redirect()->back()->with("erro",$this->especificacao->errors());
@@ -79,8 +79,8 @@ class EspecificacaoController extends BaseController
         } else {
             if ($this->especificacao->save($dados)) {
                 return redirect()->route("especificacao.listar")->with(
-                    "update",
-                    $dados["dimensao"] . " " . $dados["especificacao"]
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'> </i> Atualização realizada com sucesso: </strong>".$dados["dimensao"]." ".$dados["especificacao"]
                 );
             }else{
                 return redirect()->back()->with("erro",$this->especificacao->errors());
