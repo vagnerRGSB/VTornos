@@ -29,7 +29,7 @@
 </div>
 
 <div class="border m-3">
-    <h3 class="h3 text-center">Lista de especificações de peças</h3>
+    <h3 class="h3 text-center"> <strong> Lista de especificações de peças </strong> </h3>
     <table class="table table-striped table-sm">
         <thead>
             <tr>
@@ -47,8 +47,8 @@
                         <th scope="row"><?= esc($espec->idEspec) ?></td>
                         <td><?= $espec->nomePeca." ". $espec->dismensaoEspec." ". $espec->especEspec  ?></td>
                         <td class="text-end">
-                            <a href="<?= base_url("/especificao-pecas/editar/" . $espec->idEspec) ?>" class="btn btn-warning btn-sm text-end "> <i class="bi bi-pencil"></i> Editar</a>
-                            <button type="button" class="btn btn-danger btn-sm text-end" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            <a href="<?= base_url("/especificao-pecas/editar/" . $espec->idEspec) ?>" class="btn btn-warning btn-sm m-1"> <i class="bi bi-pencil"></i> Editar</a>
+                            <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                 <i class="bi bi-trash"></i> Excluir
                             </button>
                         </td>

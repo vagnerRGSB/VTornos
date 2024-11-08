@@ -4,7 +4,7 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 <div class="border m-3">
-    <h3 class="h3 text-center m-3">Formulário Especificação de peça</h3>
+    <h3 class="h3 text-center m-3"><strong> Formulário Especificação de peça </strong></h3>
     <div class="container">
         <form action="<?= url_to("especificacao.onSave") ?>" method="post">
             <div class="m-3">
