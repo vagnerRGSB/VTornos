@@ -4,8 +4,7 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 <div class="border m-3">
-    <div class="container">
-        <h3 class="h3 text-center m-3">Formulário para inserção de marca</h3>
+        <h3 class="h3 text-center m-3"> <strong> Formulário de marca </strong></h3>
 
         <form action="<?= url_to("marca.onSave") ?>" method="post">
             <div class="m-3">
@@ -19,10 +18,9 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-success btn-sm m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar </button>
-            <a href="<?= url_to("marca.listar")?>" class="btn btn-danger"> <i class="bi bi-x"></i> Voltar</a>
+            <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar </button>
+            <a href="<?= url_to("marca.listar")?>" class="btn btn-secondary"> <i class="bi bi-list"></i> </i> Marcas</a>
         </form>
-    </div>
 </div>
 <?= $this->endSection() ?>
 <?= $this->section("script") ?>

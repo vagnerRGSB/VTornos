@@ -8,44 +8,29 @@
 <a class="btn btn-secondary btn-sm" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Series</a>
 <a class="btn btn-secondary btn-sm" href="<?= url_to("modelo.listar") ?>"> <i class="bi bi-list"></i> Modelos</a>
 <a class="btn btn-secondary btn-sm" href="<?= url_to("maquinario.listar") ?>"> <i class="bi bi-list"></i> Maquinários</a>
+<a class="btn btn-secondary btn-sm" href="<?= url_to("estoque.listar") ?>"> <i class="bi bi-list"></i> Produtos </a>
 </div>
-
-<ul class="nav justify-content-center m-3">
-    <li class="nav-item">
-        
-    </li>
-    <li class="nav-item">
-        
-    </li>
-    <li class="nav-item">
-        
-    </li>
-</ul>
 
 <div class="m-3">
-    <?php if (session()->has("infoInsercao")) : ?>
+    <?php if (session()->has("info")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Registro realizado com sucesso : </strong> <?= session()->getFlashdata("infoInsercao") ?>
+            <?= session()->getFlashdata("info") ?? "" ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
 
-    <?php if (session()->has("infoAtualizacao")) : ?>
+    <?php if (session()->has("error")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Atualização concluída com sucesso : </strong> <?= session()->getFlashdata("infoAtualizacao") ?>
-            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
-
-    <?php if (session()->has("infoExclusao")) : ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Dados removidos com sucesso : </strong> <?= session()->getFlashdata("infoExclusao") ?>
+            <?= session()->getFlashdata("error") ?? " " ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
 </div>
-<div class="border m-3">
-    <h3 class="h3 text-center m-3">Lista de Marcas</h3>
+
+<!-- FUTURAMENTO FORMULARIO PARA BUSCA DE RESGISTRO -->
+
+<div class="border">
+    <h3 class="h3 text-center m-3"> <strong> Lista de Marcas </strong> </h3>
     <table class="table table-striped table-sm">
         <thead>
             <tr>
@@ -60,11 +45,11 @@
             <?php if (!empty($marcas)) : ?>
                 <?php foreach ($marcas as $marca) : ?>
                     <tr>
-                        <td scope="row"><?= esc($marca->idMarca) ?></td>
+                        <th scope="row"><?= esc($marca->idMarca) ?></th>
                         <td><?= esc($marca->nome) ?></td>
                         <td colspan="3" class="text-end">
-                            <a href="<?= base_url("marca/editar/" . $marca->idMarca) ?>" class="btn btn-warning btn-sm"> <i class="bi bi-pencil"></i> Editar</a>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            <a href="<?= base_url("marca/editar/" . $marca->idMarca) ?>" class="btn btn-warning btn-sm m-1"> <i class="bi bi-pencil"></i> Editar</a>
+                            <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deleteModal">
                             <i class="bi bi-trash"></i> Excluir
                             </button>
                         </td>
