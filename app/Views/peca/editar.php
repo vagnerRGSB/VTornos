@@ -4,7 +4,7 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 <div class="border m-3">
-    <h3 class="h3 text-center m-3">Formulário Categoria de Peças</h3>
+    <h3 class="h3 text-center m-3"> <strong> Formulário Categoria de Peças </strong> </h3>
 
     <div class="container">
         <form action="<?= url_to("peca.onSave") ?>" method="post">
@@ -20,8 +20,8 @@
                     </span>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success m-3"> Salvar</button>
-            <a href="<?= url_to("peca.listar") ?>" class="btn btn-danger"> <i class="bi bi-x"></i> Voltar</a>
+            <button type="submit" class="btn btn-success m-3"> <i class="bi bi-floppy"></i> Salvar</button>
+            <a href="<?= url_to("peca.listar") ?>" class="btn btn-secondary"> <i class="bi bi-list"></i> </i> Peças</a>
         </form>
     </div>
 </div>

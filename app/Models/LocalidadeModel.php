@@ -32,8 +32,16 @@ class LocalidadeModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        "idCidade" => "required",
+        "nome" => "required|max_length[200]|min_length[2]",
+        "cep" => "required|max_length[8]|min_length[8]"
+    ];
+    protected $validationMessages   = [
+        "idCidade" => [
+            "required" => "O campo cidade é requirido"
+        ]
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

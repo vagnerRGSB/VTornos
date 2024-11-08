@@ -13,21 +13,21 @@
 <div class="m-3">
     <?php if (session()->has("info")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Registro realizado com sucesso : </strong> <?= session()->getFlashdata("infoInsercao") ?>
+            <?= session()->getFlashdata("info") ?? "" ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
 
-    <?php if (session()->has("errors")) : ?>
+    <?php if (session()->has("error")) : ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Dados removidos com sucesso : </strong> <?= session()->getFlashdata("infoExclusao") ?>
+            <?= session()->getFlashdata("error") ?? "" ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
 </div>
 
-<div class="border m-3">
-    <h3 class="h3 text-center m-3">Especificações de peças</h3>
+<div class="border">
+    <h3 class="h3 text-center m-3"> <strong> Lista Categorias de peças </strong> </h3>
     <table class="table table-striped table-sm">
         <thead>
             <tr>
@@ -77,8 +77,8 @@
                     Tem certeza de que deseja excluir este registro?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <a href="<?= base_url("categorias-pecas/onDelete/" . $peca->idPeca) ?>" class="btn btn-danger">Deletar</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> <i class="bi bi-x"></i> Cancelar</button>
+                    <a href="<?= base_url("categorias-pecas/onDelete/" . $peca->idPeca) ?>" class="btn btn-danger"> <i class="bi bi-trash"></i> Deletar</a>
                 </div>
             </div>
         </div>

@@ -19,18 +19,52 @@ class LocalidadeController extends BaseController
     }
     public function listar()
     {
-        
-        return view("localidade/listar");
-    }
-    public function inserir(){
+        $localidades = $this->localidade->select(
+            "localidades.idLocalidade as idLocalidade, localidades.nome as nomeLocalidade,
+            cidades.nome as nomeCidade,
+            estados.sigla as siglaEstado"
+        )->join(
+            "cidades",
+            "cidades.idCidade=localidades.idCidade",
+            "inner"
+        )->join(
+            "estados",
+            "estados.idEstado=cidades.idEstado",
+            "inner"
+        )->paginate(10);
 
-        return view("localidade/inserir");
+        $pager = $this->localidade->pager;
+        return view("localidade/listar", [
+            "localidades" => $localidades,
+            "pager" => $pager
+        ]);
     }
-    public function editar(int $param){
+    public function inserir()
+    {
+        $cidades = $this->cidade->select(
+            "cidades.idCidade as idCidade, cidades.nome as nomeCidade,
+            estados.sigla as siglaEstado"
+        )->join(
+            "estados",
+            "estados.idEstado=cidades.idEstado",
+            "inner"
+        )->findAll();
 
-        return view("localidade/editar");
+        return view("localidade/inserir", [
+            "cidades" => $cidades
+        ]);
     }
-    public function onSave(){
+    public function editar(int $param)
+    {
+        $localidade = $this->localidade->find($param);
+        $cidades = $this->cidade->findAll();
+        return view("localidade/editar", [
+            "localidade" => $localidade,
+            "cidades" => $cidades
+        ]);
+    }
+    public function onSave()
+    {
 
         $dados = [
             "idLocalidade" => $this->request->getPost("idLocalidade"),
@@ -39,9 +73,24 @@ class LocalidadeController extends BaseController
             "cep" => $this->request->getPost("cep")
         ];
 
-        var_dump($dados);die;
+       if(empty($dados["idLocalidae"])){
+        if($this->localidade->save($dados)){
+            return redirect()->route("localidade.listar")->with("info",
+            "<strong> Inserção realizada como sucesso: </strong>".$dados["nome"]);
+        }else{
+            return redirect()->back()->withInput()->with("error",$this->localidade->errors());
+        }
+       }else{
+        if($this->localidade->save($dados)){
+            return redirect()->route("localidade.listar")->with("info",
+            "<strong> Atualização realizada como sucesso: </strong>".$dados["nome"]);
+        }else{
+            return redirect()->back()->withInput()->with("error",$this->localidade->errors());
+        }
+       }
     }
-    public function onDelete(int $param){
+    public function onDelete(int $param)
+    {
 
         $localidade = $this->localidade->find($param);
     }

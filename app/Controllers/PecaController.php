@@ -34,7 +34,7 @@ class PecaController extends BaseController
     {
         //var_dump($param);die;
         $peca = $this->peca->find($param);
-        return view("peca/editar",[
+        return view("peca/editar", [
             "peca" => $peca
         ]);
     }
@@ -45,18 +45,24 @@ class PecaController extends BaseController
             "idPeca" => $this->request->getPost("idPeca"),
             "nome" => $this->request->getPost("nome")
         ];
-        
-        if(empty($dados["idPeca"])){
-            if($this->peca->save($dados)){
-                return redirect()->route("peca.listar")->with("infoInsercao",$dados["nome"]);
-            }else{
-                return redirect()->back()->with("erro",$this->peca->errors());
+
+        if (empty($dados["idPeca"])) {
+            if ($this->peca->save($dados)) {
+                return redirect()->route("peca.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>" . $dados["nome"]
+                );
+            } else {
+                return redirect()->back()->with("error", $this->peca->errors());
             }
-        }else{
-            if($this->peca->save($dados)){
-                return redirect()->route("peca.listar")->with("infoAtualizacao",$dados["nome"]);
-            }else{
-                return redirect()->back()->with("erro",$this->peca->errors());
+        } else {
+            if ($this->peca->save($dados)) {
+                return redirect()->route("peca.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso: </strong>" . $dados["nome"]
+                );
+            } else {
+                return redirect()->back()->with("erro", $this->peca->errors());
             }
         }
     }
@@ -65,9 +71,9 @@ class PecaController extends BaseController
     {
         $dados = $this->peca->find($param);
 
-        if($this->peca->delete($param)){
-            return redirect()->route("peca.listar")->with("infoExclusao",$dados->nome);
-        }else{
+        if ($this->peca->delete($param)) {
+            return redirect()->route("peca.listar")->with("infoExclusao", $dados->nome);
+        } else {
             return redirect()->route("peca.listar");
         }
     }

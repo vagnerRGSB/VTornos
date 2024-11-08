@@ -73,13 +73,17 @@ class SerieController extends BaseController
 
         if (empty($dados["idSerie"])) {
             if ($this->serie->save($dados)) {
-                return redirect()->route("serie.listar")->with("infoInsercao", $dados["descricao"]);
+                return redirect()->route("serie.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>" .
+                $dados["descricao"]);
             } else {
                 return redirect()->back()->with("error", "Não foi possível realizar inserção");
             }
         } else {
             if ($this->serie->save($dados)) {
-                return redirect()->route("serie.listar")->with("infoAtualizacao", $dados["descricao"]);
+                return redirect()->route("serie.listar")->with("info",
+            "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>".$dados["descricao"]);
             } else {
                 return redirect()->back()->with("error", "Não foi possível realizar inserção");
             }
