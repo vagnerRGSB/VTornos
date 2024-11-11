@@ -44,7 +44,7 @@
                         <th class="text-start"><?= $estado->idEstado ?></th>
                         <td class="text-start"><?= $estado->nome ?></td>
                         <td class="text-end">
-                            <a href="<?= base_url("estado/editar/" . $estado->idEstado)  ?>" class="btn btn-warning btn-sm"> <i class="bi bi-pencil"></i> Editar</a>
+                            <a href="<?= base_url("estado/editar/".$estado->idEstado)  ?>" class="btn btn-warning btn-sm"> <i class="bi bi-pencil"></i> Editar</a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                 <i class="bi bi-trash"></i> Excluir
                             </button>

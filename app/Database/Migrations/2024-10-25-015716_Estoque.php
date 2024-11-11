@@ -25,13 +25,23 @@ class Estoque extends Migration
                 "constraint" => 5,
                 "unsigned" => true
             ],
-            "valorUnitario" => [
+            "valor" => [
                 "type" => "double",
                 "null" => true,
                 "default" => 0,
                 "unsigned" => true
             ],
             "quantiaEstoque" => [
+                "type" => "double",
+                "null" => true,
+                "default" => 0,
+                "unsigned" => true
+            ],
+            "modo" => [
+                "type" => "int",
+                "unsigned" => true
+            ],
+            "minimoEstoque"=>[
                 "type" => "double",
                 "null" => true,
                 "default" => 0,

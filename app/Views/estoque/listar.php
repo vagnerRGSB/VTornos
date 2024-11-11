@@ -4,57 +4,57 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 
-<ul class="nav justify-content-center m-3">
-    <li class="nav-item">
-        <a class="nav-link" href="<?= url_to("marca.listar") ?>"> <i class="bi bi-list"></i> Marcas </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= url_to("especificacao.listar") ?>"> <i class="bi bi-list"></i> Especificações</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= url_to("peca.listar") ?>"> <i class="bi bi-list"></i> Categorias</a>
-    </li>
-</ul>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end m-3">
+    <a class="btn btn-secondary btn-sm" href="<?= url_to("marca.listar") ?>"> <i class="bi bi-list"></i> Marcas </a>
+    <a class="btn btn-secondary btn-sm" href="<?= url_to("especificacao.listar") ?>"> <i class="bi bi-list"></i> Especificações</a>
+    <a class="btn btn-secondary btn-sm" href="<?= url_to("peca.listar") ?>"> <i class="bi bi-list"></i> Categorias</a>
+</div>
 
 <div class="m-3">
-    <?php if (session()->has("infoInsercao")) : ?>
+    <?php if (session()->has("info")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Registro realizado com sucesso : </strong> <?= session()->getFlashdata("infoInsercao") ?>
+            <?= session()->getFlashdata("infor") ?? "" ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
 
-    <?php if (session()->has("infoAtualizacao")) : ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Atualização concluída com sucesso : </strong> <?= session()->getFlashdata("infoAtualizacao") ?>
-            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
-
-    <?php if (session()->has("infoExclusao")) : ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Dados removidos com sucesso : </strong> <?= session()->getFlashdata("infoExclusao") ?>
+    <?php if (session()->has("error")) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata("error") ?? "" ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
 </div>
 
-<div class="border m-3">
-    <h3 class="h3 text-center">Lista de Estoques de Peças</h3>
+<div class="border">
+    <h3 class="h3 text-center m-3"><strong>Lista de Estoques dos produtos</strong></h3>
 
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-                <th scope="col">Código</th>
-                <th scope="col">Nome</th>
+                <th scope="col" class="text-start">Código</th>
+                <th scope="col" class="text-start">Nome</th>
                 <td scope="col" class="text-end">
-                    <a href="" class="btn btn-primary btn-sm"> <i class="bi bi-plus"></i> Inserir</a>
+                    <a href="<?= url_to("estoque.inserir") ?>" class="btn btn-primary btn-sm"> <i class="bi bi-plus"></i> Inserir</a>
                 </td>
             </tr>
         </thead>
         <tbody>
-            <?php if (!empty($estoque)) : ?>
-
+            <?php if (!empty($estoques)) : ?>
+                <?php foreach ($estoques as $estoque) : ?>
+                <tr>
+                    <th scope="row" class="text-start"> <?= $estoque->idEstoque ?> </th>
+                    <td class="text-start">
+                    <?= $estoque->nomePeca." ".$estoque->dimensaoEspec." ". $estoque->nomeMarca ?>
+                    </td>
+                    <td colspan="3" class="text-end">
+                    <a href="#" class="btn btn-warning btn-sm m-1"> <i class="bi bi-pencil"></i> Editar</a>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <i class="bi bi-trash"></i> Excluir
+                    </button>
+                </td>
+                </tr>
+                <?php endforeach ?>
             <?php else : ?>
                 <tr>
                     <td colspan="3" class="text-center">Nenhum registro encontrado no sistema</td>
@@ -62,6 +62,9 @@
             <?php endif; ?>
         </tbody>
     </table>
+    <div class="m-3">
+        <?= $pager->links(); ?>
+    </div>
 </div>
 <?= $this->endSection() ?>
 <?= $this->section("script") ?>

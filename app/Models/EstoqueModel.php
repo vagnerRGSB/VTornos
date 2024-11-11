@@ -15,8 +15,10 @@ class EstoqueModel extends Model
     protected $allowedFields    = [
         "idMarca",
         "idEspecificacao",
-        "valorUnitario",
-        "quantiaEstoque"
+        "valor",
+        "quantiaEstoque",
+        "minimoEstoque",
+        "modo"
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -33,8 +35,34 @@ class EstoqueModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        "idMarca" => "required",
+        "idEspecificacao" => "required",
+        "valor" => "required",
+        "quantiaEstoque" => "required",
+        "minimoEstoque" => "required",
+        "modo" => "required"
+    ];
+    protected $validationMessages   = [
+        "idMarca" => [
+            "required" => "O campo marca é requerido"
+        ],
+        "idEspecificacao" => [
+            "required" => "O campo especificacação é requirido"
+        ],
+        "valorUnitario" => [
+            "required" => "O campo valor unitário é requerido"
+        ],
+        "quantiaEstoque" => [
+            "required" => "O campo quantia estoque é requerido"
+        ],
+        "minimoEstoque" => [
+            "required" => "O campo mínimo em estoque é requerido"
+        ],
+        "modo" => [
+            "required" => "O Campo modelo organização é requirido"
+        ]
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

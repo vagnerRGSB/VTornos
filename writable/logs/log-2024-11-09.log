@@ -1,0 +1,140 @@
+INFO - 2024-11-09 16:08:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 16:09:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 16:09:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 16:09:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 16:09:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 16:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 16:09:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 16:10:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 16:10:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 16:21:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-09 16:21:08 --> mysqli_sql_exception: Unknown column 'especificacoes.idEspec' in 'field list' in C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `especif...', 0)
+#1 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `especif...')
+#2 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `especif...')
+#3 C:\xampp\htdocs\vtornos\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `especif...', Array, false)
+#4 C:\xampp\htdocs\vtornos\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\vtornos\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\vtornos\app\Controllers\EstoqueController.php(40): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(933): App\Controllers\EstoqueController->inserir()
+#8 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstoqueController))
+#9 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\vtornos\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\vtornos\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\vtornos\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\vtornos\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-11-09 16:21:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'especificacoes.idEspec' in 'field list'
+[Method: GET, Route: estoque-pecas/inserir]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `especificacoes`.`idEspec` as `idEspecificacao`, `especificacoes`.`dimensao` as `dimensaoEspc`, `especificacoes`.`especificacao` as `especEspec`, `pecas`.`nome` as `pecaNome`
+FROM `especificacoes`
+JOIN `pecas` ON `especificacoes`.`idPeca`=`pecas`.`idPeca`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\EstoqueController.php(40): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EstoqueController->inserir()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstoqueController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-11-09 16:21:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'especificacoes.idEspec' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `especificacoes`.`idEspec` as `idEspecificacao`, `especificacoes`.`dimensao` as `dimensaoEspc`, `especificacoes`.`especificacao` as `especEspec`, `pecas`.`nome` as `pecaNome`
+FROM `especificacoes`
+JOIN `pecas` ON `especificacoes`.`idPeca`=`pecas`.`idPeca`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `especificacoes`.`idEspec` as `idEspecificacao`, `especificacoes`.`dimensao` as `dimensaoEspc`, `especificacoes`.`especificacao` as `especEspec`, `pecas`.`nome` as `pecaNome`
+FROM `especificacoes`
+JOIN `pecas` ON `especificacoes`.`idPeca`=`pecas`.`idPeca`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `especificacoes`.`idEspec` as `idEspecificacao`, `especificacoes`.`dimensao` as `dimensaoEspc`, `especificacoes`.`especificacao` as `especEspec`, `pecas`.`nome` as `pecaNome`
+FROM `especificacoes`
+JOIN `pecas` ON `especificacoes`.`idPeca`=`pecas`.`idPeca`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\EstoqueController.php(40): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EstoqueController->inserir()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstoqueController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-11-09 16:21:08 --> [Caused by] mysqli_sql_exception: Unknown column 'especificacoes.idEspec' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `especificacoes`.`idEspec` as `idEspecificacao`, `especificacoes`.`dimensao` as `dimensaoEspc`, `especificacoes`.`especificacao` as `especEspec`, `pecas`.`nome` as `pecaNome`
+FROM `especificacoes`
+JOIN `pecas` ON `especificacoes`.`idPeca`=`pecas`.`idPeca`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `especificacoes`.`idEspec` as `idEspecificacao`, `especificacoes`.`dimensao` as `dimensaoEspc`, `especificacoes`.`especificacao` as `especEspec`, `pecas`.`nome` as `pecaNome`
+FROM `especificacoes`
+JOIN `pecas` ON `especificacoes`.`idPeca`=`pecas`.`idPeca`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `especificacoes`.`idEspec` as `idEspecificacao`, `especificacoes`.`dimensao` as `dimensaoEspc`, `especificacoes`.`especificacao` as `especEspec`, `pecas`.`nome` as `pecaNome`
+FROM `especificacoes`
+JOIN `pecas` ON `especificacoes`.`idPeca`=`pecas`.`idPeca`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `especificacoes`.`idEspec` as `idEspecificacao`, `especificacoes`.`dimensao` as `dimensaoEspc`, `especificacoes`.`especificacao` as `especEspec`, `pecas`.`nome` as `pecaNome`
+FROM `especificacoes`
+JOIN `pecas` ON `especificacoes`.`idPeca`=`pecas`.`idPeca`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\EstoqueController.php(40): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EstoqueController->inserir()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstoqueController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-11-09 16:21:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-09 16:21:41 --> ErrorException: Undefined property: stdClass::$nomePeca
+[Method: GET, Route: estoque-pecas/inserir]
+in APPPATH\Views\estoque\inserir.php on line 17.
+ 1 APPPATH\Views\estoque\inserir.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$nomePeca', 'C:\\xampp\\htdocs\\vtornos\\app\\Views\\estoque\\inserir.php', 17)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\vtornos\\app\\Views\\estoque\\inserir.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('estoque/inserir', [], true)
+ 5 APPPATH\Controllers\EstoqueController.php(42): view('estoque/inserir', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EstoqueController->inserir()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstoqueController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-11-09 16:22:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-09 16:22:31 --> ErrorException: Undefined property: stdClass::$dimensaoEspec
+[Method: GET, Route: estoque-pecas/inserir]
+in APPPATH\Views\estoque\inserir.php on line 17.
+ 1 APPPATH\Views\estoque\inserir.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$dimensaoEspec', 'C:\\xampp\\htdocs\\vtornos\\app\\Views\\estoque\\inserir.php', 17)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\vtornos\\app\\Views\\estoque\\inserir.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('estoque/inserir', [], true)
+ 5 APPPATH\Controllers\EstoqueController.php(42): view('estoque/inserir', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EstoqueController->inserir()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstoqueController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-11-09 16:23:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-09 16:23:49 --> ErrorException: Undefined property: stdClass::$dimensaoEspec
+[Method: GET, Route: estoque-pecas/inserir]
+in APPPATH\Views\estoque\inserir.php on line 17.
+ 1 APPPATH\Views\estoque\inserir.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$dimensaoEspec', 'C:\\xampp\\htdocs\\vtornos\\app\\Views\\estoque\\inserir.php', 17)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\vtornos\\app\\Views\\estoque\\inserir.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('estoque/inserir', [], true)
+ 5 APPPATH\Controllers\EstoqueController.php(42): view('estoque/inserir', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\EstoqueController->inserir()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EstoqueController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-11-09 16:23:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 16:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 17:17:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-09 17:18:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
