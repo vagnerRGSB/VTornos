@@ -374,3 +374,33 @@ $routes->get(
     "LocalidadeController::onDelete/$1",
     ["as" => "localidade.onDelete", "filter" => "auth"]
 );
+
+/**
+ * ROTAS PARA CLIENTES
+ */
+
+$routes->get(
+    "/cliente/listar",
+    "ClienteController::listar",
+    ["as" => "cliente.listar", "filter" => "auth"]
+);
+$routes->get(
+    "/cliente/inserir",
+    "ClienteController::inserir",
+    ["as"=>"cliente.inserir","filter"=>"auth"]
+);
+$routes->get(
+    "/cliente/editar/(:num)",
+    "ClienteController::editar/$1",
+    ["as"=>"cliente.editar", "filter" => "auth"]
+);
+$routes->post(
+    "/cliente/onSave",
+    "ClienteController::onSave",
+    ["as"=>"cliente.onSave","filter"=>"auth"]
+);
+$routes->get(
+    "/cliente/onDelete/(:num)",
+    "ClienteController::onDelete/$1",
+    ["as" => "cliente.onDelete", "filter" => "auth"]
+);
