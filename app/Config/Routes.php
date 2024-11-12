@@ -333,7 +333,7 @@ $routes->get(
 $routes->get(
     "/cidade/editar/(:num)",
     "CidadeController::editar/$1",
-    ["as" => "cidade.listar", "filter" => "auth"]
+    ["as" => "cidade.editar", "filter" => "auth"]
 );
 $routes->post(
     "/cidade/onSave",
@@ -361,7 +361,7 @@ $routes->get(
 );
 $routes->get(
     "/localidade/editar/(:num)",
-    "LocalidadeController::editar/(:num)",
+    "LocalidadeController::editar/$1",
     ["as" => "localidade.editar", "filter" => "auth"]
 );
 $routes->post(

@@ -30,9 +30,9 @@ class EstadoController extends BaseController
     }
     public function editar(int $param)
     {
-
         $estado = $this->estado->find($param);
-        return view("estado/editar", [
+        //var_dump($dados);die;
+        return view("estado/editar",[
             "estado" => $estado
         ]);
     }

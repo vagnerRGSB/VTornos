@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class EstadoModel extends Model
 {
     protected $table            = 'estados';
-    protected $primaryKey       = 'idEstados';
+    protected $primaryKey       = 'idEstado';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;

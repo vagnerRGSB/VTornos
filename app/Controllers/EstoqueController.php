@@ -104,7 +104,7 @@ class EstoqueController extends BaseController
             if ($this->estoque->save($dados)) {
                 return redirect()->route("estoque.listar")->with(
                     "info",
-                    "<strong> Inserção realizado como sucesso </strong>"
+                    "<strong> Inserção realizado como sucesso: </strong>"
                 );
             } else {
                 return redirect()->back()->with(

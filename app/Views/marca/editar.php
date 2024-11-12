@@ -5,7 +5,7 @@
 <?= $this->section("conteudo") ?>
 
 <div class="border">
-    <h3 class="h3 text-center m-3">Formulário para atualização de marca</h3>
+    <h3 class="h3 text-center m-3"><strong>Formulário  Marca</strong></h3>
 
     <form action="<?= url_to("marca.onSave") ?>" method="post">
         <div class="m-3">

@@ -57,7 +57,14 @@ class LocalidadeController extends BaseController
     public function editar(int $param)
     {
         $localidade = $this->localidade->find($param);
-        $cidades = $this->cidade->findAll();
+        $cidades = $this->cidade->select(
+            "cidades.idCidade as idCidade, cidades.nome as nomeCidade,
+            estados.sigla as siglaEstado"
+        )->join(
+            "estados",
+            "estados.idEstado=cidades.idEstado",
+            "inner"
+        )->findAll();
         return view("localidade/editar", [
             "localidade" => $localidade,
             "cidades" => $cidades
@@ -76,14 +83,14 @@ class LocalidadeController extends BaseController
        if(empty($dados["idLocalidae"])){
         if($this->localidade->save($dados)){
             return redirect()->route("localidade.listar")->with("info",
-            "<strong> Inserção realizada como sucesso: </strong>".$dados["nome"]);
+            "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada como sucesso: </strong>".$dados["nome"]);
         }else{
             return redirect()->back()->withInput()->with("error",$this->localidade->errors());
         }
        }else{
         if($this->localidade->save($dados)){
             return redirect()->route("localidade.listar")->with("info",
-            "<strong> Atualização realizada como sucesso: </strong>".$dados["nome"]);
+            "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada como sucesso: </strong>".$dados["nome"]);
         }else{
             return redirect()->back()->withInput()->with("error",$this->localidade->errors());
         }

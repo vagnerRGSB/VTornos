@@ -13,7 +13,7 @@
 <div class="m-3">
     <?php if (session()->has("info")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?= session()->getFlashdata("infor") ?? "" ?>
+            <?= session()->getFlashdata("info") ?? "" ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
@@ -48,7 +48,7 @@
                     <?= $estoque->nomePeca." ".$estoque->dimensaoEspec." ". $estoque->nomeMarca ?>
                     </td>
                     <td colspan="3" class="text-end">
-                    <a href="#" class="btn btn-warning btn-sm m-1"> <i class="bi bi-pencil"></i> Editar</a>
+                    <a href="<?= base_url("estoque-pecas/editar/".$estoque->idEstoque) ?>" class="btn btn-warning btn-sm m-1"> <i class="bi bi-pencil"></i> Editar</a>
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
                         <i class="bi bi-trash"></i> Excluir
                     </button>

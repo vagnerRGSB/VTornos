@@ -47,15 +47,21 @@ class MarcaController extends BaseController
 
         if(empty($dados["idMarca"])){
             if($this->marca->save($dados)){
-                return redirect()->route("marca.listar")->with("infoInsercao",$dados["nome"]);
+                return redirect()->route("marca.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>".$dados["nome"]
+                );
             }else{
                 return redirect()->back()->with("erro", $this->marca->errors());
             }
         }else{
             if($this->marca->save($dados)){
-                return redirect()->route("marca.listar")->with("infoAtualizacao",$dados["nome"]);
+                return redirect()->route("marca.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso: </strong>".$dados["nome"]
+                );
             }else{
-                return redirect()->back()->with("erro", $this->marca->errors());
+                return redirect()->back()->with("error", $this->marca->errors());
             }
         }
     }

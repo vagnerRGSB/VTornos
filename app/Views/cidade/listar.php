@@ -13,7 +13,7 @@
 <?php if (session()->has("info")) : ?>
     <div class="m-3">
         <div class="d-grid gap-2 d-md-block">
-            <div class="alert alert-sucess alert-dismissible fade show" role="alert">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <?= session()->getFlashdata()["info"] ?? "" ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -37,9 +37,9 @@
     <table class="table table-striped table-sm">
         <thead>
             <tr>
-                <th scope="col" class="text-start">Código</th>
-                <th scope="col" class="text-start">Nome Cidade - Estado</th>
-                <td scope="col" class="text-end">
+                <th scope="col" class="text-start m-1">Código</th>
+                <th scope="col" class="text-start m-1">Nome Cidade - Estado</th>
+                <td scope="col" class="text-end m-1">
                     <a class="btn btn-primary btn-sm" href="<?= url_to("cidade.inserir") ?>"> <i class="bi bi-plus"></i> Inserir </a>
                 </td>
             </tr>
@@ -48,10 +48,10 @@
             <?php if (!empty($cidades)) : ?>
                     <?php foreach($cidades as $cidade) : ?>
                         <tr>
-                            <th scope="row" class="text-start"><?= esc($cidade->idCidade) ?></th>
-                            <td class="text-start"><?= esc($cidade->nomeCidade)." - ". esc($cidade->siglaEstado) ?></td>
+                            <th scope="row" class="text-start m-1"><?= esc($cidade->idCidade) ?></th>
+                            <td class="text-start m-1"><?= esc($cidade->nomeCidade)." - ". esc($cidade->siglaEstado) ?></td>
                             <td colspan="3" class="text-end">
-                            <a href="<?= base_url("cidade/editar/".$cidade->idCidade) ?>" class="btn btn-warning btn-sm text-end "> <i class="bi bi-pencil"></i> Editar</a>
+                            <a href="<?= base_url("/cidade/editar/".$cidade->idCidade) ?>" class="btn btn-warning btn-sm text-end m-1 "> <i class="bi bi-pencil"></i> Editar</a>
                             <button type="button" class="btn btn-danger btn-sm text-end" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                 <i class="bi bi-trash"></i> Excluir
                             </button>
@@ -65,6 +65,9 @@
             <?php endif ?>
         </tbody>
     </table>
+    <div class="m-3">
+                <?= $pager->links(); ?>
+    </div>
 </div>
 
 

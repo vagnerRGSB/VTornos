@@ -25,8 +25,8 @@
         </div>
     <?php endif; ?>
 </div>
-<div class="border m-3">
-    <h3 class="h3 text-center">Lista de Estados</h3>
+<div class="border">
+    <h3 class="h3 text-center m-3"><strong>Lista de Estados</strong></h3>
     <table class="table table-striped table-sm">
         <thead>
             <tr>
@@ -44,7 +44,7 @@
                         <th class="text-start"><?= $estado->idEstado ?></th>
                         <td class="text-start"><?= $estado->nome ?></td>
                         <td class="text-end">
-                            <a href="<?= base_url("estado/editar/".$estado->idEstado)  ?>" class="btn btn-warning btn-sm"> <i class="bi bi-pencil"></i> Editar</a>
+                            <a href="<?= base_url("estado/editar/".$estado->idEstado)  ?>" class="btn btn-warning btn-sm m-1"> <i class="bi bi-pencil"></i> Editar</a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                 <i class="bi bi-trash"></i> Excluir
                             </button>

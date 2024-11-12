@@ -12,7 +12,7 @@
             <label for="idEstado" class="form-label"> Estado </label>
             <select class="form-select" name="idEstado" id="idEstado" aria-describedby="info-idEstado">
                 <?php foreach($estados as $estado) : ?>
-                 <option 
+                 <option <?= $cidade->idEstado == $estado->idEstado ? "selected" : "" ?>
                  value="<?= esc($estado->idEstado) ?>"> <?= esc($estado->nome) ?> </option>
                 <?php endforeach; ?>
             </select>

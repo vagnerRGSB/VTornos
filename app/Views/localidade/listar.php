@@ -46,7 +46,7 @@
                             <?= $localidade->nomeLocalidade." - ".$localidade->nomeCidade." - ".$localidade->siglaEstado ?>
                         </td>
                         <td class="text-end">
-                        <a href="#" class="btn btn-warning btn-sm"> <i class="bi bi-pencil"></i> Editar</a>
+                        <a href="<?= base_url("localidade/editar/".$localidade->idLocalidade) ?>" class="btn btn-warning btn-sm"> <i class="bi bi-pencil"></i> Editar</a>
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                 <i class="bi bi-trash"></i> Excluir
                             </button>

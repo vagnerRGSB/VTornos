@@ -4,7 +4,7 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 <div class="border m-3">
-        <h3 class="h3 text-center m-3"> <strong> Formulário de marca </strong></h3>
+        <h3 class="h3 text-center m-3"> <strong> Formulário Marca </strong></h3>
 
         <form action="<?= url_to("marca.onSave") ?>" method="post">
             <div class="m-3">
@@ -13,7 +13,7 @@
                     <input type="text" id="nome" name="nome" placeholder="Informe nome da marca (Obrigatório)" class="form-control" aria-describedby="info-nome">
                     <div id="info-nome" class="form-text">
                         <span class="text-danger">
-                            <?= session()->getFlashdata("erro")["nome"] ?? "" ?>
+                            <?= session()->getFlashdata("error")["nome"] ?? "" ?>
                         </span>
                     </div>
                 </div>
