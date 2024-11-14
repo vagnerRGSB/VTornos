@@ -24,8 +24,22 @@ class UsuarioController extends BaseController
             "pager" => $pager
         ]);
     }
-    public function editarMeuPerfil() {}
-    public function alterarMinhaSenha() {}
+    public function editarMeuPerfil() {
+
+        $validator = $this->validate([
+            "nome" => "required|max_length[200]|min_length[3]",
+            "senha" => "required|max_length[8]|min_length[3]"
+        ]);
+        if(!$validator){
+            return redirect()->back()->with("errors", $this->validator->getErrors());
+        }else{
+            
+        }
+
+    }
+    public function alterarMinhaSenha() {
+
+    }
     public function inserir()
     {
         return view("usuario/inserir");

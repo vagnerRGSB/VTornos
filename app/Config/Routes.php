@@ -378,7 +378,6 @@ $routes->get(
 /**
  * ROTAS PARA CLIENTES
  */
-
 $routes->get(
     "/cliente/listar",
     "ClienteController::listar",
