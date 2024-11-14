@@ -20,6 +20,11 @@ class Inscricao extends Migration
                 "constraint" => 5,
                 "unsigned" => true
             ],
+            "idCliente" => [
+                "type" => "int",
+                "constraint" => 5,
+                "unsigned" => true
+            ],
             "nome" => [
                 "type" => "varchar",
                 "constraint" => 200

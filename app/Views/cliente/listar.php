@@ -46,7 +46,7 @@
                         <th scope="row" class="text-start"><?= $cliente->idCliente ?></th>
                         <td class="text-start"><?= $cliente->nome ?></td>
                         <td class="text-end">
-                        <a href="#" class="btn btn-warning btn-sm text-end m-1"> <i class="bi bi-pencil"></i> Editar </a>
+                        <a href="<?= base_url("cliente/editar/".$cliente->idCliente) ?>" class="btn btn-warning btn-sm text-end m-1"> <i class="bi bi-pencil"></i> Editar </a>
                         <button type="button" class="btn btn-danger btn-sm text-end" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                 <i class="bi bi-trash"></i> Excluir
                             </button>

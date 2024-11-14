@@ -8,6 +8,7 @@
     <form action="<?= url_to("cliente.onSave") ?>" method="post">
         <div class="row">
             <div class="col m-3">
+                <input type="hidden" name="idCliente" value="<?= $cliente->idCliente ?>">
                 <label for="nome" class="form-label"> Nome do cliente </label>
                 <input type="text" name="nome" class="form-control" placeholder="Informe nome do cliente (Obrigatório)"
                     aria-describedby="info-nome">
@@ -21,8 +22,10 @@
             <div class="col-2 m-3">
                 <label class="form-label" for="categoria">Categoria</label>
                 <select class="form-select" name="categoria" id="categoria" aria-describedby="info-categoria">
-                    <option selected value="f">Pessoa física - CPF</option>
-                    <option value="j">Pessoa Jurídica - CNPJ</option>
+                    <option <?php $cliente->categoria == "f" ? "selected" : "" ?>
+                     value="f">Pessoa física - CPF</option>
+                    <option <?php $cliente->categoria == "j" ? "selected" : "" ?>
+                     value="j">Pessoa Jurídica - CNPJ</option>
                 </select>
                 <div class="form-text" id="info-categoria">
                     <span class="text-danger">
@@ -34,7 +37,8 @@
             <div class="col m-3">
                 <label class="form-label" for="cpfCnpj">Número do cadastro</label>
                 <input type="text" name="cpfCnpj" class="form-control" placeholder="Informe número do cadastro conforme campo Categoria (Obrigatório)"
-                    aria-describedby="info-cadastro">
+                    aria-describedby="info-cadastro"
+                    value=<?= $cliente->numero ?>>
                 <div id="info-cadastro" class="form-label">
                     <span class="text-danger">
                         <?= session()->getFlashdata("errors")["cpfCnpj"] ?? "" ?>
@@ -47,9 +51,9 @@
             <div class="col m-3">
                 <label class="form-label" for="idLocalidade">Localidade</label>
                 <select class="form-select" name="idLocalidade" id="idLocalidade" aria-describedby="info-idLocalidade">
-                    <option value="">Informe Localidade (Obrigatório)</option>
                     <?php foreach ($localidades as $localidade) : ?>
-                        <option value="<?= $localidade->idLocalidade ?>"> <?= $localidade->nome . " - " . $localidade->cep ?> </option>
+                        <option <?= $cliente->idLocalidade == $localidade->idLocalidade  ? "selected" : ""?>
+                        value="<?= $localidade->idLocalidade ?>"> <?= $localidade->nome . " - " . $localidade->cep ?> </option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -57,7 +61,8 @@
             <div class="col m-3">
                 <label class="form-label" for="email">Email</label>
                 <input class="form-control" type="email" name="email" id="email"
-                    placeholder="Informe e-mail (Opcional)" aria-describedby="info-email">
+                    placeholder="Informe e-mail (Opcional)" aria-describedby="info-email"
+                    value="<?= $cliente->email ?>">
                 <div id="info-email" class="form-text">
                     <span class="text-danger">
                         <?= session()->getFlashdata("errors")["email"] ?? "" ?>
@@ -70,7 +75,8 @@
             <div class="col m-3">
                 <label class="form-label" for="endereco">Endereço</label>
                 <input class="form-control" type="text" name="endereco" placeholder="Informe endereço (Obrigatório)"
-                    aria-describedby="info-endereco">
+                    aria-describedby="info-endereco"
+                    value="<?= $cliente->endereco ?>">
                 <div id="info-endereco" class="form-label">
                     <span class="text-danger">
                         <?= session()->getFlashdata("errors")["endereco"] ?? "" ?>
@@ -80,7 +86,8 @@
             <div class="col m-3">
                 <label class="form-label" for="numero">Número</label>
                 <input class="form-control" type="text" name="endereco" placeholder="Informe número (Obrigatório)"
-                    aria-describedby="info-numero">
+                    aria-describedby="info-numero"
+                    value="<?= $cliente->numero ?>">
                 <div id="info-numero" class="form-label">
                     <span class="text-danger">
                         <?= session()->getFlashdata("errors")["numero"] ?? "" ?>
@@ -90,7 +97,8 @@
             <div class="col m-3">
                 <label class="form-label" for="complemento">Complemento</label>
                 <input class="form-control" type="text" name="complemento" id="complemento"
-                    placeholder="Informe complemento (Opcional)" aria-describedby="info-complemento">
+                    placeholder="Informe complemento (Opcional)" aria-describedby="info-complemento"
+                    value="<?= $cliente->complemento ?>">
                 <div id="info-complemento" class="form-label">
                     <span class="text-danger">
                         <?= session()->getFlashdata("errors")["complemento"] ?? "" ?>
