@@ -41,18 +41,28 @@
         </thead>
         <tbody>
             <?php if (!empty($clientes)) : ?>
-                <?php foreach($clientes as $cliente) : ?>
+                <?php foreach ($clientes as $cliente) : ?>
                     <tr>
                         <th scope="row" class="text-start"><?= $cliente->idCliente ?></th>
                         <td class="text-start"><?= $cliente->nome ?></td>
                         <td class="text-end">
-                        <a href="<?= base_url("cliente/editar/".$cliente->idCliente) ?>" class="btn btn-warning btn-sm text-end m-1"> <i class="bi bi-pencil"></i> Editar </a>
-                        <button type="button" class="btn btn-danger btn-sm text-end" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                <i class="bi bi-trash"></i> Excluir
-                            </button>
+
+                            <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-three-dots-vertical"></i> Ações
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= base_url("cliente/editar/".$cliente->idCliente) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li><a class="dropdown-item" href="#"> <i class="bi bi-list"></i> Listar ordens de serviços</a></li>
+                                <li><a class="dropdown-item" href="#"> <i class="bi bi-list"></i>  Listar inscrição</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i>  Excluir</a></li>
+                            </ul>
+
                         </td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endforeach ?>
             <?php else : ?>
                 <tr>
                     <th colspan="3" scope="row" class="text-center">Nenhum registro encontrado no sistema</th>
@@ -64,6 +74,28 @@
         <?= $pager->links(); ?>
     </div>
 </div>
+
+<!-- MODAL PARA DELETAR -->
+<?php if (!empty($clientes)) : ?>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza de que deseja excluir este registro?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> <i class="bi bi-x"></i> Cancelar</button>
+                    <a href="<?= base_url("cliente/onDelete/" . $cliente->idCliente) ?>" class="btn btn-danger"> <i class="bi bi-trash"></i> Deletar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
 
 <?= $this->endSection() ?>
 <?= $this->section("script") ?>

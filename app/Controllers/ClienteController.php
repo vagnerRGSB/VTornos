@@ -40,6 +40,8 @@ class ClienteController extends BaseController
         $cliente = $this->cliente->find($param);
         $localidades = $this->localidade->findAll();
 
+        //var_dump($cliente);die;
+
         return view("cliente/editar", [
             "cliente" => $cliente,
             "localidades" => $localidades

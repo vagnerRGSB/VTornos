@@ -403,3 +403,33 @@ $routes->get(
     "ClienteController::onDelete/$1",
     ["as" => "cliente.onDelete", "filter" => "auth"]
 );
+
+/**
+ * ROTAS PARA INCRIÇÕES DOS CLIENTES   
+ */
+
+ $routes->get(
+    "/inscricao-cliente/listar/(:num)",
+    "InscricaoController::listar",
+    ["as"=>"inscricao.listar", "filter" => "auth"]
+ );
+$routes->get(
+    "/inscricao-cliente/inserir/(:num)",
+    "InscricaoController::inserir/$1",
+    ["as" => "inscricao.inserir", "filter" => "auth"]
+);
+$routes->get(
+    "/inscricao-cliente/editar/(:num)",
+    "InscricaoController::editar/$1",
+    ["as"=>"inscricao.editar","filter"=>"auth"]
+);
+$routes->post(
+    "/inscricao-cliente/onSave",
+    "InscricaoController::onSave",
+    ["as"=>"inscricao.onSave", "filter=>auth"]
+);
+$routes->get(
+    "/incricao-cliente/onDelete/(:num)",
+    "InscricaoController::onDelete/$1",
+    ["as"=>"inscricao.onDelete", "filter" => "auth"]
+);

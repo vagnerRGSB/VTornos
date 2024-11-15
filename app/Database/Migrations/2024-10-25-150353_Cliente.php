@@ -21,10 +21,9 @@ class Cliente extends Migration
                 "unsigned" => true
             ],
             "categoria" => [
-                "type" => "varchar",
+                "type" => "int",
                 "constraint" => 1,
-                "default" => "f",
-                "null" => true
+                "default" => 1
             ],
             "nome" => [
                 "type" => "varchar",
@@ -47,7 +46,7 @@ class Cliente extends Migration
                 "null" => true
             ],
             "complemento" => [
-                "type" => "int",
+                "type" => "varchar",
                 "constraint" => 200,
                 "null" => true
             ],

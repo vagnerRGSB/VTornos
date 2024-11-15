@@ -8,10 +8,13 @@
     <form action="<?= url_to("cliente.onSave") ?>" method="post">
         <div class="row">
             <div class="col m-3">
+
                 <input type="hidden" name="idCliente" value="<?= $cliente->idCliente ?>">
+
                 <label for="nome" class="form-label"> Nome do cliente </label>
                 <input type="text" name="nome" class="form-control" placeholder="Informe nome do cliente (Obrigatório)"
-                    aria-describedby="info-nome">
+                    aria-describedby="info-nome"
+                    value="<?= $cliente->nome ?>">
                 <div id="info-nome" class="form-text">
                     <span class="text-danger">
                         <?= session()->getFlashdata("errors")["nome"] ?? "" ?>
@@ -22,9 +25,9 @@
             <div class="col-2 m-3">
                 <label class="form-label" for="categoria">Categoria</label>
                 <select class="form-select" name="categoria" id="categoria" aria-describedby="info-categoria">
-                    <option <?php $cliente->categoria == "f" ? "selected" : "" ?>
+                    <option <?= $cliente->categoria == 1 ? "selected" : "" ?>
                      value="f">Pessoa física - CPF</option>
-                    <option <?php $cliente->categoria == "j" ? "selected" : "" ?>
+                    <option <?= $cliente->categoria == 2 ? "selected" : "" ?>
                      value="j">Pessoa Jurídica - CNPJ</option>
                 </select>
                 <div class="form-text" id="info-categoria">
@@ -38,7 +41,7 @@
                 <label class="form-label" for="cpfCnpj">Número do cadastro</label>
                 <input type="text" name="cpfCnpj" class="form-control" placeholder="Informe número do cadastro conforme campo Categoria (Obrigatório)"
                     aria-describedby="info-cadastro"
-                    value=<?= $cliente->numero ?>>
+                    value=<?= $cliente->cpfCnpj ?>>
                 <div id="info-cadastro" class="form-label">
                     <span class="text-danger">
                         <?= session()->getFlashdata("errors")["cpfCnpj"] ?? "" ?>
