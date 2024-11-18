@@ -35,7 +35,7 @@
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Nome maquinário</th>
                 <td scope="col" colspan="3" class="text-end">
-                    <a href="<?= url_to("maquinario.inserir") ?>" class="btn btn-primary btn-sm"> <i class="bi bi-plus"></i> Inserir</a>
+                    <a href="<?= url_to("maquinario.inserir") ?>" class="btn btn-success btn-sm"> <i class="bi bi-plus"></i> Inserir</a>
                 </td>
             </tr>
         </thead>

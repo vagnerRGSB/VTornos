@@ -13,7 +13,7 @@
         <th scope="col">Código</th>
         <th scope="col">Nome usuário</th>
         <td scope="col" class="text-end">
-        <a class="btn btn-primary btn-sm text-end" href="<?= url_to("usuario.inserir") ?>"> <i class="bi bi-plus"></i> Inserir</a>
+        <a class="btn btn-success btn-sm text-end" href="<?= url_to("usuario.inserir") ?>"> <i class="bi bi-plus"></i> Inserir</a>
         </th>
       </tr>
     </thead>

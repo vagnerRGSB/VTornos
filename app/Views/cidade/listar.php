@@ -40,7 +40,7 @@
                 <th scope="col" class="text-start m-1">Código</th>
                 <th scope="col" class="text-start m-1">Nome Cidade - Estado</th>
                 <td scope="col" class="text-end m-1">
-                    <a class="btn btn-primary btn-sm" href="<?= url_to("cidade.inserir") ?>"> <i class="bi bi-plus"></i> Inserir </a>
+                    <a class="btn btn-success btn-sm" href="<?= url_to("cidade.inserir") ?>"> <i class="bi bi-plus"></i> Inserir </a>
                 </td>
             </tr>
         </thead>

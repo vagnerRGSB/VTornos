@@ -407,10 +407,9 @@ $routes->get(
 /**
  * ROTAS PARA INCRIÇÕES DOS CLIENTES   
  */
-
  $routes->get(
     "/inscricao-cliente/listar/(:num)",
-    "InscricaoController::listar",
+    "InscricaoController::listar/$1",
     ["as"=>"inscricao.listar", "filter" => "auth"]
  );
 $routes->get(
@@ -421,12 +420,12 @@ $routes->get(
 $routes->get(
     "/inscricao-cliente/editar/(:num)",
     "InscricaoController::editar/$1",
-    ["as"=>"inscricao.editar","filter"=>"auth"]
+    ["as"=>"inscricao.editar", "filter"=>"auth"]
 );
 $routes->post(
     "/inscricao-cliente/onSave",
     "InscricaoController::onSave",
-    ["as"=>"inscricao.onSave", "filter=>auth"]
+    ["as"=>"inscricao.onSave", "filter" => "auth"]
 );
 $routes->get(
     "/incricao-cliente/onDelete/(:num)",

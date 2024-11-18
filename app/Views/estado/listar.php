@@ -33,7 +33,7 @@
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Nome</th>
                 <td class="text-end">
-                    <a href="<?= url_to("estado.inserir") ?>" class="btn btn-primary btn-sm"> <i class="bi bi-plus"></i> Inserir</a>
+                    <a href="<?= url_to("estado.inserir") ?>" class="btn btn-success btn-sm"> <i class="bi bi-plus"></i> Inserir</a>
                 </td>
             </tr>
         </thead>

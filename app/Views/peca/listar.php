@@ -34,7 +34,7 @@
                 <th scope="col">Código</th>
                 <th scope="col">Nome peça</th>
                 <td scope="col" class="text-end">
-                    <a href="<?= url_to("peca.inserir") ?>" class="btn btn-primary btn-sm"> <i class="bi bi-plus"></i> Inserir</a>
+                    <a href="<?= url_to("peca.inserir") ?>" class="btn btn-success btn-sm"> <i class="bi bi-plus"></i> Inserir</a>
                 </td>
             </tr>
         </thead>

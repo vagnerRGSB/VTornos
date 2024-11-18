@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ClienteModel;
 use App\Models\InscricaoModel;
+use App\Models\LocalidadeModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class InscricaoController extends BaseController
@@ -12,17 +13,43 @@ class InscricaoController extends BaseController
 
     private $cliente;
     private $inscricao;
+    private $localidade;
 
     public function __construct()
     {
         $this->cliente = new ClienteModel();
-        $this->cliente = new InscricaoModel();
+        $this->inscricao = new InscricaoModel();
+        $this->localidade = new LocalidadeModel();
+    }
+
+    public function listar(int $idCliente){
+        $cliente = $this->cliente->select(
+            "clientes.idCliente, clientes.nome as nomeCliente, clientes.cpfCnpj as cpfCnpjCliente,
+            clientes.categoria as categoriaCliente"
+        )->find($idCliente);
+        return view("inscricao/listar",[
+            "cliente" =>  $cliente
+        ]);
     }
     public function inserir(int $idCliente)
     {
         $cliente = $this->cliente->find($idCliente);
+        $localidades = $this->localidade->select(
+            "localidades.idLocalidade, localidades.nome as nomeLocalidade, localidades.cep as cepLocalidade,
+            cidades.nome as nomeCidade,
+            estados.sigla as siglaEstado"
+        )->join(
+            "cidades",
+            "cidades.idCidade=localidades.idCidade",
+            "inner"
+        )->join(
+            "estados",
+            "estados.idEstado=cidades.idEstado",
+            "inner"
+        )->findAll();
         return view("inscricao/inserir",[
-            "cliente" => $cliente
+            "cliente" => $cliente,
+            "localidades" => $localidades
         ]);
     }
 
@@ -41,7 +68,12 @@ class InscricaoController extends BaseController
             $dados = [
                 "idInscricao" => $this->request->getPost("idInscricao"),
                 "idCliente" => $this->request->getPost("idCliente"),
-                "nome" => $this->request->getPost("nome")
-            ]
+                "nome" => $this->request->getPost("nome"),
+                "insMunicipal" => $this->request->getPost("inscMunicipal"),
+                "inscEstadual" => $this->request->getPost("inscEstadual"),
+                "idLocalidade" => $this->request->getPost("idLocalidade"),
+                "endereco" => $this->request->getPost("endereco")
+            ];
+            var_dump($dados);die;
     }
 }

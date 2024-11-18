@@ -37,7 +37,7 @@
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Nome marca</th>
                 <td scope="col" class="text-end">
-                    <a href="<?= url_to("marca.inserir") ?>" class="btn btn-primary btn-sm"> <i class="bi bi-plus"></i> Inserir </a>
+                    <a href="<?= url_to("marca.inserir") ?>" class="btn btn-success btn-sm"> <i class="bi bi-plus"></i> Inserir </a>
                 </td>
             </tr>
         </thead>
@@ -69,7 +69,7 @@
 
 <!-- MODAL PARA DELETAR -->
 
-<?php if(!empty($modelos)) : ?>
+<?php if(!empty($marcas)) : ?>
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

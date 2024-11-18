@@ -36,7 +36,7 @@
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Especificação das peças</th>
                 <th scope="col" class="text-end">
-                    <a class="btn btn-primary btn-sm" href="<?= url_to("especificacao.inserir") ?>"> <i class="bi bi-plus"></i> Inserir</a>
+                    <a class="btn btn-success btn-sm" href="<?= url_to("especificacao.inserir") ?>"> <i class="bi bi-plus"></i> Inserir</a>
                     </td>
             </tr>
         </thead>

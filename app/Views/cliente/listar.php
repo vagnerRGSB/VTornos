@@ -35,7 +35,7 @@
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Nome completo</th>
                 <th scope="col" class="text-end">
-                    <a class="btn btn-primary btn-sm m-1" href="<?= url_to("cliente.inserir") ?>"> <i class="bi bi-plus"></i> Inserir</a>
+                    <a class="btn btn-success btn-sm m-1" href="<?= url_to("cliente.inserir") ?>"> <i class="bi bi-plus"></i> Inserir</a>
                 </th>
             </tr>
         </thead>
@@ -53,7 +53,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?= base_url("cliente/editar/".$cliente->idCliente) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
                                 <li><a class="dropdown-item" href="#"> <i class="bi bi-list"></i> Listar ordens de serviços</a></li>
-                                <li><a class="dropdown-item" href="#"> <i class="bi bi-list"></i>  Listar inscrição</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url("inscricao-cliente/listar/".$cliente->idCliente) ?>"> <i class="bi bi-list"></i>  Listar inscrição</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
