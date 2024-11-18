@@ -1,0 +1,23 @@
+\begin{figure}[h!]
+    \centering
+    \begin{lstlisting}[style=phplisting]
+        <?php
+        namespace App\Models;
+        use CodeIgniter\Model;
+        class UsuarioModel extends Model
+        {
+            protected $table            = 'usuarios';
+            protected $primaryKey       = 'idUsuario';
+            protected $useAutoIncrement = true;
+            protected $returnType       = 'object';
+            protected $useSoftDeletes   = false;
+            protected $protectFields    = true;
+            protected $allowedFields    = [
+                "nome",
+                "email",
+                "senha"
+            ];
+    \end{lstlisting}
+    \caption{Estrutura ORM básica Classe Modelo Usuário}
+    \label{fig:UsuarioModel_orm}
+\end{figure}

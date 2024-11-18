@@ -1,0 +1,17 @@
+\begin{figure}[hb!]
+    \centering
+    \begin{lstlisting}[style=phplisting]
+  public function before(RequestInterface $request, $arguments = null)
+    {
+        if(!session()->has("login")){
+            return redirect()->route("login.tela");
+        }
+    }
+    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
+    {
+        //
+    }
+    \end{lstlisting}
+    \caption{Filtro para verificar autenticação no sistema}
+    \label{cod:AuthFilter}
+\end{figure}

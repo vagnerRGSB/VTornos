@@ -1,0 +1,25 @@
+\begin{figure}
+    \centering
+    \begin{lstlisting}[style=phplisting]
+        // TRECHO DE CÓDIGO USUARIOMODEL
+        // Callbacks
+        protected $allowCallbacks = true;
+        protected $beforeInsert   = ["hash_senha"];
+        protected $afterInsert    = [];
+        protected $beforeUpdate   = ["hash_senha"];
+        protected $afterUpdate    = [];
+        protected $beforeFind     = [];
+        protected $afterFind      = [];
+        protected $beforeDelete   = [];
+        protected $afterDelete    = [];
+
+        public function hash_senha(array $data){
+        $data["data"]["senha"] = password_hash($data["data"]["senha"], PASSWORD_DEFAULT);
+        //var_dump($data);die;
+        return $data;
+        }
+    }
+\end{lstlisting}
+\caption{Funções callbaks para criptografar senha}
+\label{fig:UsuarioModel_callbaks}
+\end{figure}
