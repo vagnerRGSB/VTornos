@@ -5,7 +5,7 @@
 <?= $this->section("conteudo") ?>
 <div class="border m-3">
     <h3 class="h3 text-center m-3"><strong>Formulário Inscrição</strong></h3>
-    <form action="" method="post">
+    <form action="<?= url_to("inscricao.onSave") ?>" method="post">
         <input type="hidden" name="idCliente" value="<?= $cliente->idCliente ?>">
         <div class="m-3">
             <label class="form-label" for="nome">Nome da Inscrição</label>
@@ -21,7 +21,8 @@
             <div class="col m-3">
                 <label class="form-label" for="inscMunicipal">Inscrição Municipal</label>
                 <input class="form-control" type="text" name="inscMunicipal" id="inscMunicipal"
-                    placeholder="Informe código municipal (Opcional)" aria-describedby="info-inscMunicipal">
+                    placeholder="Informe código municipal (Opcional)" aria-describedby="info-inscMunicipal"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                 <div class="form-text" id="info-inscMunicipal">
                     <span class="text-danger">
                         <?= session()->getFlashdata("errors")["inscMunicipal"] ?? "" ?>
@@ -31,7 +32,8 @@
             <div class="col m-3">
                 <label class="form-label" for="inscEstadual">Inscrição Estadual</label>
                 <input class="form-control" type="text" name="inscEstadual" id="inscEstadual"
-                    placeholder="Informe Código Estadual (Obrigatório)" aria-describedby="info-inscEstadual">
+                    placeholder="Informe Código Estadual (Obrigatório)" aria-describedby="info-inscEstadual"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                 <div class="form-text" id="info-inscEstadual">
                     <span class="text-danger">
                         <?= session()->getFlashdata("errors")["inscEstadual"] ?? "" ?>

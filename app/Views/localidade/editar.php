@@ -38,6 +38,7 @@
                     <label class="form-label" for="cep">Cep</label>
                     <input class="form-control" type="number" name="cep" id="cep"
                     placeholder="Informe número Cep (Obrigatório)" aria-describedby="info-cep"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                     value="<?= $localidade->cep ?>">
                     <div class="form-label" id="info-cep">
                         <span class="text-danger">

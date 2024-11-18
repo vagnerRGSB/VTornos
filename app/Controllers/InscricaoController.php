@@ -22,12 +22,13 @@ class InscricaoController extends BaseController
         $this->localidade = new LocalidadeModel();
     }
 
-    public function listar(int $idCliente){
+    public function listar(int $idCliente)
+    {
         $cliente = $this->cliente->select(
             "clientes.idCliente, clientes.nome as nomeCliente, clientes.cpfCnpj as cpfCnpjCliente,
             clientes.categoria as categoriaCliente"
         )->find($idCliente);
-        return view("inscricao/listar",[
+        return view("inscricao/listar", [
             "cliente" =>  $cliente
         ]);
     }
@@ -47,7 +48,7 @@ class InscricaoController extends BaseController
             "estados.idEstado=cidades.idEstado",
             "inner"
         )->findAll();
-        return view("inscricao/inserir",[
+        return view("inscricao/inserir", [
             "cliente" => $cliente,
             "localidades" => $localidades
         ]);
@@ -58,22 +59,61 @@ class InscricaoController extends BaseController
         $inscricao = $this->inscricao->find($idIncricacao);
         $dados_cliente = $this->cliente->find($inscricao->idCliente);
 
-        var_dump($inscricao);var_dump($dados_cliente);die;
-        return view("inscricao/editar",[
+        var_dump($inscricao);
+        var_dump($dados_cliente);
+        die;
+        return view("inscricao/editar", [
             "inscricao" => $inscricao,
             "cliente" => $dados_cliente
-        ]);   
+        ]);
     }
-    public function onSave(){
-            $dados = [
-                "idInscricao" => $this->request->getPost("idInscricao"),
-                "idCliente" => $this->request->getPost("idCliente"),
-                "nome" => $this->request->getPost("nome"),
-                "insMunicipal" => $this->request->getPost("inscMunicipal"),
-                "inscEstadual" => $this->request->getPost("inscEstadual"),
-                "idLocalidade" => $this->request->getPost("idLocalidade"),
-                "endereco" => $this->request->getPost("endereco")
-            ];
-            var_dump($dados);die;
+    public function onSave()
+    {
+        $dados = [
+            "idInscricao" => $this->request->getPost("idInscricao"),
+            "idCliente" => $this->request->getPost("idCliente"),
+            "nome" => $this->request->getPost("nome"),
+            "insMunicipal" => $this->request->getPost("inscMunicipal"),
+            "inscEstadual" => $this->request->getPost("inscEstadual"),
+            "idLocalidade" => $this->request->getPost("idLocalidade"),
+            "endereco" => $this->request->getPost("endereco")
+        ];
+        //var_dump($dados);die;
+        if (empty($dados["idInscricao"])) {
+            if ($this->inscricao->save($dados)) {
+                return redirect()->route("inscricao.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>" . $dados["nome"]
+                );
+            } else {
+                return redirect()->back()->with("errors", $this->inscricao->errors());
+            }
+        } else {
+            if ($this->inscricao->save($dados)) {
+                return redirect()->route("inscricao.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso: </strong>" . $dados["nome"]
+                );
+            } else {
+                return redirect()->back()->with("errors", $this->inscricao->errors());
+            }
+        }
+    }
+
+    public function onDelete(int $param)
+    {
+        $dados = $this->inscricao->find($param);
+
+        if($this->inscricao->delete($param)){
+            return redirect()->route("inscricao.listar")->with(
+                "info",
+                "<strong> <i class='bi bi-check-circle-fill'></i> Exclusão realizada com sucesso </strong>"
+            );
+        }else{
+            return redirect()->back()->with(
+                "errors",
+                "<strong> Erro em excluir dado </strong>"
+            );
+        }
     }
 }
