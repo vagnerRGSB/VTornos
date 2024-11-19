@@ -30,16 +30,16 @@
     <div class="row">
         <div class="col-4 m-3">
             <label for="" class="form-label">Nome Cliente</label>
-            <input type="text" value="<?= $cliente->nomeCliente ?>" class="form-control" disabled>
+            <input type="text" value="<?= $cliente->nome ?>" class="form-control" disabled>
         </div>
         <div class="col-3 m-3">
             <label for="" class="form-label">Categoria</label>
             <input type="text" class="form-control" disabled
-            value="<?= $cliente->categoriaCliente == 1 ? "Pessoa física - CPF" : "Pessoa Jurídica - CNPJ" ?>">
+            value="<?= $cliente->categoria == 1 ? "Pessoa física - CPF" : "Pessoa Jurídica - CNPJ" ?>">
         </div>
         <div class="col-3 m-3">
             <label for="" class="form-label">Número Categoria</label>
-            <input type="text" value="<?= $cliente->cpfCnpjCliente ?>" class="form-control" disabled>
+            <input type="text" value="<?= $cliente->cpfCnpj ?>" class="form-control" disabled>
         </div>
     </div>
 </div>
@@ -57,12 +57,26 @@
             </tr>
         </thead>
         <tbody>
-            <?php if(!empty($incricoes)) : ?>
-                <?php foreach($incricoes as $incricao) : ?>
+            <?php if(!empty($inscricoes)) : ?>
+                <?php foreach($inscricoes as $inscricao) : ?>
                     <tr>
                         <th scope="row" class="text-start"> <?= $inscricao->idInscricao ?> </th>
-                        <td class="text-start"> <?= $incricao->nomeInscricao ?> </td>
-                        <td class="text-start"> <?= $inscricao->localidadeInscricao ?> </td>
+                        <td class="text-start"> <?= $inscricao->nomeInscricao ?> </td>
+                        <td class="text-start">
+                            <?= $inscricao->nomeLocalidade."; ".$inscricao->nomeCidade." - ".$inscricao->siglaEstado ?>
+                        </td>
+                        <td class="text-end" colspan="2">
+                        <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-three-dots-vertical"></i> Ações
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i>  Excluir</a></li>
+                            </ul>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>
