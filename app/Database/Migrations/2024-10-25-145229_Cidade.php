@@ -29,10 +29,7 @@ class Cidade extends Migration
             $this->forge->addForeignKey(
                 "idEstado",
                 "estados",
-                "idEstado",
-                "cascade",
-                "cascade",
-                "fk_estados_has_cidades"
+                "idEstado"
             );
             $this->forge->createTable("cidades",true,["engine"=>"InnoDB"]);
     }

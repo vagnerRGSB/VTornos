@@ -33,10 +33,7 @@ class Localidade extends Migration
         $this->forge->addForeignKey(
             "idCidade",
             "cidades",
-            "idCidade",
-            "cascade",
-            "cascade",
-            "fk_cidades_has_localidades"
+            "idCidade"
         );
         $this->forge->createTable("localidades",true,["engine"=>"InnoDB"]);
     }

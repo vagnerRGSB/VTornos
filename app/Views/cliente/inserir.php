@@ -100,47 +100,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="border m-3">
-            <h5 class="h5 text-center"><strong>Lista de Incrições</strong></h5>
-            <div class="d-grid gap-2 m-3">
-
-            </div>
-
-            <table class="table table-striped table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col" class="text-start">Nome Inscrição</th>
-                        <th scope="col" class="text-start">Localidade</th>
-                        <th scope="col"  class="text-end">
-                            <a class="btn btn-primary btn-sm" href=""> <i class="bi bi-plus"></i> Inserir</a>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (!empty($inscricoes)) : ?>
-                        <?php foreach ($inscricoes as $inscricao) : ?>
-                            <tr>
-                                <th scope="row" class="text-start"><?= $inscricao->nome ?></th>
-                                <td class="text-start"><? $inscricao->localidade ?></td>
-                                <td colspan="4" class="text-end">
-                                    <a href="#" class="btn btn-warning btn-sm m-1"> <i class="bi bi-pencil"></i> Editar</a>
-                                    <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                        <i class="bi bi-trash"></i> Excluir
-                                    </button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php else : ?>
-                        <tr class="text-center">
-                            <th colspan="3" scope="row">Nenhum registro encontrado no sistema</th>
-                        </tr>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-        </div>
-
-
         <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar</button>
         <a href="<?= url_to("cliente.listar") ?>" class="btn btn-secondary"> <i class="bi bi-list"></i> Clientes</a>
     </form>

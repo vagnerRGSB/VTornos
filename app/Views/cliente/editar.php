@@ -26,9 +26,9 @@
                 <label class="form-label" for="categoria">Categoria</label>
                 <select class="form-select" name="categoria" id="categoria" aria-describedby="info-categoria">
                     <option <?= $cliente->categoria == 1 ? "selected" : "" ?>
-                     value="f">Pessoa física - CPF</option>
+                        value="f">Pessoa física - CPF</option>
                     <option <?= $cliente->categoria == 2 ? "selected" : "" ?>
-                     value="j">Pessoa Jurídica - CNPJ</option>
+                        value="j">Pessoa Jurídica - CNPJ</option>
                 </select>
                 <div class="form-text" id="info-categoria">
                     <span class="text-danger">
@@ -55,8 +55,8 @@
                 <label class="form-label" for="idLocalidade">Localidade</label>
                 <select class="form-select" name="idLocalidade" id="idLocalidade" aria-describedby="info-idLocalidade">
                     <?php foreach ($localidades as $localidade) : ?>
-                        <option <?= $cliente->idLocalidade == $localidade->idLocalidade  ? "selected" : ""?>
-                        value="<?= $localidade->idLocalidade ?>"> <?= $localidade->nome . " - " . $localidade->cep ?> </option>
+                        <option <?= $cliente->idLocalidade == $localidade->idLocalidade  ? "selected" : "" ?>
+                            value="<?= $localidade->idLocalidade ?>"> <?= $localidade->nome . " - " . $localidade->cep ?> </option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -109,16 +109,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="border m-3">
-            <h5 class="h5 text-center"><strong>Lista de Incrições</strong></h5>
-            <div class="d-grid gap-2 m-3">
-                <a class="btn btn-primary btn-sm" href=""> <i class="bi bi-plus"></i> Inserir</a>
-            </div>
-
-        </div>
-
-
         <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar</button>
         <a href="<?= url_to("cliente.listar") ?>" class="btn btn-secondary"> <i class="bi bi-list"></i> Clientes</a>
     </form>

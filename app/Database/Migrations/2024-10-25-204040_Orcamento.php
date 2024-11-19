@@ -36,18 +36,12 @@ class Orcamento extends Migration
         $this->forge->addForeignKey(
             "idCliente",
             "clientes",
-            "idCliente",
-            "cascade",
-            "cascade",
-            "fk_clientes_has_orcamentos"
+            "idCliente"
         );
         $this->forge->addForeignKey(
             "idSerie",
             "series",
-            "idSerie",
-            "cascade",
-            "cascade",
-            "fk_series_has_orcamentos"
+            "idSerie"
         );
         $this->forge->createTable("orcamentos", true, ["engine" => "InnoDB"]);
     }

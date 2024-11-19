@@ -49,10 +49,12 @@ class Inscricao extends Migration
         $this->forge->addForeignKey(
             "idLocalidade",
             "localidades",
-            "idLocalidade",
-            "cascade",
-            "cascade",
-            "fk_localidades_has_inscricoes"
+            "idLocalidade"
+        );
+        $this->forge->addForeignKey(
+            "idCliente",
+            "clientes",
+            "idCliente"
         );
         $this->forge->createTable("inscricoes",true,["engine"=>"InnoDB"]);
     }

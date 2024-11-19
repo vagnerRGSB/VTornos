@@ -52,18 +52,12 @@ class Estoque extends Migration
         $this->forge->addForeignKey(
             "idMarca",
             "marcas",
-            "idMarca",
-            "cascade",
-            "cascade",
-            "fk_marcas_has_estoques"
+            "idMarca"
         );
         $this->forge->addForeignKey(
             "idEspecificacao",
             "especificacoes",
             "idEspecificacao",
-            "cascade",
-            "cascade",
-            "fk_especificacoes_has_estoques"
         );
         $this->forge->createTable("estoques",true,["engine"=>"InnoDB"]);
     }

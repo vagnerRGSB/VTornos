@@ -34,18 +34,12 @@ class Modelo extends Migration
         $this->forge->addForeignKey(
             "idMaquinario",
             "maquinarios",
-            "idMaquinario",
-            "cascade",
-            "cascade",
-            "fk_maquinarios_has_modelos"
+            "idMaquinario"
         );
         $this->forge->addForeignKey(
             "idMarca",
             "marcas",
-            "idMarca",
-            "cascade",
-            "cascade",
-            "fk_marcas_has_modelos"
+            "idMarca"
         );
         $this->forge->createTable("modelos",true,["engine"=>"InnoDB"]);
     }

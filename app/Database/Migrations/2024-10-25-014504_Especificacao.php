@@ -34,10 +34,7 @@ class Especificacao extends Migration
         $this->forge->addForeignKey(
             "idPeca",
             "pecas",
-            "idPeca",
-            "cascade",
-            "cascade",
-            "fk_pecas_has_especificoes"
+            "idPeca"
         );
         $this->forge->createTable("especificacoes",true,["engine"=>"InnoDB"]);
     }

@@ -36,10 +36,7 @@ class Serie extends Migration
         $this->forge->addForeignKey(
             "idModelo",
             "modelos",
-            "idModelo",
-            "cascade",
-            "cascade",
-            "fk_modelos_has_series"
+            "idModelo"
         );
         $this->forge->createTable("series",true,["engine"=>"InnoDB"]);
     }

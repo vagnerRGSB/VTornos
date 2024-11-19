@@ -33,18 +33,12 @@ class Produto extends Migration
         $this->forge->addForeignKey(
             "idServico",
             "servicos",
-            "idservico",
-            "cascade",
-            "cascade",
-            "fk_servicos_has_produtos"
+            "idservico"
         );
         $this->forge->addForeignKey(
             "idEstoque",
             "estoques",
-            "idEstoque",
-            "cascade",
-            "cascade",
-            "fk_estoques_has_produtos"
+            "idEstoque"
         );
         $this->forge->createTable("produtos", true, ["engine" => "InnoDB"]);
     }

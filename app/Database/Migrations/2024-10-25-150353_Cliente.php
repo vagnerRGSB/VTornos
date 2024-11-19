@@ -61,10 +61,7 @@ class Cliente extends Migration
         $this->forge->addForeignKey(
             "idLocalidade",
             "localidades",
-            "idLocalidade",
-            "cascade",
-            "cascade",
-            "fk_localidades_has_clientes"
+            "idLocalidade"
         );
         $this->forge->createTable("clientes",true,["engine"=>"InnoDB"]);
     }

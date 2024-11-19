@@ -41,18 +41,12 @@ class Servico extends Migration
         $this->forge->addForeignKey(
             "idAtividade",
             "atividades",
-            "idAtividade",
-            "cascade",
-            "cascade",
-            "fk_atividades_has_servicos"
+            "idAtividade"
         );
         $this->forge->addForeignKey(
             "idOrcamento",
             "orcamentos",
-            "idOrcamento",
-            "cascade",
-            "cascade",
-            "fk_orcamentos_has_servicos"
+            "idOrcamento"
         );
         $this->forge->createTable("servicos", true, ["engine" => "InnoDB"]);
     }
