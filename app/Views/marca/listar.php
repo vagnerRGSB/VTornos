@@ -37,7 +37,7 @@
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Nome marca</th>
                 <td scope="col" class="text-end">
-                    <a href="<?= url_to("marca.inserir") ?>" class="btn btn-success btn-sm"> <i class="bi bi-plus"></i> Inserir </a>
+                    <a href="<?= url_to("marca.inserir") ?>" class="btn btn-success btn-sm m-1"> <i class="bi bi-plus"></i> Inserir </a>
                 </td>
             </tr>
         </thead>
@@ -48,10 +48,16 @@
                         <th scope="row"><?= esc($marca->idMarca) ?></th>
                         <td><?= esc($marca->nome) ?></td>
                         <td colspan="3" class="text-end">
-                            <a href="<?= base_url("marca/editar/" . $marca->idMarca) ?>" class="btn btn-warning btn-sm m-1"> <i class="bi bi-pencil"></i> Editar</a>
-                            <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                            <i class="bi bi-trash"></i> Excluir
-                            </button>
+                        <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"></i> Ações
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= base_url("marca/editar/" . $marca->idMarca) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i> Excluir</a></li>
+                            </ul>
                         </td>
                     </tr>
                 <?php endforeach; ?>

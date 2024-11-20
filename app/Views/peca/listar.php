@@ -34,7 +34,7 @@
                 <th scope="col">Código</th>
                 <th scope="col">Nome peça</th>
                 <td scope="col" class="text-end">
-                    <a href="<?= url_to("peca.inserir") ?>" class="btn btn-success btn-sm"> <i class="bi bi-plus"></i> Inserir</a>
+                    <a href="<?= url_to("peca.inserir") ?>" class="btn btn-success btn-sm m-1"> <i class="bi bi-plus"></i> Inserir</a>
                 </td>
             </tr>
         </thead>
@@ -42,13 +42,19 @@
             <?php if (!empty($pecas)) : ?>
                 <?php foreach ($pecas as $peca) : ?>
                     <tr>
-                        <td scope="row"><?= $peca->idPeca ?></td>
-                        <td><?= $peca->nome ?></td>
+                        <td scope="row" class="m-1"><?= $peca->idPeca ?></td>
+                        <td class="m-1"><?= $peca->nome ?></td>
                         <td class="text-end">
-                            <a href="<?= base_url("categorias-pecas/editar/" . $peca->idPeca) ?>" class="btn btn-warning btn-sm "> <i class="bi bi-pencil"></i> Editar</a>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                <i class="bi bi-trash"></i> Excluir
-                            </button>
+                            <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"></i> Ações
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= base_url("categorias-pecas/editar/" . $peca->idPeca) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i> Excluir</a></li>
+                            </ul>
                         </td>
                     </tr>
                 <?php endforeach; ?>

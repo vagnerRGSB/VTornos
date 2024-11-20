@@ -48,7 +48,7 @@
                     <option value="">Informe localidade (Obrigatório)</option>
                     <?php foreach ($localidades as $localidade) : ?>
                         <option value="<?= $localidade->idLocalidade ?>">
-                            <?= $localidade->nomeCidade . " - " . $localidade->siglaEstado . ". " . $localidade->nomeLocalidade . " - " . $localidade->cepLocalidade ?>
+                            <?= $localidade->nomeLocalidade." ".$localidade->nomeCidade." ".$localidade->siglaEstado ?>
                         </option>
                     <?php endforeach; ?>
                 </select>

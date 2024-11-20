@@ -428,7 +428,7 @@ $routes->post(
     ["as"=>"inscricao.onSave", "filter" => "auth"]
 );
 $routes->get(
-    "/incricao-cliente/onDelete/(:num)",
+    "/inscricao-cliente/onDelete/(:num)",
     "InscricaoController::onDelete/$1",
     ["as"=>"inscricao.onDelete", "filter" => "auth"]
 );

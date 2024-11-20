@@ -47,10 +47,16 @@
                         <th scope="row"><?= esc($espec->idEspec) ?></td>
                         <td><?= $espec->nomePeca." ". $espec->dismensaoEspec." ". $espec->especEspec  ?></td>
                         <td class="text-end">
-                            <a href="<?= base_url("/especificao-pecas/editar/" . $espec->idEspec) ?>" class="btn btn-warning btn-sm m-1"> <i class="bi bi-pencil"></i> Editar</a>
-                            <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                <i class="bi bi-trash"></i> Excluir
-                            </button>
+                        <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"></i> Ações
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= base_url("especificao-pecas/editar/" . $espec->idEspec) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i> Excluir</a></li>
+                            </ul>
                         </td>
                     </tr>
                 <?php endforeach; ?>

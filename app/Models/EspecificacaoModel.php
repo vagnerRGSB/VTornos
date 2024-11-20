@@ -34,8 +34,8 @@ class EspecificacaoModel extends Model
     // Validation
     protected $validationRules      = [
         "idPeca" => "required",
-        "dimensao" => "required|max_length[200]|min_length[10]",
-        "especificacao" => "required|max_length[200]|min_length[10]"
+        "dimensao" => "required|max_length[200]|min_length[5]",
+        "especificacao" => "required|max_length[200]|min_length[3]"
     ];
     protected $validationMessages   = [
         "idPeca" => [

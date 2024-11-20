@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\ClienteModel;
 use App\Models\InscricaoModel;
 use App\Models\LocalidadeModel;
+use BackedEnum;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class InscricaoController extends BaseController
@@ -38,10 +39,10 @@ class InscricaoController extends BaseController
             "estados",
             "estados.idEstado=cidades.idEstado",
             "inner"
-        )->where("idCliente",$idCliente)->paginate(10);
+        )->where("idCliente", $idCliente)->paginate(10);
         $pager = $this->inscricao->pager;
         //var_dump($inscricoes);die;
-        return view("inscricao/listar",[
+        return view("inscricao/listar", [
             "inscricoes" => $inscricoes,
             "pager" => $pager,
             "cliente" => $cliente
@@ -51,5 +52,103 @@ class InscricaoController extends BaseController
     public function inserir(int $idCliente)
     {
         $cliente = $this->cliente->find($idCliente);
+        $localidades = $this->localidade->select(
+            "localidades.idLocalidade, localidades.nome as nomeLocalidade,
+            cidades.nome as nomeCidade,
+            estados.sigla as siglaEstado"
+        )->join(
+            "cidades",
+            "cidades.idCidade=localidades.idCidade",
+            "inner"
+        )->join(
+            "estados",
+            "estados.idEstado=cidades.idEstado",
+            "inner"
+        )->findAll();
+
+        return view("inscricao/inserir", [
+            "cliente" => $cliente,
+            "localidades" => $localidades
+        ]);
+    }
+
+    public function editar(int $idInscricao)
+    {
+        $localidades = $this->localidade->select(
+            "localidades.idLocalidade, localidades.nome as nomeLocalidade,
+            cidades.nome as nomeCidade,
+            estados.sigla as siglaEstado"
+        )->join(
+            "cidades",
+            "cidades.idCidade=localidades.idCidade",
+            "inner"
+        )->join(
+            "estados",
+            "estados.idEstado=cidades.idEstado",
+            "inner"
+        )->findAll();
+        $inscricao = $this->inscricao->find($idInscricao);
+        $cliente = $this->cliente->find($inscricao->idCliente);
+
+        return view("inscricao/editar", [
+            "localidades" => $localidades,
+            "inscricao" => $inscricao,
+            "cliente" => $cliente
+        ]);
+    }
+
+    public function onSave()
+    {
+        $dados = [
+            "idInscricao" => $this->request->getPost("idInscricao"),
+            "idLocalidade" => $this->request->getPost("idLocalidade"),
+            "idCliente" => $this->request->getPost("idCliente"),
+            "nome" => $this->request->getPost("nome"),
+            "inscMunicipal" => $this->request->getPost("inscMunicipal"),
+            "inscEstadual" => $this->request->getPost("inscEstadual"),
+            "endereco" => $this->request->getPost("endereco")
+        ];
+        //var_dump($dados);die;
+
+        if (empty($dados["idInscricao"])) {
+            if ($this->inscricao->save($dados)) {
+                return redirect()->route("cliente.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
+                );
+            } else {
+                return redirect()->back()->with(
+                    "errors",
+                    $this->inscricao->errors()
+                );
+            }
+        } else {
+            if ($this->inscricao->save($dados)) {
+                return redirect()->route("cliente.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso </strong>"
+                );
+            } else {
+                return redirect()->back()->with(
+                    "errors",
+                    $this->inscricao->errors()
+                );
+            }
+        }
+    }
+
+    public function onDelete(int $idInscricao)
+    {
+        if($this->inscricao->delete($idInscricao)){
+            return redirect()->route("cliente.listar")->with(
+                "info",
+                "<strong> <i class='bi bi-check-circle-fill'></i> Exclusão de inscrição realizada com sucesso </strong>"
+            );
+        }else{
+            return redirect()->back()->with(
+                "errors",
+                $this->inscricao->errors
+            );
+        }
     }
 }

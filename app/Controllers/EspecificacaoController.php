@@ -67,7 +67,7 @@ class EspecificacaoController extends BaseController
             "especificacao" => $this->request->getPost("especificacao")
         ];
 
-        if (empty($dados["especificacao"])) {
+        if (empty($dados["idEspecificacao"])) {
             if ($this->especificacao->save($dados)) {
                 return redirect()->route("especificacao.listar")->with(
                     "info",
