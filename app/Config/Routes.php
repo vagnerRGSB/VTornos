@@ -461,3 +461,28 @@ $routes->get(
     "AtividadeController::onDelete/$1",
     ["as"=>"atividade.onDelete","filter"=>"auth"]
 );
+
+/**
+ * ROTAS PARA ORCAMENTO DE SERVIÇO
+ */
+
+ $routes->get(
+    "/orcamento/listar/(:num)",
+    "OrcamentoController::listar/$1",
+    ["as"=>"orcamento.listar", "filter"=>"auth"]
+ );
+ $routes->get(
+    "/orcamento/inserir/(:num)",
+    "OrcamentoController::inserir/$1",
+    ["as"=>"orcamento.inserir","filter"=>"auth"]
+ );
+ $routes->get(
+    "/orcamento/editar/(:num)",
+    "OrcamentoController::editar/$1",
+    ["as"=>"orcamento.editar", "filter" => "auth"]
+ );
+ $routes->post(
+    "/orcamento/onSave",
+    "OrcamentoController::onSave",
+    ["as"=>"orcamento.onSave", "filter" => "auth"]
+ );
