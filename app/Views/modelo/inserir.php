@@ -52,7 +52,7 @@
             </div>
 
             <button type="submit" class="btn btn-success m-3"> <i class="bi bi-floppy"></i> Salvar </button>
-            <a href="<?= url_to("modelo.listar") ?>" class="btn btn-danger"> <i class="bi bi-x"></i> Voltar</a>
+            <a href="<?= url_to("modelo.listar") ?>" class="btn btn-secondary"> <i class="bi bi-list"></i> Modelos</a>
         </form>
 
     </div>

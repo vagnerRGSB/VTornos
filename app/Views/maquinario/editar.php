@@ -4,7 +4,7 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 <div class="border m-3">
-    <h3 class="h3 text-center m-3">Formulário para cadastro de maquinário</h3>
+    <h3 class="h3 text-center m-3"><strong>Formulário Maquinário</strong></h3>
 
     <div class="container">
         <form action="<?= url_to("maquinario.onSave") ?>" method="post">
@@ -18,8 +18,8 @@
                 <span class="text-danger"><?= session()->getFlashdata("erro")["nome"] ?? "" ?></span>
             </div>
         </div>
-        <button class="btn btn-success btn-sm m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar</button>
-        <a href="<?= url_to("maquinario.listar") ?>" class="btn btn-danger"> <i class="bi bi-x"></i> Voltar</a>
+        <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar</button>
+        <a href="<?= url_to("maquinario.listar") ?>" class="btn btn-secondary"> <i class="bi bi-list"></i> Maquinários</a>
         </form>
     </div>
 </div>

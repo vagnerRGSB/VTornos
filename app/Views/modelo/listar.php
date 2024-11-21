@@ -5,9 +5,9 @@
 <?= $this->section("conteudo") ?>
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3 mb-3">
-<a class="btn btn-secondary btn-sm" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Series</a>
-<a class="btn btn-secondary btn-sm" href="<?= url_to("maquinario.listar") ?>"> <i class="bi bi-list"></i> Maquinários</a>
-<a class="btn btn-secondary btn-sm" href="<?= url_to("marca.listar") ?>"> <i class="bi bi-list"></i> Marcas</a>
+    <a class="btn btn-secondary btn-sm" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Series</a>
+    <a class="btn btn-secondary btn-sm" href="<?= url_to("maquinario.listar") ?>"> <i class="bi bi-list"></i> Maquinários</a>
+    <a class="btn btn-secondary btn-sm" href="<?= url_to("marca.listar") ?>"> <i class="bi bi-list"></i> Marcas</a>
 </div>
 
 <div class="m-3">
@@ -46,10 +46,16 @@
                         <td scope="row"><?= esc($modelo->idModelo) ?></td>
                         <td><?= esc($modelo->nomeMaquinario) . " / " . esc($modelo->nomeMarca) . " / " . esc($modelo->nomeModelo) ?></td>
                         <td class="text-end">
-                            <a href="<?= base_url("modelo/editar/" . $modelo->idModelo) ?>" class="btn btn-warning btn-sm "> <i class="bi bi-pencil"></i> Editar</a>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                <i class="bi bi-trash"></i> Excluir
-                            </button>
+                            <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"></i> Ações
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= base_url("modelo/editar/" . $modelo->idModelo) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i> Excluir</a></li>
+                            </ul>
                         </td>
                     </tr>
                 <?php endforeach; ?>

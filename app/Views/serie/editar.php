@@ -5,7 +5,7 @@
 <?= $this->section("conteudo") ?>
 
 <div class="border m-3">
-    <h3 class="h3 text-center m-3">Formulário Serie</h3>
+    <h3 class="h3 text-center m-3"><strong>Formulário Serie</strong></h3>
     <div class="container">
         <form action="<?= url_to("serie.onSave") ?>" method="post">
         <input type="hidden" name="idSerie" value="<?= $serie->idSerie ?>">
@@ -19,7 +19,7 @@
                 </select>
                 <div id="info-idModelo" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("erro")["idModelo"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["idModelo"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                         value="<?= $serie->descricao ?>">
                     <div id="info-descricao" class="form-label">
                         <span class="text-danger">
-                            <?= session()->getFlashdata("erro")["descricao"] ?? "" ?>
+                            <?= session()->getFlashdata("errors")["descricao"] ?? "" ?>
                         </span>
                     </div>
                 </div>
@@ -42,13 +42,13 @@
                         value="<?= $serie->ano ?>">
                     <div id="info-ano" class="form-label">
                         <span class="text-danger">
-                            <?= session()->getFlashdata("erro")["ano"] ?? "" ?>
+                            <?= session()->getFlashdata("errors")["ano"] ?? "" ?>
                         </span>
                     </div>
                 </div>
             </div>
             <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar </button>
-            <a href="<?= url_to("serie.listar") ?>"> <i class="bi bi-x"></i> Voltar </a>
+            <a class="btn btn-secondary" href="<?= url_to("serie.listar")?>"> <i class="bi bi-list"></i> Series </a>
         </form>
     </div>
 </div>

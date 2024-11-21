@@ -25,7 +25,7 @@
 </div>
 
 <div class="border">
-    <h3 class="h3 text-center m-3">Lista das Series</h3>
+    <h3 class="h3 text-center m-3"><strong>Lista das Series</strong></h3>
 
     <table class="table table-striped">
         <thead>
@@ -33,7 +33,7 @@
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Marca do modelo da serie</th>
                 <th scope="col" class="text-end">
-                    <a class="btn btn-success btn-sm" href="<?= url_to("serie.inserir") ?>"> <i class="bi bi-plus"></i> Inserir</a>
+                    <a class="btn btn-success btn-sm m-1" href="<?= url_to("serie.inserir") ?>"> <i class="bi bi-plus"></i> Inserir</a>
                 </th>
             </tr>
         </thead>
@@ -44,16 +44,22 @@
                         <td scope="row" class="text-start"> <?= $serie->idSerie ?></td>
                         <td class="text-start"> <?= $serie->nomeMarca . " " . $serie->nomeModelo . " " . $serie->descricaoSerie ?> </td>
                         <td class="text-end">
-                            <a href="<?= base_url("serie/editar/" . $serie->idSerie) ?>" class="btn btn-warning btn-sm "> <i class="bi bi-pencil"></i> Editar</a>
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                <i class="bi bi-trash"></i> Excluir
-                            </button>
+                        <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-three-dots-vertical"></i> Ações
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= base_url("serie/editar/".$serie->idSerie) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i>  Excluir</a></li>
+                            </ul>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="3" scope="row" classe="text-center"> Nenhum registro foi localizado no sistema</td>
+                    <th colspan="3" scope="row" class="text-center"> Nenhum registro foi localizado no sistema</th>
                 </tr>
             <?php endif; ?>
         </tbody>
@@ -77,7 +83,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <a href="#" class="btn btn-danger">Deletar</a>
+                    <a href="<?= base_url("serie/onDelete/".$serie->idSerie) ?>" class="btn btn-danger">Deletar</a>
                 </div>
             </div>
         </div>

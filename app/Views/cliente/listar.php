@@ -52,7 +52,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?= base_url("cliente/editar/".$cliente->idCliente) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
-                                <li><a class="dropdown-item" href="#"> <i class="bi bi-list"></i> Listar ordens de serviços</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url("orcamento/listar/".$cliente->idCliente) ?>"> <i class="bi bi-list"></i> Listar ordens de serviços</a></li>
                                 <li><a class="dropdown-item" href="<?= base_url("inscricao-cliente/listar/".$cliente->idCliente) ?>"> <i class="bi bi-list"></i>  Listar inscrição</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
