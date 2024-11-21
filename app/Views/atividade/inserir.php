@@ -1,0 +1,38 @@
+<?= $this->extend("layouts/tema_um") ?>
+<?= $this->section("style") ?>
+
+<?= $this->endSection() ?>
+<?= $this->section("conteudo") ?>
+<div class="border mt-3">
+    <h3 class="h3 text-center m-3"><strong>Formulário Atividades da firma</strong></h3>
+    <form action="<?= url_to("atividade.onSave") ?>" method="post">
+    <div class="m-3">
+        <label class="form-label" for="nome">Nome da Atividade</label>
+        <input class="form-control" type="text" name="nome" id="nome"
+        placeholder="Informe nome da Atividade (Obrigatório)" aria-describedby="info-nome">
+        <div class="form-text" id="info-nome">
+            <span class="text-danger">
+                <?= session()->getFlashdata("errors")["nome"] ?? "" ?>
+            </span>
+        </div>
+    </div>
+    <div class="m-3">
+        <label class="form-label" for="valor"> Valor da hora </label>
+        <input class="form-control" type="text" name="valor" id="valor" 
+        placeholder="Inform valor cobrado (Obrigatório)" aria-describedby="info-valor"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+        <div class="form-text" id="info-valor">
+            <span class="text-danger">
+                <?= session()->getFlashdata("errors")["valor"] ?? "" ?>
+            </span>
+        </div>
+    </div>
+    <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar</button>
+    <a class="btn btn-secondary" href="<?= url_to("atividade.listar") ?>"> <i class="bi bi-list"></i> Atividades </a>
+    </form>
+</div>
+
+<?= $this->endSection() ?>
+<?= $this->section("script") ?>
+
+<?= $this->endSection() ?>

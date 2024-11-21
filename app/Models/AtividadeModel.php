@@ -14,7 +14,7 @@ class AtividadeModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         "nome",
-        "valorHora"
+        "valor"
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -31,7 +31,10 @@ class AtividadeModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
+    protected $validationRules      = [
+        "nome" => "required|min_length[5]|max_length[200]",
+        "valor" => "required"
+    ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;

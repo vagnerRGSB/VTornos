@@ -432,3 +432,32 @@ $routes->get(
     "InscricaoController::onDelete/$1",
     ["as"=>"inscricao.onDelete", "filter" => "auth"]
 );
+
+/**
+ * ROTAS PARA ATIVIDADES
+ */
+$routes->get(
+    "/atividade/listar",
+    "AtividadeController::listar",
+    ["as"=>"atividade.listar", "filter" => "auth"]
+);
+$routes->get(
+    "/atividade/inserir",
+    "AtividadeController::inserir",
+    ["as"=>"atividade.inserir", "filter" => "auth"]
+);
+$routes->get(
+    "/atividade/editar/(:num)",
+    "AtividadeController::editar/$1",
+    ["as"=>"atividade.editar", "filter"=>"auth"]
+);
+$routes->post(
+    "/atividade/onSave",
+    "AtividadeController::onSave",
+    ["as"=>"atividade.onSave","filter"=>"auth"]
+);
+$routes->get(
+    "/atividade/onDelete/(:num)",
+    "AtividadeController::onDelete/$1",
+    ["as"=>"atividade.onDelete","filter"=>"auth"]
+);

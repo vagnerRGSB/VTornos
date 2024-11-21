@@ -19,7 +19,7 @@ class Atividade extends Migration
                 "type" => "varchar",
                 "constraint" => 200,
             ],
-            "valorHora" => [
+            "valor" => [
                 "type" => "double",
                 "null" => true,
                 "default" => 0

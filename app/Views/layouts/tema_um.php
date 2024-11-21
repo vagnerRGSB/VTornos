@@ -27,8 +27,9 @@
               Operações
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="<?= url_to("estoque.listar") ?>"> lista produtos para comercialização</a></li>
-              <li><a class="dropdown-item" href="<?= url_to("serie.listar") ?>"> lista maquinários para prestação de serviço</a></li>
+            <li><a class="dropdown-item" href="<?= url_to("atividade.listar") ?>"> Relação de atividades da organização</a></li>
+              <li><a class="dropdown-item" href="<?= url_to("estoque.listar") ?>"> Lista produtos para comercialização</a></li>
+              <li><a class="dropdown-item" href="<?= url_to("serie.listar") ?>"> Lista maquinários para prestação de serviço</a></li>
             </ul>
           </li>
           <li class="nav-item">
