@@ -75,26 +75,38 @@ class ModeloController extends BaseController
         ];
         if(empty($dados["idModelo"]) || $dados["idModelo"] == ""){
             if($this->modelo->save($dados)){
-                return redirect()->route("modelo.listar")->with("infoInsercao",$dados["nome"]);
+                return redirect()->route("modelo.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
+                );
             }else{
-                return redirect()->back()->with("erro",$this->modelo->errors());
+                return redirect()->back()->with("errors",$this->modelo->errors());
             }
         }else{
             if($this->modelo->save($dados)){
-                return redirect()->route("modelo.listar")->with("infoAtualizacao",$dados["nome"]);
+                return redirect()->route("modelo.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso </strong>"
+                );
             }else{
-                return redirect()->back()->with("erro",$this->modelo->errors());
+                return redirect()->back()->with("errors",$this->modelo->errors());
             }
         }
     }
 
     public function onDelete(int $param){
 
-        var_dump($param);die;
+        //var_dump($param);die;
         if($this->modelo->delete($param)){
-            return redirect()->route("modelo.listar");
+            return redirect()->route("modelo.listar")->with(
+                "info",
+                "<strong> <i class='bi bi-check-circle-fill'></i> Exclusão realizada com sucesso </strong>"
+            );
         }else{
-            return redirect()->route("modelo.listar");
+            return redirect()->route("modelo.listar")->with(
+                "errors",
+                "Falha em excluir o registro"
+            );
         }
     }
 }

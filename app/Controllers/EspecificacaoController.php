@@ -74,7 +74,7 @@ class EspecificacaoController extends BaseController
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>".$dados["dimensao"]." ".$dados["especificacao"]
                 );
             }else{
-                return redirect()->back()->with("erro",$this->especificacao->errors());
+                return redirect()->back()->with("errors",$this->especificacao->errors());
             }
         } else {
             if ($this->especificacao->save($dados)) {
@@ -83,7 +83,7 @@ class EspecificacaoController extends BaseController
                     "<strong> <i class='bi bi-check-circle-fill'> </i> Atualização realizada com sucesso: </strong>".$dados["dimensao"]." ".$dados["especificacao"]
                 );
             }else{
-                return redirect()->back()->with("erro",$this->especificacao->errors());
+                return redirect()->back()->with("errors",$this->especificacao->errors());
             }
         }
     }

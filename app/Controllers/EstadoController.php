@@ -53,7 +53,7 @@ class EstadoController extends BaseController
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso : </strong> " . $dados["nome"]
                 );
             } else {
-                return redirect()->back()->with("error", $this->estado->errors());
+                return redirect()->back()->with("errors", $this->estado->errors());
             }
         } else {
             if ($this->estado->save($dados)) {
@@ -62,7 +62,7 @@ class EstadoController extends BaseController
                     "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso : </strong> " . $dados["nome"]
                 );
             } else {
-                return redirect()->back()->with("error", $this->estado->errors());
+                return redirect()->back()->with("errors", $this->estado->errors());
             }
         }
     }

@@ -62,7 +62,7 @@ class PecaController extends BaseController
                     "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso: </strong>" . $dados["nome"]
                 );
             } else {
-                return redirect()->back()->with("erro", $this->peca->errors());
+                return redirect()->back()->with("errors", $this->peca->errors());
             }
         }
     }

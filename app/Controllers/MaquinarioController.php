@@ -47,13 +47,13 @@ class MaquinarioController extends BaseController
             if ($this->maquinario->save($dados)) {
                 return redirect()->route("maquinario.listar")->with("infoInsercao", $dados["nome"]);
             } else {
-                return redirect()->back()->with("erro", $this->maquinario->errors());
+                return redirect()->back()->with("errors", $this->maquinario->errors());
             }
         } else {
             if ($this->maquinario->save($dados)) {
                 return redirect()->route("maquinario.listar")->with("infoAtualizacao", $dados["nome"]);
             } else {
-                return redirect()->back()->with("erro", $this->maquinario->errors());
+                return redirect()->back()->with("errors", $this->maquinario->errors());
             }
         }
     }

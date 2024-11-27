@@ -78,14 +78,14 @@ class SerieController extends BaseController
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>" .
                 $dados["descricao"]);
             } else {
-                return redirect()->back()->with("error", "Não foi possível realizar inserção");
+                return redirect()->back()->with("errors", $this->serie->errors());
             }
         } else {
             if ($this->serie->save($dados)) {
                 return redirect()->route("serie.listar")->with("info",
             "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>".$dados["descricao"]);
             } else {
-                return redirect()->back()->with("error", "Não foi possível realizar inserção");
+                return redirect()->back()->with("errors", $this->serie->errors());
             }
         }
     }

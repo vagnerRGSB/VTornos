@@ -85,14 +85,14 @@ class LocalidadeController extends BaseController
             return redirect()->route("localidade.listar")->with("info",
             "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada como sucesso: </strong>".$dados["nome"]);
         }else{
-            return redirect()->back()->withInput()->with("error",$this->localidade->errors());
+            return redirect()->back()->withInput()->with("errors",$this->localidade->errors());
         }
        }else{
         if($this->localidade->save($dados)){
             return redirect()->route("localidade.listar")->with("info",
             "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada como sucesso: </strong>".$dados["nome"]);
         }else{
-            return redirect()->back()->withInput()->with("error",$this->localidade->errors());
+            return redirect()->back()->withInput()->with("errors",$this->localidade->errors());
         }
        }
     }

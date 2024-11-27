@@ -108,7 +108,7 @@ class EstoqueController extends BaseController
                 );
             } else {
                 return redirect()->back()->with(
-                    "error",
+                    "errors",
                     $this->estoque->errors()
                 );
             }
@@ -120,7 +120,7 @@ class EstoqueController extends BaseController
                 );
             } else {
                 return redirect()->back()->with(
-                    "error",
+                    "errors",
                     $this->estoque->errors()
                 );
             }
