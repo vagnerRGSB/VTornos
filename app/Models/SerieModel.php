@@ -14,7 +14,6 @@ class SerieModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         "idModelo",
-        "ano",
         "descricao"
     ];
 

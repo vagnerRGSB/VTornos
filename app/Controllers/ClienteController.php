@@ -67,7 +67,7 @@ class ClienteController extends BaseController
             if($this->cliente->save($dados_cliente)){
                 return redirect()->route("cliente.listar")->with(
                     "info",
-                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso : </strong> ".$dados_cliente["nome"]
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong> "
                 );
             }else{
                 return redirect()->back()->with(

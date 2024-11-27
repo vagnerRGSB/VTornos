@@ -64,6 +64,6 @@ class Estoque extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("estoques",true,true);
+        $this->forge->dropTable("estoques",true);
     }
 }

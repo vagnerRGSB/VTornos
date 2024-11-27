@@ -13,7 +13,7 @@
                     <input type="text" id="nome" name="nome" placeholder="Informe nome da marca (Obrigatório)" class="form-control" aria-describedby="info-nome">
                     <div id="info-nome" class="form-text">
                         <span class="text-danger">
-                            <?= session()->getFlashdata("error")["nome"] ?? "" ?>
+                            <?= session()->getFlashdata("errors")["nome"] ?? "" ?>
                         </span>
                     </div>
                 </div>

@@ -63,7 +63,7 @@
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="3" class="text-center"> Nenhum registro foi localizado no sistema</td>
+                    <th colspan="3" class="text-center"> Nenhum registro foi localizado no sistema</th>
                 </tr>
             <?php endif; ?>
         </tbody>

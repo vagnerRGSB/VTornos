@@ -50,16 +50,16 @@ class PecaController extends BaseController
             if ($this->peca->save($dados)) {
                 return redirect()->route("peca.listar")->with(
                     "info",
-                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>" . $dados["nome"]
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>"
                 );
             } else {
-                return redirect()->back()->with("error", $this->peca->errors());
+                return redirect()->back()->with("errors", $this->peca->errors());
             }
         } else {
             if ($this->peca->save($dados)) {
                 return redirect()->route("peca.listar")->with(
                     "info",
-                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso: </strong>" . $dados["nome"]
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso: </strong>"
                 );
             } else {
                 return redirect()->back()->with("errors", $this->peca->errors());
@@ -72,9 +72,15 @@ class PecaController extends BaseController
         $dados = $this->peca->find($param);
 
         if ($this->peca->delete($param)) {
-            return redirect()->route("peca.listar")->with("infoExclusao", $dados->nome);
+            return redirect()->route("peca.listar")->with(
+                "info",
+                "<strong> <i class='bi bi-check-circle-fill'></i> Exclusão realizada com sucesso </strong>"
+            );
         } else {
-            return redirect()->route("peca.listar");
+            return redirect()->route("peca.listar")->with(
+                "errors",
+                "<strong>  Falha em excluir o registro </strong>"
+            );
         }
     }
 }

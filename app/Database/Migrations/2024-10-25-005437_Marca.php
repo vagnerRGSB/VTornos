@@ -28,6 +28,6 @@ class Marca extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("marcas", true, true);
+        $this->forge->dropTable("marcas", true);
     }
 }

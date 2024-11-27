@@ -14,7 +14,7 @@
                 class="form-control">
                 <div id="info-nome" class="form-label">
                     <span class="text-danger">
-                            <?= session()->getFlashdata("erro")["nome"] ?? "" ?>
+                            <?= session()->getFlashdata("errors")["nome"] ?? "" ?>
                     </span>
                 </div>
             </div>

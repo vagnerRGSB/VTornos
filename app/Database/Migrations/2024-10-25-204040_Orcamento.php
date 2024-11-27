@@ -48,6 +48,6 @@ class Orcamento extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("orcamentos", true, true);
+        $this->forge->dropTable("orcamentos", true);
     }
 }

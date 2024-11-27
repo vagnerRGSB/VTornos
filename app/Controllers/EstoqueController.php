@@ -104,7 +104,7 @@ class EstoqueController extends BaseController
             if ($this->estoque->save($dados)) {
                 return redirect()->route("estoque.listar")->with(
                     "info",
-                    "<strong> Inserção realizado como sucesso: </strong>"
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizado como sucesso </strong>"
                 );
             } else {
                 return redirect()->back()->with(
@@ -116,7 +116,7 @@ class EstoqueController extends BaseController
             if ($this->estoque->save($dados)) {
                 return redirect()->route("estoque.listar")->with(
                     "info",
-                    "<strong> Atualizaçao realizado como sucesso </strong>"
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualizaçao realizado como sucesso </strong>"
                 );
             } else {
                 return redirect()->back()->with(
@@ -136,7 +136,7 @@ class EstoqueController extends BaseController
             );
         } else {
             return redirect()->back()->with(
-                "error",
+                "errors",
                 "Não foi possível realizar operação de exclusão"
             );
         }

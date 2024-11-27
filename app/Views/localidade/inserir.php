@@ -10,7 +10,7 @@
         <form action="<?= url_to("localidade.onSave") ?>" method="post">
             <div class="m-3">
                 <label class="form-label" for="idCidade">Cidades</label>
-                <select class="form-select" name="idCidade" id="idCidade">
+                <select class="form-select" name="idCidade" id="idCidade" aria-describedby="info-cidade">
                     <option value="">Selecione uma cidade (Obrigatório) </option>
                     <?php foreach($cidades as $cidade) : ?>
                         <option value="<?= $cidade->idCidade ?>">
@@ -18,28 +18,33 @@
                         </option>
                     <?php endforeach; ?>
                 </select>
+                <div class="form-text" id="info-cidade">
+                        <span class="text-danger">
+                            <?= session()->getFlashdata("errors")["idCidade"] ?? "" ?>
+                        </span>
+                </div>
             </div>
 
-            <div class="row row-cols-2">
+            <div class="row">
                 <div class="col m-3">
                     <label class="form-label" for="nome">Nome localidade </label>
                     <input class="form-control" type="text" name="nome" id="nome"
                     placeholder="Informe nome da localidade (Obrigatório)" aria-describedby="info-nome">
                     <div class="form-label">
                         <span class="text-danger">
-                            <?= session()->getFlashdata("error") ?? "" ?>
+                            <?= session()->getFlashdata("errors")["nome"] ?? "" ?>
                         </span>
                     </div>
                 </div>
 
                 <div class="col m-3">
                     <label class="form-label" for="cep">Cep</label>
-                    <input class="form-control" type="number" name="cep" id="cep"
+                    <input class="form-control" type="text" name="cep" id="cep"
                     placeholder="Informe número Cep (Obrigatório)" aria-describedby="info-cep"
                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                     <div class="form-label" id="info-cep">
                         <span class="text-danger">
-                            <?= session()->getFlashdata("error") ?? "" ?>
+                            <?= session()->getFlashdata("errors")["cep"] ?? "" ?>
                         </span>
                     </div>
                 </div>

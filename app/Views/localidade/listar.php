@@ -17,7 +17,7 @@
         </div>
     <?php endif; ?>
 
-    <?php if (session()->has("error")) : ?>
+    <?php if (session()->has("errors")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <?= session()->getFlashdata("error") ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -61,7 +61,7 @@
                 <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="3" scope="row" class="text-center">Não foi encontrado nenhum registro no sistema</td>
+                    <th colspan="3" scope="row" class="text-center">Não foi encontrado nenhum registro no sistema</th>
                 </tr>
             <?php endif; ?>
         </tbody>

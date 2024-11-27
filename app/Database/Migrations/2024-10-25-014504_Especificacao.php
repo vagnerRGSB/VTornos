@@ -41,6 +41,6 @@ class Especificacao extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("especificacoes",true,true);
+        $this->forge->dropTable("especificacoes",true);
     }
 }

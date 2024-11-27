@@ -68,6 +68,6 @@ class Cliente extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("clientes",true,true);
+        $this->forge->dropTable("clientes",true);
     }
 }

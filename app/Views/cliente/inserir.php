@@ -21,7 +21,8 @@
             <div class="col-2 m-3">
                 <label class="form-label" for="categoria">Categoria</label>
                 <select class="form-select" name="categoria" id="categoria" aria-describedby="info-categoria">
-                    <option selected value=1>Pessoa física - CPF</option>
+                    <option value="">Selecione (Obrigatório)</option>
+                    <option value=1>Pessoa física - CPF</option>
                     <option value=2>Pessoa Jurídica - CNPJ</option>
                 </select>
                 <div class="form-text" id="info-categoria">
@@ -53,6 +54,11 @@
                         <option value="<?= $localidade->idLocalidade ?>"> <?= $localidade->nome . " - " . $localidade->cep ?> </option>
                     <?php endforeach; ?>
                 </select>
+                <div class="form-text" id="info-idLocalidade">
+                    <span class="text-danger">
+                        <?= session()->getFlashdata("errors")["idLocalidade"] ?? "" ?>
+                    </span>
+                </div>
             </div>
 
             <div class="col m-3">

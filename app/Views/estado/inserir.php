@@ -14,7 +14,7 @@
                     placeholder="Informe nome do Estado (Obrigatório)" aria-describedby="info-nome">
                 <div id="info-nome" name="info-nome" class="form-text">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("error")["nome"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["nome"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     placeholder="Informe sigla do estado (Obrigatório)" aria-describedby="info-sigla">
                 <div id="info-sigla" class="form-text">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("error")["sigla"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["sigla"] ?? "" ?>
                     </span>
                 </div>
             </div>

@@ -45,13 +45,19 @@ class MaquinarioController extends BaseController
 
         if (empty($dados["idMaquinario"])|| $dados["idMaquinario"] == "") {
             if ($this->maquinario->save($dados)) {
-                return redirect()->route("maquinario.listar")->with("infoInsercao", $dados["nome"]);
+                return redirect()->route("maquinario.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
+                );
             } else {
                 return redirect()->back()->with("errors", $this->maquinario->errors());
             }
         } else {
             if ($this->maquinario->save($dados)) {
-                return redirect()->route("maquinario.listar")->with("infoAtualizacao", $dados["nome"]);
+                return redirect()->route("maquinario.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso </strong>"
+                );
             } else {
                 return redirect()->back()->with("errors", $this->maquinario->errors());
             }

@@ -31,8 +31,15 @@ class CidadeModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        "idEstado" => "required",
+        "nome" => "required|min_length[5]|max_length[200]"
+    ];
+    protected $validationMessages   = [
+        "idEstado" => [
+            "required" => "O campo estado é requerido."
+        ]
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

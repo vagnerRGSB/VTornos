@@ -19,7 +19,7 @@
                 </select>
                 <div id="info-especificacao" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata()["idEspecificacao"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["idEspecificacao"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                 </select>
                 <div id="info-marca" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("error")["idMarca"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["idMarca"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 </select>
                 <div id="info-modo" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("error")["modo"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["modo"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                     <div class="form-label">
                         <span class="text-danger">
-                            <?= session()->getFlashdata("error")["quantiaEstoque"] ?? "" ?>
+                            <?= session()->getFlashdata("errors")["quantiaEstoque"] ?? "" ?>
                         </span>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                         <div id="info-minimoEstoque" class="form-label">
                             <span class="text-danger">
-                            <?= session()->getFlashdata("error")["minimoEstoque"] ?? "" ?>
+                            <?= session()->getFlashdata("errors")["minimoEstoque"] ?? "" ?>
                             </span>
                         </div>
                 </div>
@@ -84,7 +84,7 @@
                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                         <div id="info-valor" class="form-label">
                             <span class="text-danger" >
-                                <?=session()->getFlashdata("error")["valor"] ?? ""?>
+                                <?=session()->getFlashdata("errors")["valor"] ?? ""?>
                             </span>
                         </div>
                         

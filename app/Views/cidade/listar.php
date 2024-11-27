@@ -66,7 +66,7 @@
                 <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="3" scope="row" class="text-center">Nenhum resgitro foi encontrado no sistema</td>
+                    <th colspan="3" scope="row" class="text-center">Nenhum resgitro foi encontrado no sistema</th>
                 </tr>
             <?php endif ?>
         </tbody>
@@ -76,7 +76,7 @@
     </div>
 </div>
 <!-- MODAL PARA DELETAR -->
-<?php if (!empty($estados)) : ?>
+<?php if (!empty($cidades)) : ?>
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

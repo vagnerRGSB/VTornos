@@ -37,8 +37,24 @@ class ClienteModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        "idLocalidade" => "required",
+        "categoria" => "required",
+        "nome" => "required|min_length[3]|max_length[200]",
+        "cpfCnpj" => "required",
+        "endereco" => "required|min_length[3]|max_length[200]",
+        "numero" => "required",
+        "email" => "valid_email|is_unique[clientes.email]|max_length[200]|min_length[3]",
+        "complemento" => "max_length[200]"
+    ];
+    protected $validationMessages   = [
+        "idLocalidade" => [
+            "required" => "O campo localidade é requerido."
+        ],
+        "cpfCnpj" => [
+            "required" => "O campo cpf ou cnpj é requerido."
+        ]
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

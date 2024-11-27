@@ -53,6 +53,6 @@ class Servico extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("servicos", true, true);
+        $this->forge->dropTable("servicos", true);
     }
 }

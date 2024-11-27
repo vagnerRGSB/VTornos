@@ -42,7 +42,7 @@
             <?php if (!empty($pecas)) : ?>
                 <?php foreach ($pecas as $peca) : ?>
                     <tr>
-                        <td scope="row" class="m-1"><?= $peca->idPeca ?></td>
+                        <th scope="row" class="m-1"><?= $peca->idPeca ?></th>
                         <td class="m-1"><?= $peca->nome ?></td>
                         <td class="text-end">
                             <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

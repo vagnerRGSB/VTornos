@@ -50,7 +50,7 @@ class EstadoController extends BaseController
             if ($this->estado->save($dados)) {
                 return redirect()->route("estado.listar")->with(
                     "info",
-                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso : </strong> " . $dados["nome"]
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso : </strong> "
                 );
             } else {
                 return redirect()->back()->with("errors", $this->estado->errors());
@@ -59,7 +59,7 @@ class EstadoController extends BaseController
             if ($this->estado->save($dados)) {
                 return redirect()->route("estado.listar")->with(
                     "info",
-                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso : </strong> " . $dados["nome"]
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso : </strong> "
                 );
             } else {
                 return redirect()->back()->with("errors", $this->estado->errors());

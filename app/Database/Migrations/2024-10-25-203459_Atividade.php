@@ -31,6 +31,6 @@ class Atividade extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("atividades", true, true);
+        $this->forge->dropTable("atividades", true);
     }
 }

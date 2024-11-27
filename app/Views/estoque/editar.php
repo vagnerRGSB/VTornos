@@ -20,7 +20,7 @@
                 </select>
                 <div id="info-especificacao" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata()["idEspecificacao"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["idEspecificacao"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 </select>
                 <div id="info-marca" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("error")["idMarca"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["idMarca"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 </select>
                 <div id="info-modo" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("error")["modo"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["modo"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                     value="<?= $estoque->quantiaEstoque ?>">
                     <div class="form-label">
                         <span class="text-danger">
-                            <?= session()->getFlashdata("error")["quantiaEstoque"] ?? "" ?>
+                            <?= session()->getFlashdata("errors")["quantiaEstoque"] ?? "" ?>
                         </span>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                         value="<?= $estoque->minimoEstoque ?>">
                         <div id="info-minimoEstoque" class="form-label">
                             <span class="text-danger">
-                            <?= session()->getFlashdata("error")["minimoEstoque"] ?? "" ?>
+                            <?= session()->getFlashdata("errors")["minimoEstoque"] ?? "" ?>
                             </span>
                         </div>
                 </div>
@@ -90,7 +90,7 @@
                         value="<?= $estoque->valor ?>">
                         <div class="form-label">
                             <span>
-                                <?=session()->getFlashdata("error")["valor"] ?? ""?>
+                                <?=session()->getFlashdata("errors")["valor"] ?? ""?>
                             </span>
                         </div>
                         

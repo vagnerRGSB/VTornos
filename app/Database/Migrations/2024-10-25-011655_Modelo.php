@@ -46,6 +46,6 @@ class Modelo extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("modelos",true,true);
+        $this->forge->dropTable("modelos",true);
     }
 }

@@ -36,7 +36,7 @@ class Cidade extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("cidades",true,true);
+        $this->forge->dropTable("cidades",true);
         
     }
 }

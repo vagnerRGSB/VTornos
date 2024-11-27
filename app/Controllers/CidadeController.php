@@ -68,8 +68,7 @@ class CidadeController extends BaseController
             if ($this->cidade->save($dados)) {
                 return redirect()->route("cidade.listar")->with(
                     "info",
-                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso : </strong> " . $dados["nome"],
-                    $dados["nome"]
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong> "
                 );
             } else {
                 return redirect()->back()->with("errors", $this->cidade->errors());
@@ -78,8 +77,7 @@ class CidadeController extends BaseController
             if ($this->cidade->save($dados)) {
                 return redirect()->route("cidade.listar")->with(
                     "info",
-                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso : </strong> ".$dados["nome"],
-                    $dados["nome"]
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso </strong> "
                 );
             } else {
                 return redirect()->back()->with("errors", $this->cidade->errors());

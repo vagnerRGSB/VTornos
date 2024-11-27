@@ -20,12 +20,6 @@ class Serie extends Migration
                 "constraint" => 5,
                 "unsigned" => true
             ],
-            "ano" => [
-                "type" => "int",
-                "constraint" => 5,
-                "unsigned" => true,
-                "null" => true
-            ],
             "descricao" => [
                 "type" => "varchar",
                 "constraint" => 200,
@@ -43,6 +37,6 @@ class Serie extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("series",true,true);
+        $this->forge->dropTable("series",true);
     }
 }

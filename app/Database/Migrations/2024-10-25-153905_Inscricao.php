@@ -61,6 +61,6 @@ class Inscricao extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("inscricoes",true,true);
+        $this->forge->dropTable("inscricoes",true);
     }
 }

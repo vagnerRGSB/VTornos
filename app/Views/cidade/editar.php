@@ -18,7 +18,7 @@
             </select>
             <div id="info-idEstado" class="form-label">
                 <span class="text-danger">
-                <?= session()->getFlashdata("error")["idEstado"] ?? " " ?>
+                <?= session()->getFlashdata("errors")["idEstado"] ?? " " ?>
                 </span>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 value="<?= esc($cidade->nome) ?>">
             <div id="info-nome" class="form-text">
                 <span class="text-danger">
-                    <?= session()->getFlashdata("error")["nome"] ?? "" ?>
+                    <?= session()->getFlashdata("errors")["nome"] ?? "" ?>
                 </span>
             </div>
         </div>

@@ -19,7 +19,7 @@
                 </select>
                 <div id="info-peca" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("erro")["idPeca"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["idPeca"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     value="<?= $especificacao->dimensao ?>">
                 <div id="info-dimensao" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("erro")["dimensao"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["dimensao"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     value="<?= $especificacao->especificacao ?>">
                 <div id="info-espec" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("erro")["especificacao"] ?? " " ?>
+                        <?= session()->getFlashdata("errors")["especificacao"] ?? " " ?>
                     </span>
                 </div>
             </div>

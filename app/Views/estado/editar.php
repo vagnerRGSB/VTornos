@@ -16,7 +16,7 @@
                                         value="<?= $estado->nome ?>">
                                 <div id="info-nome" name="info-nome" class="form-text">
                                         <span class="text-danger">
-                                                <?= session()->getFlashdata("error")["nome"] ?? "" ?>
+                                                <?= session()->getFlashdata("errors")["nome"] ?? "" ?>
                                         </span>
                                 </div>
                         </div>
@@ -27,7 +27,7 @@
                                         value="<?= $estado->sigla ?>">
                                 <div id="info-sigla" class="form-text">
                                         <span class="text-danger">
-                                                <?= session()->getFlashdata("error")["sigla"] ?? "" ?>
+                                                <?= session()->getFlashdata("errors")["sigla"] ?? "" ?>
                                         </span>
                                 </div>
                         </div>

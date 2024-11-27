@@ -137,7 +137,7 @@ class OrcamentoController extends BaseController
         }else{
             return redirect()->back()->with(
                 "errors",
-                $this->orcamento->errors()
+                "<strong> Falha em excluir o registro </strong>"
             );
         }
     }
