@@ -26,7 +26,24 @@ class OrcamentoController extends BaseController
     public function listar(int $idCliente)
     {
         $cliente = $this->cliente->find($idCliente);
-        $orcamentos = $this->orcamento->where("idCliente", $idCliente)->paginate(10);
+        $orcamentos = $this->orcamento->select(
+            "orcamentos.idOrcamento as idOrcamento,
+            marcas.nome as nomeMarca,
+            modelos.nome as nomeModelo,
+            series.descricao as descricaoSerie"
+        )->join(
+            "series",
+            "series.idSerie=orcamentos.idSerie",
+            "inner"
+        )->join(
+            "modelos",
+            "modelos.idModelo=series.idModelo",
+            "inner"
+        )->join(
+            "marcas",
+            "marcas.idMarca=modelos.idMarca",
+            "inner"
+        )->where("idCliente", $idCliente)->orderBy("idOrcamento","desc")->paginate(10);
         $pager = $this->orcamento->pager;
 
         return view("orcamento/listar", [
@@ -57,7 +74,7 @@ class OrcamentoController extends BaseController
             "marcas",
             "marcas.idMarca=modelos.idMarca",
             "inner"
-        )->findAll();
+        )->orderBy("idSerie","asc")->findAll();
 
         return view("orcamento/inserir", [
             "cliente" => $cliente,
@@ -103,10 +120,10 @@ class OrcamentoController extends BaseController
             "idSerie" => $this->request->getPost("idSerie"),
             "observacao" => $this->request->getPost("observacao")
         ];
-        var_dump($dados);die;
+        //var_dump($dados);die;
         if (empty($dados["idOrcamento"])) {
             if ($this->orcamento->save($dados)) {
-                return redirect()->route("listar.cliente")->with(
+                return redirect()->to(base_url("orcamento/listar/".$dados["idCliente"]))->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
                 );

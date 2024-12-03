@@ -386,17 +386,17 @@ $routes->get(
 $routes->get(
     "/cliente/inserir",
     "ClienteController::inserir",
-    ["as"=>"cliente.inserir","filter"=>"auth"]
+    ["as" => "cliente.inserir", "filter" => "auth"]
 );
 $routes->get(
     "/cliente/editar/(:num)",
     "ClienteController::editar/$1",
-    ["as"=>"cliente.editar", "filter" => "auth"]
+    ["as" => "cliente.editar", "filter" => "auth"]
 );
 $routes->post(
     "/cliente/onSave",
     "ClienteController::onSave",
-    ["as"=>"cliente.onSave","filter"=>"auth"]
+    ["as" => "cliente.onSave", "filter" => "auth"]
 );
 $routes->get(
     "/cliente/onDelete/(:num)",
@@ -407,11 +407,11 @@ $routes->get(
 /**
  * ROTAS PARA INCRIÇÕES DOS CLIENTES   
  */
- $routes->get(
+$routes->get(
     "/inscricao-cliente/listar/(:num)",
     "InscricaoController::listar/$1",
-    ["as"=>"inscricao.listar", "filter" => "auth"]
- );
+    ["as" => "inscricao.listar", "filter" => "auth"]
+);
 $routes->get(
     "/inscricao-cliente/inserir/(:num)",
     "InscricaoController::inserir/$1",
@@ -420,17 +420,17 @@ $routes->get(
 $routes->get(
     "/inscricao-cliente/editar/(:num)",
     "InscricaoController::editar/$1",
-    ["as"=>"inscricao.editar", "filter"=>"auth"]
+    ["as" => "inscricao.editar", "filter" => "auth"]
 );
 $routes->post(
     "/inscricao-cliente/onSave",
     "InscricaoController::onSave",
-    ["as"=>"inscricao.onSave", "filter" => "auth"]
+    ["as" => "inscricao.onSave", "filter" => "auth"]
 );
 $routes->get(
     "/inscricao-cliente/onDelete/(:num)",
     "InscricaoController::onDelete/$1",
-    ["as"=>"inscricao.onDelete", "filter" => "auth"]
+    ["as" => "inscricao.onDelete", "filter" => "auth"]
 );
 
 /**
@@ -439,52 +439,79 @@ $routes->get(
 $routes->get(
     "/atividade/listar",
     "AtividadeController::listar",
-    ["as"=>"atividade.listar", "filter" => "auth"]
+    ["as" => "atividade.listar", "filter" => "auth"]
 );
 $routes->get(
     "/atividade/inserir",
     "AtividadeController::inserir",
-    ["as"=>"atividade.inserir", "filter" => "auth"]
+    ["as" => "atividade.inserir", "filter" => "auth"]
 );
 $routes->get(
     "/atividade/editar/(:num)",
     "AtividadeController::editar/$1",
-    ["as"=>"atividade.editar", "filter"=>"auth"]
+    ["as" => "atividade.editar", "filter" => "auth"]
 );
 $routes->post(
     "/atividade/onSave",
     "AtividadeController::onSave",
-    ["as"=>"atividade.onSave","filter"=>"auth"]
+    ["as" => "atividade.onSave", "filter" => "auth"]
 );
 $routes->get(
     "/atividade/onDelete/(:num)",
     "AtividadeController::onDelete/$1",
-    ["as"=>"atividade.onDelete","filter"=>"auth"]
+    ["as" => "atividade.onDelete", "filter" => "auth"]
 );
 
 /**
  * ROTAS PARA ORCAMENTO DE SERVIÇO
  */
 
- $routes->get(
+$routes->get(
     "/orcamento/listar/(:num)",
     "OrcamentoController::listar/$1",
-    ["as"=>"orcamento.listar", "filter"=>"auth"]
- );
- $routes->get(
+    ["as" => "orcamento.listar", "filter" => "auth"]
+);
+$routes->get(
     "/orcamento/inserir/(:num)",
     "OrcamentoController::inserir/$1",
-    ["as"=>"orcamento.inserir","filter"=>"auth"]
- );
- $routes->get(
+    ["as" => "orcamento.inserir", "filter" => "auth"]
+);
+$routes->get(
     "/orcamento/editar/(:num)",
     "OrcamentoController::editar/$1",
-    ["as"=>"orcamento.editar", "filter" => "auth"]
- );
- $routes->post(
+    ["as" => "orcamento.editar", "filter" => "auth"]
+);
+$routes->post(
     "/orcamento/onSave",
     "OrcamentoController::onSave",
-    ["as"=>"orcamento.onSave", "filter" => "auth"]
- );
+    ["as" => "orcamento.onSave", "filter" => "auth"]
+);
 
- 
+/**
+ * SERVIÇOS DOS ORCAMENTOS
+ */
+$routes->get(
+    "servico/listar/(:num)",
+    "ServicoController::listar/$1",
+    ["as" => "servico.listar", "filter" => "auth"]
+);
+$routes->get(
+    "servico/inserir/(:num)",
+    "ServicoController::inserir/$1",
+    ["as" => "servico.inserir", "filter" => "auth"]
+);
+$routes->get(
+    "servico/editar/(:num)",
+    "ServicoController::editar/$1",
+    ["as" => "servico.editar", "filter" => "auth"]
+);
+$routes->post(
+    "servico/onSave",
+    "ServicoController::onSave",
+    ["as" => "servico.onSave", "filter" => "auth"]
+);
+$routes->get(
+    "servico/onDelete/(:num)",
+    "ServicoController::onDelete/$1",
+    ["as" => "servico.onDelete", "filter" => "auth"]
+);

@@ -30,7 +30,7 @@
         <thead>
             <tr>
                 <th scope="col" class="text-start">Código</th>
-                <th scope="col" class="text-start">Série</th>
+                <th scope="col" class="text-start">Maquinário</th>
                 <th scope="col" class="text-end">
                     <a class="btn btn-success btn-sm m-1" href="<?= base_url("orcamento/inserir/".$cliente->idCliente) ?>"> <i class="bi bi-plus"></i> Inserir</a>
                 </th>
@@ -42,14 +42,15 @@
                     <tr>
                         <th scope="row" class="text-start"><?= $orcamento->idOrcamento ?></th>
                         <td>
-                            <?= $orcamento->nomeMaquinario . " " . $orcamento->nomeMarca . " " . $orcamento->nomeModelo . " " . $orcamento->nomeSerie ?>
+                            <?= $orcamento->nomeMarca." ". $orcamento->nomeModelo." ". $orcamento->descricaoSerie?>
                         </td>
-                        <td>
+                        <td class="text-end">
                             <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-three-dots-vertical"></i> Ações
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?= base_url("orcamento/editar/" . $orcamento->idOrcamento) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li><a class="dropdown-item" href=""> <i class="bi bi-list"></i>  Serviços </a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -65,7 +66,7 @@
             <?php endif ?>
         </tbody>
     </table>
-    <div>
+    <div class="m-3">
         <?= $pager->links(); ?>
     </div>
 </div>
