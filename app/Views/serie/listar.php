@@ -12,7 +12,7 @@
 <div class="m-3">
     <?php if (session()->has("info")) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> <i class="bi bi-check"></i> Registro realizado com sucesso : </strong> <?= session()->getFlashdata("infoInsercao") ?>
+            <?= session()->getFlashdata("info") ?>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
@@ -25,13 +25,13 @@
 </div>
 
 <div class="border">
-    <h3 class="h3 text-center m-3"><strong>Lista das Series</strong></h3>
+    <h3 class="h3 text-center m-3"><strong>Lista das Séries</strong></h3>
 
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col" class="text-start">Código</th>
-                <th scope="col" class="text-start">Marca do modelo da serie</th>
+                <th scope="col" class="text-start">Maquinários</th>
                 <th scope="col" class="text-end">
                     <a class="btn btn-success btn-sm m-1" href="<?= url_to("serie.inserir") ?>"> <i class="bi bi-plus"></i> Inserir</a>
                 </th>
@@ -41,7 +41,7 @@
             <?php if (!empty($series)) : ?>
                 <?php foreach ($series as $serie) : ?>
                     <tr>
-                        <td scope="row" class="text-start"> <?= $serie->idSerie ?></td>
+                        <th scope="row" class="text-start"> <?= $serie->idSerie ?></th>
                         <td class="text-start"> <?= $serie->nomeMarca . " " . $serie->nomeModelo . " " . $serie->descricaoSerie ?> </td>
                         <td class="text-end">
                         <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

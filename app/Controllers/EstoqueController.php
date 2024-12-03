@@ -24,9 +24,9 @@ class EstoqueController extends BaseController
     public function listar()
     {
         $estoques = $this->estoque->select(
-            "estoques.idEstoque as idEstoque,
+            "estoques.idEstoque as idEstoque, estoques.valor as valorUnit,
              pecas.nome as nomePeca,
-             especificacoes.dimensao as dimensaoEspec,
+             especificacoes.dimensao as dimensaoEspec, especificacoes.especificacao as especEspec,
              marcas.nome as nomeMarca"
         )->join(
             "especificacoes",
@@ -39,7 +39,7 @@ class EstoqueController extends BaseController
         )->join(
             "pecas",
             "pecas.idPeca=especificacoes.idPeca"
-        )->paginate(10);
+        )->orderBy("idEstoque")->paginate(10);
         $pager = $this->estoque->pager;
 
         return view("estoque/listar", [

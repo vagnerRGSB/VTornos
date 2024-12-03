@@ -35,17 +35,6 @@
                         </span>
                     </div>
                 </div>
-                <div class="col mt-3 mb-3">
-                    <label for="ano" class="form-label">Ano</label>
-                    <input type="number" name="ano" class="form-control" aria-describedby="info-ano" placeholder="Informe Ano (Obrigatório)"
-                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                        value="<?= $serie->ano ?>">
-                    <div id="info-ano" class="form-label">
-                        <span class="text-danger">
-                            <?= session()->getFlashdata("errors")["ano"] ?? "" ?>
-                        </span>
-                    </div>
-                </div>
             </div>
             <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar </button>
             <a class="btn btn-secondary" href="<?= url_to("serie.listar")?>"> <i class="bi bi-list"></i> Series </a>

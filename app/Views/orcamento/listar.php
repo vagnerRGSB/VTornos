@@ -32,7 +32,7 @@
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Série</th>
                 <th scope="col" class="text-end">
-                    <a class="btn btn-success btn-sm m-1" href=""> <i class="bi bi-plus"></i> Inserir</a>
+                    <a class="btn btn-success btn-sm m-1" href="<?= base_url("orcamento/inserir/".$cliente->idCliente) ?>"> <i class="bi bi-plus"></i> Inserir</a>
                 </th>
             </tr>
         </thead>
@@ -49,7 +49,7 @@
                                 <i class="bi bi-three-dots-vertical"></i> Ações
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<?= base_url("marca/editar/" . $marca->idMarca) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url("orcamento/editar/" . $orcamento->idOrcamento) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -69,6 +69,26 @@
         <?= $pager->links(); ?>
     </div>
 </div>
+
+<?php if (!empty($orcamentos)) : ?>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza de que deseja excluir este registro?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <a href="<?= base_url("orcamento/onDelete/" . $orcamento->idOrcamento) ?>" class="btn btn-danger">Deletar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
 
 <?= $this->endSection() ?>
 <?= $this->section("script") ?>

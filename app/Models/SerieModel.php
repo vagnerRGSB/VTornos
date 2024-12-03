@@ -33,7 +33,6 @@ class SerieModel extends Model
     // Validation
     protected $validationRules      = [
         "idModelo" => "required",
-        "ano" => "required",
         "descricao" => "required|max_length[200]|min_length[1]"
     ];
     protected $validationMessages   = [];

@@ -31,7 +31,7 @@ class SerieController extends BaseController
             "marcas",
             "marcas.idMarca=modelos.idMarca",
             "inner"
-        )->paginate(10);
+        )->orderBy("idSerie")->paginate(10);
 
         //var_dump($series);die;
         $pager = $this->serie->pager;
@@ -66,7 +66,6 @@ class SerieController extends BaseController
             "idSerie"   => $this->request->getPost("idSerie"),
             "idModelo"  => $this->request->getPost("idModelo"),
             "descricao" => $this->request->getPost("descricao"),
-            "ano"       => $this->request->getPost("ano")
         ];
 
         //var_dump($dados);die;
@@ -75,7 +74,7 @@ class SerieController extends BaseController
             if ($this->serie->save($dados)) {
                 return redirect()->route("serie.listar")->with(
                     "info",
-                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>" .
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>" .
                 $dados["descricao"]);
             } else {
                 return redirect()->back()->with("errors", $this->serie->errors());
@@ -83,7 +82,7 @@ class SerieController extends BaseController
         } else {
             if ($this->serie->save($dados)) {
                 return redirect()->route("serie.listar")->with("info",
-            "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>".$dados["descricao"]);
+            "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>");
             } else {
                 return redirect()->back()->with("errors", $this->serie->errors());
             }

@@ -39,11 +39,12 @@ class OrcamentoController extends BaseController
     public function inserir(int $idCliente)
     {
         $cliente = $this->cliente->find($idCliente);
+        //var_dump($cliente);die;
         $series = $this->serie->select(
             "maquinarios.nome as nomeMaquinario,
             marcas.nome as nomeMarca,
             modelos.nome as nomeModelo,
-            series.idSerie, series.nome as nomeSerie"
+            series.idSerie, series.descricao as descricaoSerie"
         )->join(
             "modelos",
             "modelos.idModelo=series.idModelo",
@@ -67,11 +68,12 @@ class OrcamentoController extends BaseController
     public function editar(int $idOrcamento)
     {
         $orcamento = $this->orcamento->find($idOrcamento);
+        $cliente = $this->cliente->find($orcamento->idCliente);
         $series = $this->serie->select(
             "maquinarios.nome as nomeMaquinario,
             marcas.nome as nomeMarca,
             modelos.nome as nomeModelo,
-            series.idSerie, series.nome as nomeSerie"
+            series.idSerie, series.descricao as descricaoSerie"
         )->join(
             "modelos",
             "modelos.idModelo=series.idModelo",
@@ -87,8 +89,9 @@ class OrcamentoController extends BaseController
         )->findAll();
 
         return view("orcamento/editar", [
+            "cliente" => $cliente,
             "orcamento" => $orcamento,
-            "series" => $series,
+            "series" => $series
         ]);
     }
 
@@ -100,6 +103,7 @@ class OrcamentoController extends BaseController
             "idSerie" => $this->request->getPost("idSerie"),
             "observacao" => $this->request->getPost("observacao")
         ];
+        var_dump($dados);die;
         if (empty($dados["idOrcamento"])) {
             if ($this->orcamento->save($dados)) {
                 return redirect()->route("listar.cliente")->with(

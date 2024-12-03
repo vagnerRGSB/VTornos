@@ -33,7 +33,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= url_to("localidade.listar") ?>">Gestão localizações das cidades</a>
+            <a class="nav-link" href="<?= url_to("localidade.listar") ?>">Localidades</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?= url_to("cliente.listar") ?>">Gestão serviços dos clientes</a>

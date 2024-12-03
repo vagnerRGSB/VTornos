@@ -112,7 +112,7 @@ class InscricaoController extends BaseController
 
         if (empty($dados["idInscricao"])) {
             if ($this->inscricao->save($dados)) {
-                return redirect()->route("inscricao.listar",$dados["idCliente"])->with(
+                return redirect()->to(base_url("inscricao-cliente/listar/".$dados["idCliente"]))->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
                 );

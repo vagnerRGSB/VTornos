@@ -34,6 +34,7 @@
             <tr>
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Nome</th>
+                <th scope="col" class="text-start">Valor</th>
                 <td scope="col" class="text-end">
                     <a href="<?= url_to("estoque.inserir") ?>" class="btn btn-success btn-sm m-1"> <i class="bi bi-plus"></i> Inserir</a>
                 </td>
@@ -45,7 +46,10 @@
                     <tr>
                         <th scope="row" class="text-start"> <?= $estoque->idEstoque ?> </th>
                         <td class="text-start">
-                            <?= $estoque->nomePeca . " " . $estoque->dimensaoEspec . " " . $estoque->nomeMarca ?>
+                            <?= $estoque->nomePeca . " " . $estoque->dimensaoEspec ." ". $estoque->especEspec ." " . $estoque->nomeMarca ?>
+                        </td>
+                        <td class="text-start">
+                            <?= "R$ ".$estoque->valorUnit ?>
                         </td>
                         <td colspan="3" class="text-end">
                             <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

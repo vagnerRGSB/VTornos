@@ -18,7 +18,7 @@
                 </select>
                 <div id="info-idModelo" class="form-label">
                     <span class="text-danger">
-                        <?= session()->getFlashdata("erro")["idModelo"] ?? "" ?>
+                        <?= session()->getFlashdata("errors")["idModelo"] ?? "" ?>
                     </span>
                 </div>
             </div>
@@ -29,17 +29,7 @@
                         placeholder="Informe descrição (Obrigatório)">
                     <div id="info-descricao" class="form-label">
                         <span class="text-danger">
-                            <?= session()->getFlashdata("erro")["descricao"] ?? "" ?>
-                        </span>
-                    </div>
-                </div>
-                <div class="col mt-3 mb-3">
-                    <label for="ano" class="form-label">Ano</label>
-                    <input type="number" name="ano" class="form-control" aria-describedby="info-ano" placeholder="Informe Ano (Obrigatório)"
-                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
-                    <div id="info-ano" class="form-label">
-                        <span class="text-danger">
-                            <?= session()->getFlashdata("erro")["ano"] ?? "" ?>
+                            <?= session()->getFlashdata("errors")["descricao"] ?? "" ?>
                         </span>
                     </div>
                 </div>
