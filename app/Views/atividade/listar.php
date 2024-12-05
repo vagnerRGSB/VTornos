@@ -43,7 +43,7 @@
                     <tr>
                         <th scope="row" class="text-start"><?= $atividade->idAtividade ?></th>
                         <td class="text-start"><?= $atividade->nome ?></td>
-                        <td class="text-start"><?= $atividade->valor ?></td>
+                        <td class="text-start">R$<?=" ".$atividade->valor ?></td>
                         <td class="text-end">
                         <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-three-dots-vertical"></i> Ações

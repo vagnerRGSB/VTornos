@@ -11,12 +11,14 @@
     </div>
     <form action="<?= url_to("orcamento.onSave") ?>" method="post">
         <input type="hidden" name="idCliente" value="<?= $cliente->idCliente ?>">
+        <input type="hidden" name="idOrcamento" id="idOrcamento" value="<?=$orcamento->idOrcamento?>">
         <div class="m-3">
             <label class="form-label" for="idSerie">Série</label>
             <select class="form-select" name="idSerie" id="idSerie" aria-describedby="info-serie">
                 <option value="">Selecione uma Série (Obrigatório)</option>
                 <?php foreach ($series as $serie) : ?>
-                    <option value="<?= $serie->idSerie ?>">
+                    <option <?= $serie->idSerie==$orcamento->idSerie ? "selected" : "" ?>
+                    value="<?= $serie->idSerie ?>">
                         <?= $serie->nomeMarca . " " . $serie->nomeModelo . " " . $serie->descricaoSerie ?>
                     </option>
                 <?php endforeach; ?>
@@ -30,7 +32,8 @@
         <div class="m-3">
             <label class="form-label" for="observacao">Observação</label>
             <input class="form-control" type="text" name="observacao" id="observacao" placeholder="Informe observação (Opcional)"
-                aria-describedby="info-observacao">
+                aria-describedby="info-observacao"
+                value="<?= $orcamento->observacao ?>">
             <div class="form-text">
                 <span class="text-danger">
                     <?= session()->getFlashdata("errors")["observacao"] ?? "" ?>

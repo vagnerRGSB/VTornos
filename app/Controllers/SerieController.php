@@ -17,8 +17,7 @@ class SerieController extends BaseController
         $this->serie = new SerieModel();
         $this->modelo = new ModeloModel();
     }
-    public function listar()
-    {
+    public function listar(){
         $series = $this->serie->select(
             "series.idSerie as idSerie, series.descricao as descricaoSerie,
             modelos.nome as nomeModelo,
@@ -32,14 +31,10 @@ class SerieController extends BaseController
             "marcas.idMarca=modelos.idMarca",
             "inner"
         )->orderBy("idSerie")->paginate(10);
-
-        //var_dump($series);die;
         $pager = $this->serie->pager;
-
         return view("serie/listar", [
             "series" => $series,
-            "pager" => $pager
-        ]);
+            "pager" => $pager]);
     }
     public function inserir()
     {

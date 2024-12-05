@@ -25,7 +25,7 @@
 </div>
 
 <div class="border">
-    <h3 class="h3 text-center"><strong>Lista Orcamento</strong></h3>
+    <h3 class="h3 text-center"><strong>Lista Orçamentos</strong></h3>
     <table class="table table-striped table-sm">
         <thead>
             <tr>
@@ -50,7 +50,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?= base_url("orcamento/editar/" . $orcamento->idOrcamento) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
-                                <li><a class="dropdown-item" href=""> <i class="bi bi-list"></i>  Serviços </a></li>
+                                <li><a class="dropdown-item" href="<?= base_url("servico/listar/" . $orcamento->idOrcamento) ?>"> <i class="bi bi-list"></i>  Serviços </a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

@@ -135,7 +135,7 @@ class OrcamentoController extends BaseController
             }
         } else {
             if ($this->orcamento->save($dados)) {
-                return redirect()->route("listar.cliente")->with(
+                return redirect()->to(base_url("orcamento/listar/".$dados["idCliente"]))->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso </strong>"
                 );
