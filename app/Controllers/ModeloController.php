@@ -38,6 +38,9 @@ class ModeloController extends BaseController
         return view("modelo/listar", [
             "modelos" => $modelos,
             "pager" => $pager
+        ], [
+            "cache" => 60,
+            "cache_name" => "listar_modelo"
         ]);
     }
 
@@ -46,10 +49,17 @@ class ModeloController extends BaseController
         $maquinarios = $this->maquinario->findAll();
         $marcas = $this->marca->findAll();
 
-        return view("modelo/inserir", [
-            "marcas" => $marcas,
-            "maquinarios" => $maquinarios
-        ]);
+        return view(
+            "modelo/inserir",
+            [
+                "marcas" => $marcas,
+                "maquinarios" => $maquinarios
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_modelo"
+            ]
+        );
     }
 
     public function editar(int $param)
@@ -58,11 +68,18 @@ class ModeloController extends BaseController
         $marcas = $this->marca->findAll();
         $maquinarios = $this->maquinario->findAll();
 
-        return view("modelo/editar",[
-            "modelo" => $modelo,
-            "marcas" => $marcas,
-            "maquinarios" => $maquinarios
-        ]);
+        return view(
+            "modelo/editar",
+            [
+                "modelo" => $modelo,
+                "marcas" => $marcas,
+                "maquinarios" => $maquinarios
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_modelo"
+            ]
+        );
     }
 
     public function onSave()
@@ -73,36 +90,37 @@ class ModeloController extends BaseController
             "idMaquinario" => $this->request->getPost("idMaquinario"),
             "nome" => $this->request->getPost("nome")
         ];
-        if(empty($dados["idModelo"]) || $dados["idModelo"] == ""){
-            if($this->modelo->save($dados)){
+        if (empty($dados["idModelo"]) || $dados["idModelo"] == "") {
+            if ($this->modelo->save($dados)) {
                 return redirect()->route("modelo.listar")->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
                 );
-            }else{
-                return redirect()->back()->with("errors",$this->modelo->errors());
+            } else {
+                return redirect()->back()->with("errors", $this->modelo->errors());
             }
-        }else{
-            if($this->modelo->save($dados)){
+        } else {
+            if ($this->modelo->save($dados)) {
                 return redirect()->route("modelo.listar")->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso </strong>"
                 );
-            }else{
-                return redirect()->back()->with("errors",$this->modelo->errors());
+            } else {
+                return redirect()->back()->with("errors", $this->modelo->errors());
             }
         }
     }
 
-    public function onDelete(int $param){
+    public function onDelete(int $param)
+    {
 
         //var_dump($param);die;
-        if($this->modelo->delete($param)){
+        if ($this->modelo->delete($param)) {
             return redirect()->route("modelo.listar")->with(
                 "info",
                 "<strong> <i class='bi bi-check-circle-fill'></i> Exclusão realizada com sucesso </strong>"
             );
-        }else{
+        } else {
             return redirect()->route("modelo.listar")->with(
                 "errors",
                 "Falha em excluir o registro"

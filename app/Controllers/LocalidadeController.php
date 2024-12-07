@@ -37,6 +37,9 @@ class LocalidadeController extends BaseController
         return view("localidade/listar", [
             "localidades" => $localidades,
             "pager" => $pager
+        ], [
+            "cache" => 60,
+            "cache_name" => "listar_localidade"
         ]);
     }
     public function inserir()
@@ -50,9 +53,16 @@ class LocalidadeController extends BaseController
             "inner"
         )->findAll();
 
-        return view("localidade/inserir", [
-            "cidades" => $cidades
-        ]);
+        return view(
+            "localidade/inserir",
+            [
+                "cidades" => $cidades
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_localidade"
+            ]
+        );
     }
     public function editar(int $param)
     {
@@ -65,10 +75,17 @@ class LocalidadeController extends BaseController
             "estados.idEstado=cidades.idEstado",
             "inner"
         )->findAll();
-        return view("localidade/editar", [
-            "localidade" => $localidade,
-            "cidades" => $cidades
-        ]);
+        return view(
+            "localidade/editar",
+            [
+                "localidade" => $localidade,
+                "cidades" => $cidades
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_localidade"
+            ]
+        );
     }
     public function onSave()
     {
@@ -80,25 +97,31 @@ class LocalidadeController extends BaseController
             "cep" => $this->request->getPost("cep")
         ];
 
-       if(empty($dados["idLocalidae"])){
-        if($this->localidade->save($dados)){
-            return redirect()->route("localidade.listar")->with("info",
-            "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada como sucesso </strong>");
-        }else{
-            return redirect()->back()->withInput()->with("errors",$this->localidade->errors());
+        if (empty($dados["idLocalidae"])) {
+            if ($this->localidade->save($dados)) {
+                return redirect()->route("localidade.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada como sucesso </strong>"
+                );
+            } else {
+                return redirect()->back()->withInput()->with("errors", $this->localidade->errors());
+            }
+        } else {
+            if ($this->localidade->save($dados)) {
+                return redirect()->route("localidade.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada como sucesso </strong>"
+                );
+            } else {
+                return redirect()->back()->withInput()->with("errors", $this->localidade->errors());
+            }
         }
-       }else{
-        if($this->localidade->save($dados)){
-            return redirect()->route("localidade.listar")->with("info",
-            "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada como sucesso </strong>");
-        }else{
-            return redirect()->back()->withInput()->with("errors",$this->localidade->errors());
-        }
-       }
     }
     public function onDelete(int $param)
     {
 
         $localidade = $this->localidade->find($param);
+
+        
     }
 }

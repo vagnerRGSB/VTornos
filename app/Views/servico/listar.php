@@ -6,9 +6,18 @@
 <div class="border mt-3">
     <h5 class="h5 text-center m-3"><strong>Informações sobre Ordem Serviço</strong></h4>
     <div class="row">
-        <div class="col-2 m-3">
-            <label class="form-label" for="idOrcamento">Código do orçamento</label>
+        <div class="col-1 m-3">
+            <label class="form-label" for="idOrcamento">Código</label>
             <input class="form-control" type="text" name="idOrcamento" id="idOrcamento" disabled value="<?= $orcamento->idOrcamento ?>">
+        </div>
+        <div class="col m-3">
+            <label class="form-label" for="nomeCliente">Maquinário</label>
+            <input class="form-control" type="text" name="nomeCliente" id="nomeCliente" disabled 
+            value="<?= $maquinario->nomeMarca." ". $maquinario->nomeModelo." ".$maquinario->descricaoSerie ?>">
+        </div>
+        <div class="col m-3">
+            <label class="form-label" for="nomeCliente">Cliente</label>
+            <input class="form-control" type="text" name="nomeCliente" id="nomeCliente" disabled value="<?= $cliente->nome ?>">
         </div>
     </div>
 </div>
@@ -19,9 +28,9 @@
             <tr>
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Data</th>
-                <th scope="col" class="text-start">Descrição</th>
+                <th scope="col" class="text-start">Título</th>
                 <th scope="col" class="text-end">
-                    <a class="btn btn-success btn-sm" href=""> <i class="bi bi-plus"></i> Inserir</a>
+                    <a class="btn btn-success btn-sm" href="<?= base_url("servico/inserir/".$orcamento->idOrcamento) ?>"> <i class="bi bi-plus"></i> Inserir</a>
                 </th>
             </tr>
         </thead>

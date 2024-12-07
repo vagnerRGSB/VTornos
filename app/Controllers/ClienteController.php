@@ -21,18 +21,32 @@ class ClienteController extends BaseController
     {
         $clientes = $this->cliente->paginate(10);
         $pager = $this->cliente->pager;
-        return view("cliente/listar",[
-            "clientes" => $clientes,
-            "pager" => $pager
-        ]);
+        return view(
+            "cliente/listar",
+            [
+                "clientes" => $clientes,
+                "pager" => $pager
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar_cliente"
+            ]
+        );
     }
     public function inserir()
     {
 
         $localidades = $this->localidade->findAll();
-        return view("cliente/inserir", [
-            "localidades" => $localidades
-        ]);
+        return view(
+            "cliente/inserir",
+            [
+                "localidades" => $localidades
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_cliente"
+            ]
+        );
     }
     public function editar(int $param)
     {
@@ -42,13 +56,21 @@ class ClienteController extends BaseController
 
         //var_dump($cliente);die;
 
-        return view("cliente/editar", [
-            "cliente" => $cliente,
-            "localidades" => $localidades
-        ]);
+        return view(
+            "cliente/editar",
+            [
+                "cliente" => $cliente,
+                "localidades" => $localidades
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_cliente"
+            ]
+        );
     }
 
-    public function onSave(){
+    public function onSave()
+    {
         //inputs estáticos
         $dados_cliente = [
             "idCliente" => $this->request->getPost("idCliente"),
@@ -63,25 +85,25 @@ class ClienteController extends BaseController
         ];
         //var_dump($dados_cliente);die;
 
-        if(empty($dados_cliente["idCliente"])){
-            if($this->cliente->save($dados_cliente)){
+        if (empty($dados_cliente["idCliente"])) {
+            if ($this->cliente->save($dados_cliente)) {
                 return redirect()->route("cliente.listar")->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong> "
                 );
-            }else{
+            } else {
                 return redirect()->back()->with(
                     "errors",
                     $this->cliente->errors()
                 );
             }
-        }else{
-            if($this->cliente->save($dados_cliente)){
+        } else {
+            if ($this->cliente->save($dados_cliente)) {
                 return redirect()->route("cliente.listar")->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso </strong>"
                 );
-            }else{
+            } else {
                 return redirect()->back()->with(
                     "errors",
                     $this->cliente->errors()
@@ -91,17 +113,17 @@ class ClienteController extends BaseController
 
         // <PENSAR COMO ATRIBUIR OS DADOS DA INSCRIção QUE SÃO GERADOS DINAMICAMENTE>
 
-        
+
     }
 
     public function onDelete(int $param)
     {
-        if($this->cliente->delete($param)){
+        if ($this->cliente->delete($param)) {
             return redirect()->route("cliente.listar")->with(
                 "info",
                 "<strong> <i class='bi bi-check-circle-fill'></i> Remoção realizada com sucesso </strong>"
             );
-        }else{
+        } else {
             return redirect()->back()->with(
                 "errors",
                 "<strong> <i class='bi bi-bug'></i> Falha em realizar a exclusão! </strong>"

@@ -19,21 +19,42 @@ class AtividadeController extends BaseController
     {
         $atividades = $this->atividade->paginate(10);
         $pager = $this->atividade->pager;
-        return view("atividade/listar", [
-            "atividades" => $atividades,
-            "pager" => $pager
-        ]);
+        return view(
+            "atividade/listar",
+            [
+                "atividades" => $atividades,
+                "pager" => $pager
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar_atividade"
+            ]
+        );
     }
     public function inserir()
     {
-        return view("atividade/inserir");
+        return view(
+            "atividade/inserir",
+            [],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_atividade"
+            ]
+        );
     }
     public function editar(int $param)
     {
         $atividade = $this->atividade->find($param);
-        return view("atividade/editar", [
-            "atividade" => $atividade
-        ]);
+        return view(
+            "atividade/editar",
+            [
+                "atividade" => $atividade
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_atividade"
+            ]
+        );
     }
 
     public function onSave()
@@ -70,13 +91,14 @@ class AtividadeController extends BaseController
         }
     }
 
-    public function onDelete(int $param){
-        if($this->atividade->delete($param)){
+    public function onDelete(int $param)
+    {
+        if ($this->atividade->delete($param)) {
             return redirect()->route("atividade.listar")->with(
                 "info",
                 "<strong> <i class='bi bi-check-circle-fill'></i> Exclusão realizada com sucesso </strong>"
             );
-        }else{
+        } else {
             return redirect()->back()->with(
                 "errors",
                 $this->atividade->errors()

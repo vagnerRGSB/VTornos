@@ -30,19 +30,33 @@ class CidadeController extends BaseController
         )->paginate(10);
         $pager = $this->cidade->pager;
 
-        return view("cidade/listar", [
-            "cidades" => $cidades,
-            "pager" => $pager
-        ]);
+        return view(
+            "cidade/listar",
+            [
+                "cidades" => $cidades,
+                "pager" => $pager
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar_cidade"
+            ]
+        );
     }
 
     public function inserir()
     {
         $estados = $this->estado->findAll();
 
-        return view("cidade/inserir", [
-            "estados" => $estados
-        ]);
+        return view(
+            "cidade/inserir",
+            [
+                "estados" => $estados
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_cidade"
+            ]
+        );
     }
 
     public function editar(int $param)
@@ -50,10 +64,17 @@ class CidadeController extends BaseController
         $cidade = $this->cidade->find($param);
         $estados = $this->estado->findAll();
 
-        return view("cidade/editar", [
-            "cidade" => $cidade,
-            "estados" => $estados
-        ]);
+        return view(
+            "cidade/editar",
+            [
+                "cidade" => $cidade,
+                "estados" => $estados
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_cidade"
+            ]
+        );
     }
 
     public function onSave()

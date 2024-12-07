@@ -19,22 +19,43 @@ class MaquinarioController extends BaseController
         $maquinarios = $this->maquinario->paginate(10);
         $pager = $this->maquinario->pager;
 
-        return view("maquinario/listar", [
-            "maquinarios" => $maquinarios,
-            "pager" => $pager
-        ]);
+        return view(
+            "maquinario/listar",
+            [
+                "maquinarios" => $maquinarios,
+                "pager" => $pager
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar_maquinario"
+            ]
+        );
     }
     public function inserir()
     {
-        return view("maquinario/inserir");
+        return view(
+            "maquinario/inserir",
+            [],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_maquinario"
+            ]
+        );
     }
     public function editar(int $param)
     {
         $maquinario = $this->maquinario->find($param);
 
-        return view("maquinario/editar", [
-            "maquinario" => $maquinario
-        ]);
+        return view(
+            "maquinario/editar",
+            [
+                "maquinario" => $maquinario
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_maquinario"
+            ]
+        );
     }
     public function onSave()
     {
@@ -43,7 +64,7 @@ class MaquinarioController extends BaseController
             "nome" => $this->request->getPost("nome")
         ];
 
-        if (empty($dados["idMaquinario"])|| $dados["idMaquinario"] == "") {
+        if (empty($dados["idMaquinario"]) || $dados["idMaquinario"] == "") {
             if ($this->maquinario->save($dados)) {
                 return redirect()->route("maquinario.listar")->with(
                     "info",
@@ -64,15 +85,14 @@ class MaquinarioController extends BaseController
         }
     }
 
-    public function onDelete(int $param){
+    public function onDelete(int $param)
+    {
         $dados = $this->maquinario->find($param);
 
-        if($this->maquinario->delete($param)){
+        if ($this->maquinario->delete($param)) {
             return redirect()->route("maquinario.listar");
-        }else{
+        } else {
             return redirect()->route("maquinario.listar");
         }
     }
-
-
 }

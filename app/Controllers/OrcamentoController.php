@@ -43,14 +43,21 @@ class OrcamentoController extends BaseController
             "marcas",
             "marcas.idMarca=modelos.idMarca",
             "inner"
-        )->where("idCliente", $idCliente)->orderBy("idOrcamento","desc")->paginate(10);
+        )->where("idCliente", $idCliente)->orderBy("idOrcamento", "desc")->paginate(10);
         $pager = $this->orcamento->pager;
 
-        return view("orcamento/listar", [
-            "cliente" => $cliente,
-            "orcamentos" => $orcamentos,
-            "pager" => $pager
-        ]);
+        return view(
+            "orcamento/listar",
+            [
+                "cliente" => $cliente,
+                "orcamentos" => $orcamentos,
+                "pager" => $pager
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar_orcamento"
+            ]
+        );
     }
 
     public function inserir(int $idCliente)
@@ -74,12 +81,19 @@ class OrcamentoController extends BaseController
             "marcas",
             "marcas.idMarca=modelos.idMarca",
             "inner"
-        )->orderBy("idSerie","asc")->findAll();
+        )->orderBy("idSerie", "asc")->findAll();
 
-        return view("orcamento/inserir", [
-            "cliente" => $cliente,
-            "series" => $series
-        ]);
+        return view(
+            "orcamento/inserir",
+            [
+                "cliente" => $cliente,
+                "series" => $series
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_orcamento"
+            ]
+        );
     }
 
     public function editar(int $idOrcamento)
@@ -105,11 +119,18 @@ class OrcamentoController extends BaseController
             "inner"
         )->findAll();
 
-        return view("orcamento/editar", [
-            "cliente" => $cliente,
-            "orcamento" => $orcamento,
-            "series" => $series
-        ]);
+        return view(
+            "orcamento/editar",
+            [
+                "cliente" => $cliente,
+                "orcamento" => $orcamento,
+                "series" => $series
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_orcamento"
+            ]
+        );
     }
 
     public function onSave()
@@ -123,7 +144,7 @@ class OrcamentoController extends BaseController
         //var_dump($dados);die;
         if (empty($dados["idOrcamento"])) {
             if ($this->orcamento->save($dados)) {
-                return redirect()->to(base_url("orcamento/listar/".$dados["idCliente"]))->with(
+                return redirect()->to(base_url("orcamento/listar/" . $dados["idCliente"]))->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
                 );
@@ -135,7 +156,7 @@ class OrcamentoController extends BaseController
             }
         } else {
             if ($this->orcamento->save($dados)) {
-                return redirect()->to(base_url("orcamento/listar/".$dados["idCliente"]))->with(
+                return redirect()->to(base_url("orcamento/listar/" . $dados["idCliente"]))->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso </strong>"
                 );
@@ -150,12 +171,12 @@ class OrcamentoController extends BaseController
 
     public function onDelete(int $idOrcamento)
     {
-        if($this->orcamento->delete($idOrcamento)){
+        if ($this->orcamento->delete($idOrcamento)) {
             return redirect()->route("cliente.listar")->with(
                 "info",
                 "<strong><i class=1bi bi-check-circle-fill1></i> Exclusão realizada com sucesso </strong>"
             );
-        }else{
+        } else {
             return redirect()->back()->with(
                 "errors",
                 "<strong> Falha em excluir o registro </strong>"

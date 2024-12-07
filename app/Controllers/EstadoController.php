@@ -18,22 +18,39 @@ class EstadoController extends BaseController
     {
         $estados = $this->estado->paginate(10);
         $pager = $this->estado->pager;
-        return view("estado/listar", [
-            "estados" => $estados,
-            "pager" => $pager
-        ]);
+        return view(
+            "estado/listar",
+            [
+                "estados" => $estados,
+                "pager" => $pager
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar_estado"
+            ]
+        );
     }
     public function inserir()
     {
 
-        return view("estado/inserir");
+        return view(
+            "estado/inserir",
+            [],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_estado"
+            ]
+        );
     }
     public function editar(int $param)
     {
         $estado = $this->estado->find($param);
         //var_dump($dados);die;
-        return view("estado/editar",[
+        return view("estado/editar", [
             "estado" => $estado
+        ], [
+            "cache" => 60,
+            "cache_name" => "editar_estado"
         ]);
     }
     public function onSave()

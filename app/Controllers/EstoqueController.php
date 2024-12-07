@@ -42,10 +42,17 @@ class EstoqueController extends BaseController
         )->orderBy("idEstoque")->paginate(10);
         $pager = $this->estoque->pager;
 
-        return view("estoque/listar", [
-            "estoques" => $estoques,
-            "pager" => $pager
-        ]);
+        return view(
+            "estoque/listar",
+            [
+                "estoques" => $estoques,
+                "pager" => $pager
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar.estoque"
+            ]
+        );
     }
 
     public function inserir()
@@ -61,10 +68,17 @@ class EstoqueController extends BaseController
             "inner"
         )->findAll();
 
-        return view("estoque/inserir", [
-            "marcas" => $marcas,
-            "especificacoes" => $especificacoes
-        ]);
+        return view(
+            "estoque/inserir",
+            [
+                "marcas" => $marcas,
+                "especificacoes" => $especificacoes
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_estoque"
+            ]
+        );
     }
 
     public function editar(int $param)
@@ -79,11 +93,18 @@ class EstoqueController extends BaseController
             "especificacoes.idPeca=pecas.idPeca",
             "inner"
         )->findAll();
-        return view("estoque/editar", [
-            "estoque" => $estoque,
-            "marcas" => $marcas,
-            "especificacoes" => $especificacoes
-        ]);
+        return view(
+            "estoque/editar",
+            [
+                "estoque" => $estoque,
+                "marcas" => $marcas,
+                "especificacoes" => $especificacoes
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_estoque"
+            ]
+        );
     }
 
     public function onSave()

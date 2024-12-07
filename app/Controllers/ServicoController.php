@@ -44,7 +44,7 @@ class ServicoController extends BaseController
             "marcas.idMarca=modelos.idMarca",
             "inner"
         )->find($idOrcamento);
-        $cliente = $this->cliente->select("nome")->find($orcamento->idCliente);
+        $cliente = $this->cliente->select("idCliente,nome")->find($orcamento->idCliente);
         $servicos = $this->servico->where("idOrcamento", $orcamento->idOrcamento)->paginate(10);
         $pager = $this->servico->pager;
 
@@ -60,13 +60,13 @@ class ServicoController extends BaseController
     }
     public function inserir(int $idOrcamento) {
         $orcamento = $this->orcamento->find($idOrcamento);
-        $servicos = $this->servico->where("idOrcamento",)->findAll();
+        $atividades = $this->atividade->findAll();
         
 
         return view(
-            "servico/listar",[
+            "servico/inserir",[
                 "orcamento" => $orcamento,
-                "servicos" => $servicos
+                "atividades" => $atividades
             ]
         );
     }

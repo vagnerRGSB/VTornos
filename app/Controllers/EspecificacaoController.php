@@ -37,15 +37,25 @@ class EspecificacaoController extends BaseController
         return view("especificacao/listar", [
             "especificacoes" => $especificacoes,
             "pager" => $pager
+        ], [
+            "cache" => 60,
+            "cache_name" => "listar_especificacao"
         ]);
     }
 
     public function inserir()
     {
         $pecas = $this->peca->findAll();
-        return view("especificacao/inserir", [
-            "pecas" => $pecas
-        ]);
+        return view(
+            "especificacao/inserir",
+            [
+                "pecas" => $pecas
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_especificacao"
+            ]
+        );
     }
 
     public function editar(int $param)
@@ -55,7 +65,11 @@ class EspecificacaoController extends BaseController
         return view("especificacao/editar", [
             "pecas" => $pecas,
             "especificacao" => $especificacao
-        ]);
+        ],
+    [
+        "cache"=>60,
+        "cache_name"=>"editar_especificacao"
+    ]);
     }
 
     public function onSave()
@@ -73,8 +87,8 @@ class EspecificacaoController extends BaseController
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
                 );
-            }else{
-                return redirect()->back()->with("errors",$this->especificacao->errors());
+            } else {
+                return redirect()->back()->with("errors", $this->especificacao->errors());
             }
         } else {
             if ($this->especificacao->save($dados)) {
@@ -82,8 +96,8 @@ class EspecificacaoController extends BaseController
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'> </i> Atualização realizada com sucesso </strong>"
                 );
-            }else{
-                return redirect()->back()->with("errors",$this->especificacao->errors());
+            } else {
+                return redirect()->back()->with("errors", $this->especificacao->errors());
             }
         }
     }
@@ -92,8 +106,8 @@ class EspecificacaoController extends BaseController
     {
         $dados = $this->especificacao->find($param);
 
-        if($this->especificacao->delete($param)){
-            return redirect()->route("especificacao.listar")->with("infoExclusao",$dados->especificacao);
+        if ($this->especificacao->delete($param)) {
+            return redirect()->route("especificacao.listar")->with("infoExclusao", $dados->especificacao);
         }
     }
 }

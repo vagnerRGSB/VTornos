@@ -17,7 +17,8 @@ class SerieController extends BaseController
         $this->serie = new SerieModel();
         $this->modelo = new ModeloModel();
     }
-    public function listar(){
+    public function listar()
+    {
         $series = $this->serie->select(
             "series.idSerie as idSerie, series.descricao as descricaoSerie,
             modelos.nome as nomeModelo,
@@ -32,16 +33,31 @@ class SerieController extends BaseController
             "inner"
         )->orderBy("idSerie")->paginate(10);
         $pager = $this->serie->pager;
-        return view("serie/listar", [
-            "series" => $series,
-            "pager" => $pager]);
+        return view(
+            "serie/listar",
+            [
+                "series" => $series,
+                "pager" => $pager
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar_serie"
+            ]
+        );
     }
     public function inserir()
     {
         $modelos = $this->modelo->findAll();
-        return view("serie/inserir", [
-            "modelos" => $modelos
-        ]);
+        return view(
+            "serie/inserir",
+            [
+                "modelos" => $modelos
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_serie"
+            ]
+        );
     }
 
     public function editar(int $param)
@@ -52,6 +68,9 @@ class SerieController extends BaseController
         return view("serie/editar", [
             "serie" => $serie,
             "modelos" => $modelos
+        ], [
+            "cache" => 60,
+            "cache_name" => "editar_serie"
         ]);
     }
 
@@ -70,14 +89,17 @@ class SerieController extends BaseController
                 return redirect()->route("serie.listar")->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>" .
-                $dados["descricao"]);
+                        $dados["descricao"]
+                );
             } else {
                 return redirect()->back()->with("errors", $this->serie->errors());
             }
         } else {
             if ($this->serie->save($dados)) {
-                return redirect()->route("serie.listar")->with("info",
-            "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>");
+                return redirect()->route("serie.listar")->with(
+                    "info",
+                    "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
+                );
             } else {
                 return redirect()->back()->with("errors", $this->serie->errors());
             }

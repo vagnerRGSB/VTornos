@@ -22,35 +22,49 @@ class UsuarioController extends BaseController
         return view("usuario/listarTodosUsuarios", [
             "usuarios" => $usuarios,
             "pager" => $pager
+        ], [
+            "cache" => 60,
+            "cache_name" => "listar_todos_usuarios"
         ]);
     }
-    public function editarMeuPerfil() {
+    public function editarMeuPerfil()
+    {
 
         $validator = $this->validate([
             "nome" => "required|max_length[200]|min_length[3]",
             "senha" => "required|max_length[8]|min_length[3]"
         ]);
-        if(!$validator){
+        if (!$validator) {
             return redirect()->back()->with("errors", $this->validator->getErrors());
-        }else{
-            
+        } else {
         }
-
     }
-    public function alterarMinhaSenha() {
-
-    }
+    public function alterarMinhaSenha() {}
     public function inserir()
     {
-        return view("usuario/inserir");
+        return view(
+            "usuario/inserir",
+            [],
+            [
+                "cache" => 60,
+                "cache_name" => "alterar_senha"
+            ]
+        );
     }
     public function editar(int $param)
     {
         $editar = $this->usuario->find($param);
 
-        return view("usuario/editar", [
-            "usuario" => $editar
-        ]);
+        return view(
+            "usuario/editar",
+            [
+                "usuario" => $editar
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_usuario"
+            ]
+        );
     }
 
     public function onSave()
@@ -81,10 +95,11 @@ class UsuarioController extends BaseController
         }
     }
 
-    public function onDelete(int $param){
-        if($this->usuario->delete($param)){
+    public function onDelete(int $param)
+    {
+        if ($this->usuario->delete($param)) {
             return redirect()->route("usuario.listar");
-        }else{
+        } else {
             return redirect()->route("usuario.listar");
         }
     }

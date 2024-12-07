@@ -16,7 +16,10 @@ class LoginController extends BaseController
     }
     public function telaLogin()
     {
-        return view("layouts/pag_login");
+        return view("layouts/pag_login",[],[
+            "cache"=>60,
+            "cache_name"=>"tela_login"
+        ]);
     }
 
     public function onLogin(){

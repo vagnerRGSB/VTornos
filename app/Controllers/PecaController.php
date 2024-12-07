@@ -18,16 +18,27 @@ class PecaController extends BaseController
     {
         $pecas = $this->peca->paginate(10);
         $pager = $this->peca->pager;
-        return view("peca/listar", [
-            "pecas" => $pecas,
-            "pager" => $pager
-        ]);
+        return view(
+            "peca/listar",
+            [
+                "pecas" => $pecas,
+                "pager" => $pager
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar_peca"
+            ]
+        );
     }
 
     public function inserir()
     {
 
-        return view("peca/inserir");
+        return view("peca/inserir",[],
+    [
+        "cache"=>60,
+        "cache_name"=>"inserir_peca"
+    ]);
     }
 
     public function editar(int $param)
@@ -36,6 +47,9 @@ class PecaController extends BaseController
         $peca = $this->peca->find($param);
         return view("peca/editar", [
             "peca" => $peca
+        ],[
+            "cache"=>60,
+            "cache_name"=>"editar_peca"
         ]);
     }
 

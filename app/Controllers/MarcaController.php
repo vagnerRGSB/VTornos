@@ -20,56 +20,81 @@ class MarcaController extends BaseController
         $marcas = $this->marca->paginate(10);
         $pager = $this->marca->pager;
 
-        return view("marca/listar",[
-            "marcas" => $marcas,
-            "pager" => $pager
-        ]);
+        return view(
+            "marca/listar",
+            [
+                "marcas" => $marcas,
+                "pager" => $pager
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar_marca"
+            ]
+        );
     }
-    public function inserir(){
+    public function inserir()
+    {
 
-        return view("marca/inserir");
+        return view(
+            "marca/inserir",
+            [],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_marca"
+            ]
+        );
     }
 
-    public function editar(int $param){
+    public function editar(int $param)
+    {
 
         $marca = $this->marca->find($param);
 
-        return view("marca/editar",[
-            "marca" => $marca
-        ]);
+        return view(
+            "marca/editar",
+            [
+                "marca" => $marca
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_marca"
+            ]
+        );
     }
 
-    public function onSave(){
+    public function onSave()
+    {
         $dados = [
             "idMarca" => $this->request->getPost("idMarca"),
             "nome" => $this->request->getPost("nome")
         ];
 
-        if(empty($dados["idMarca"])){
-            if($this->marca->save($dados)){
+        if (empty($dados["idMarca"])) {
+            if ($this->marca->save($dados)) {
                 return redirect()->route("marca.listar")->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso: </strong>"
                 );
-            }else{
+            } else {
                 return redirect()->back()->with("errors", $this->marca->errors());
             }
-        }else{
-            if($this->marca->save($dados)){
+        } else {
+            if ($this->marca->save($dados)) {
                 return redirect()->route("marca.listar")->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso: </strong>"
                 );
-            }else{
+            } else {
                 return redirect()->back()->with("errors", $this->marca->errors());
             }
         }
     }
 
-    public function onDelete( int $param){
-        if($this->marca->delete($param)){
+    public function onDelete(int $param)
+    {
+        if ($this->marca->delete($param)) {
             return redirect()->route("marca.listar");
-        }else{
+        } else {
             return redirect()->route("marca.listar");
         }
     }

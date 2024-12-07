@@ -42,11 +42,18 @@ class InscricaoController extends BaseController
         )->where("idCliente", $idCliente)->paginate(10);
         $pager = $this->inscricao->pager;
         //var_dump($inscricoes);die;
-        return view("inscricao/listar", [
-            "inscricoes" => $inscricoes,
-            "pager" => $pager,
-            "cliente" => $cliente
-        ]);
+        return view(
+            "inscricao/listar",
+            [
+                "inscricoes" => $inscricoes,
+                "pager" => $pager,
+                "cliente" => $cliente
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "listar_incricao"
+            ]
+        );
     }
 
     public function inserir(int $idCliente)
@@ -66,10 +73,17 @@ class InscricaoController extends BaseController
             "inner"
         )->findAll();
 
-        return view("inscricao/inserir", [
-            "cliente" => $cliente,
-            "localidades" => $localidades
-        ]);
+        return view(
+            "inscricao/inserir",
+            [
+                "cliente" => $cliente,
+                "localidades" => $localidades
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "inserir_inscricao"
+            ]
+        );
     }
 
     public function editar(int $idInscricao)
@@ -90,11 +104,18 @@ class InscricaoController extends BaseController
         $inscricao = $this->inscricao->find($idInscricao);
         $cliente = $this->cliente->find($inscricao->idCliente);
 
-        return view("inscricao/editar", [
-            "localidades" => $localidades,
-            "inscricao" => $inscricao,
-            "cliente" => $cliente
-        ]);
+        return view(
+            "inscricao/editar",
+            [
+                "localidades" => $localidades,
+                "inscricao" => $inscricao,
+                "cliente" => $cliente
+            ],
+            [
+                "cache" => 60,
+                "cache_name" => "editar_inscricao"
+            ]
+        );
     }
 
     public function onSave()
@@ -112,7 +133,7 @@ class InscricaoController extends BaseController
 
         if (empty($dados["idInscricao"])) {
             if ($this->inscricao->save($dados)) {
-                return redirect()->to(base_url("inscricao-cliente/listar/".$dados["idCliente"]))->with(
+                return redirect()->to(base_url("inscricao-cliente/listar/" . $dados["idCliente"]))->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
                 );
@@ -124,7 +145,7 @@ class InscricaoController extends BaseController
             }
         } else {
             if ($this->inscricao->save($dados)) {
-                return redirect()->to(base_url("inscricao-cliente/listar/".$dados["idCliente"]))->with(
+                return redirect()->to(base_url("inscricao-cliente/listar/" . $dados["idCliente"]))->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Atualização realizada com sucesso </strong>"
                 );
@@ -139,12 +160,12 @@ class InscricaoController extends BaseController
 
     public function onDelete(int $idInscricao)
     {
-        if($this->inscricao->delete($idInscricao)){
+        if ($this->inscricao->delete($idInscricao)) {
             return redirect()->route("cliente.listar")->with(
                 "info",
                 "<strong> <i class='bi bi-check-circle-fill'></i> Exclusão de inscrição realizada com sucesso </strong>"
             );
-        }else{
+        } else {
             return redirect()->back()->with(
                 "errors",
                 $this->inscricao->errors()
