@@ -28,6 +28,10 @@ class Servico extends Migration
             "dataCadastro" => [
                 "type"=>"date"
             ],
+            "titulo"=>[
+                "type"=>"varchar",
+                "constraint"=>200
+            ],
             "descricao" => [
                 "type"=>"varchar",
                 "constraint"=>300

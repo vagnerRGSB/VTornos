@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1733499219;s:3:"ttl";i:60;s:4:"data";s:8631:"<!-- DEBUG-VIEW START 2 APPPATH\Views\cidade\listar.php -->
+a:3:{s:4:"time";i:1733597502;s:3:"ttl";i:60;s:4:"data";s:5384:"<!-- DEBUG-VIEW START 2 APPPATH\Views\cidade\listar.php -->
 <!-- DEBUG-VIEW START 1 APPPATH\Views\layouts\tema_um.php -->
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -82,39 +82,10 @@ a:3:{s:4:"time";i:1733499219;s:3:"ttl";i:60;s:4:"data";s:8631:"<!-- DEBUG-VIEW S
             </tr>
         </thead>
         <tbody>
-                                                <tr>
-                        <th scope="row" class="text-start m-1">1</th>
-                        <td class="text-start m-1">São Borja - RS</td>
-                        <td colspan="3" class="text-end">
-                            <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-three-dots-vertical"></i> Ações
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="http://localhost:8080/cidade/editar/1"> <i class="bi bi-pencil"></i> Editar</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i> Excluir</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <th scope="row" class="text-start m-1">2</th>
-                        <td class="text-start m-1">Itaqui - RS</td>
-                        <td colspan="3" class="text-end">
-                            <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-three-dots-vertical"></i> Ações
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="http://localhost:8080/cidade/editar/2"> <i class="bi bi-pencil"></i> Editar</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i> Excluir</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                                    </tbody>
+                            <tr>
+                    <th colspan="3" scope="row" class="text-center">Nenhum resgitro foi encontrado no sistema</th>
+                </tr>
+                    </tbody>
     </table>
     <div class="m-3">
         <!-- DEBUG-VIEW START 1 SYSTEMPATH\Pager\Views\default_full.php -->
@@ -122,10 +93,6 @@ a:3:{s:4:"time";i:1733499219;s:3:"ttl";i:60;s:4:"data";s:8631:"<!-- DEBUG-VIEW S
 <nav aria-label="Navegação de páginas">
 	<ul class="pagination">
 		
-					<li class="active page-item">
-				<a class="page-link" href="http://localhost:8080/cidade/listar?page=1">
-					1				</a>
-			</li>
 		
 			</ul>
 </nav>
@@ -134,23 +101,6 @@ a:3:{s:4:"time";i:1733499219;s:3:"ttl";i:60;s:4:"data";s:8631:"<!-- DEBUG-VIEW S
     </div>
 </div>
 <!-- MODAL PARA DELETAR -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Tem certeza de que deseja excluir este registro?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> <i class="bi bi-x"></i> Cancelar</button>
-                    <a href="http://localhost:8080/cidade/onDelete/2" class="btn btn-danger"> <i class="bi bi-trash"></i> Deletar</a>
-                </div>
-            </div>
-        </div>
-    </div>
   </div>
 
 

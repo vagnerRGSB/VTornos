@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1733581389;s:3:"ttl";i:60;s:4:"data";s:11044:"<!-- DEBUG-VIEW START 2 APPPATH\Views\atividade\listar.php -->
+a:3:{s:4:"time";i:1733684764;s:3:"ttl";i:60;s:4:"data";s:8350:"<!-- DEBUG-VIEW START 2 APPPATH\Views\atividade\listar.php -->
 <!-- DEBUG-VIEW START 1 APPPATH\Views\layouts\tema_um.php -->
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -60,14 +60,7 @@ a:3:{s:4:"time";i:1733581389;s:3:"ttl";i:60;s:4:"data";s:11044:"<!-- DEBUG-VIEW 
   </nav>
 
   <div class="container-fluid">
-        <div class="m-3">
-        <div class="d-grid gap-2 d-md-block">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div>
-    </div>
-
+    
 <div class="border mt-3">
     <h3 class="h3 text-center m-3"><strong>Lista Atividades</strong></h3>
     <table class="table table-striped table-sm">
@@ -116,40 +109,6 @@ a:3:{s:4:"time";i:1733581389;s:3:"ttl";i:60;s:4:"data";s:11044:"<!-- DEBUG-VIEW 
                         </ul>
                         </td>
                     </tr>
-                                    <tr>
-                        <th scope="row" class="text-start">3</th>
-                        <td class="text-start">Solda TIG</td>
-                        <td class="text-start">R$ 200</td>
-                        <td class="text-end">
-                        <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-three-dots-vertical"></i> Ações
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="http://localhost:8080/atividade/editar/3"> <i class="bi bi-pencil"></i> Editar</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i> Excluir</a></li>
-                        </ul>
-                        </td>
-                    </tr>
-                                    <tr>
-                        <th scope="row" class="text-start">4</th>
-                        <td class="text-start">Torno portatil</td>
-                        <td class="text-start">R$ 600</td>
-                        <td class="text-end">
-                        <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-three-dots-vertical"></i> Ações
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="http://localhost:8080/atividade/editar/4"> <i class="bi bi-pencil"></i> Editar</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i> Excluir</a></li>
-                        </ul>
-                        </td>
-                    </tr>
                                     </tbody>
     </table>
     <div class="m-3">
@@ -182,7 +141,7 @@ a:3:{s:4:"time";i:1733581389;s:3:"ttl";i:60;s:4:"data";s:11044:"<!-- DEBUG-VIEW 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> <i class="bi bi-x"></i> Cancelar</button>
-                    <a href="http://localhost:8080/atividades/onDelete/4" class="btn btn-danger"> <i class="bi bi-trash"></i> Deletar</a>
+                    <a href="http://localhost:8080/atividades/onDelete/2" class="btn btn-danger"> <i class="bi bi-trash"></i> Deletar</a>
                 </div>
             </div>
         </div>

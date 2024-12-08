@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1733499739;s:3:"ttl";i:60;s:4:"data";s:10898:"<!-- DEBUG-VIEW START 2 APPPATH\Views\cliente\listar.php -->
+a:3:{s:4:"time";i:1733701412;s:3:"ttl";i:60;s:4:"data";s:9440:"<!-- DEBUG-VIEW START 2 APPPATH\Views\cliente\listar.php -->
 <!-- DEBUG-VIEW START 1 APPPATH\Views\layouts\tema_um.php -->
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -107,7 +107,7 @@ a:3:{s:4:"time";i:1733499739;s:3:"ttl";i:60;s:4:"data";s:10898:"<!-- DEBUG-VIEW 
                     </tr>
                                     <tr>
                         <th scope="row" class="text-start">2</th>
-                        <td class="text-start">João Antônio </td>
+                        <td class="text-start">José Antônio</td>
                         <td class="text-end">
 
                             <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -117,26 +117,6 @@ a:3:{s:4:"time";i:1733499739;s:3:"ttl";i:60;s:4:"data";s:10898:"<!-- DEBUG-VIEW 
                                 <li><a class="dropdown-item" href="http://localhost:8080/cliente/editar/2"> <i class="bi bi-pencil"></i> Editar</a></li>
                                 <li><a class="dropdown-item" href="http://localhost:8080/orcamento/listar/2"> <i class="bi bi-list"></i> Listar ordens de serviços</a></li>
                                 <li><a class="dropdown-item" href="http://localhost:8080/inscricao-cliente/listar/2"> <i class="bi bi-list"></i>  Listar inscrição</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i>  Excluir</a></li>
-                            </ul>
-
-                        </td>
-                    </tr>
-                                    <tr>
-                        <th scope="row" class="text-start">3</th>
-                        <td class="text-start">Pedro</td>
-                        <td class="text-end">
-
-                            <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-three-dots-vertical"></i> Ações
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="http://localhost:8080/cliente/editar/3"> <i class="bi bi-pencil"></i> Editar</a></li>
-                                <li><a class="dropdown-item" href="http://localhost:8080/orcamento/listar/3"> <i class="bi bi-list"></i> Listar ordens de serviços</a></li>
-                                <li><a class="dropdown-item" href="http://localhost:8080/inscricao-cliente/listar/3"> <i class="bi bi-list"></i>  Listar inscrição</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -178,7 +158,7 @@ a:3:{s:4:"time";i:1733499739;s:3:"ttl";i:60;s:4:"data";s:10898:"<!-- DEBUG-VIEW 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> <i class="bi bi-x"></i> Cancelar</button>
-                    <a href="http://localhost:8080/cliente/onDelete/3" class="btn btn-danger"> <i class="bi bi-trash"></i> Deletar</a>
+                    <a href="http://localhost:8080/cliente/onDelete/2" class="btn btn-danger"> <i class="bi bi-trash"></i> Deletar</a>
                 </div>
             </div>
         </div>

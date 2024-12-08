@@ -3,6 +3,9 @@
 
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
+
+
+
 <div class="border mt-3">
     <h5 class="h5 text-center m-3"><strong>Informações sobre Ordem Serviço</strong></h4>
     <div class="row">
@@ -30,7 +33,7 @@
                 <th scope="col" class="text-start">Data</th>
                 <th scope="col" class="text-start">Título</th>
                 <th scope="col" class="text-end">
-                    <a class="btn btn-success btn-sm" href="<?= base_url("servico/inserir/".$orcamento->idOrcamento) ?>"> <i class="bi bi-plus"></i> Inserir</a>
+                    <a class="btn btn-success btn-sm m-1" href="<?= base_url("servico/inserir/".$orcamento->idOrcamento) ?>"> <i class="bi bi-plus"></i> Inserir</a>
                 </th>
             </tr>
         </thead>
@@ -38,10 +41,10 @@
             <?php if(!empty($servicos)) : ?>
                 <?php foreach($servicos as $servico) : ?>
                     <tr>
-                        <th scope="row" class="text-start">Código</th>
-                        <td class="text-start"><?= $servico->dataCadastro?></td>
-                        <td class="text-start"><?= $servico->descricao?></td>
-                        <td>
+                        <th scope="row" class="text-start"><?= $servico->idServico ?></th>
+                        <td class="text-start"><?= date("d/m/Y", strtotime($servico->dataCadastro))?></td>
+                        <td class="text-start"><?= $servico->titulo?></td>
+                        <td class="text-end">
                         <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-three-dots-vertical"></i> Ações
                             </a>

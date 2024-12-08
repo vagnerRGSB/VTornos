@@ -1,0 +1,158 @@
+a:3:{s:4:"time";i:1733598868;s:3:"ttl";i:60;s:4:"data";s:7606:"<!-- DEBUG-VIEW START 2 APPPATH\Views\marca\listar.php -->
+<!-- DEBUG-VIEW START 1 APPPATH\Views\layouts\tema_um.php -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="http://localhost:8080/"> <i class="bi bi-house"></i> V Tornos</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Operações
+            </a>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="http://localhost:8080/atividade/listar"> Relação de atividades da organização</a></li>
+              <li><a class="dropdown-item" href="http://localhost:8080/estoque-pecas/listar"> Lista produtos para comercialização</a></li>
+              <li><a class="dropdown-item" href="http://localhost:8080/serie/listar"> Lista maquinários para prestação de serviço</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8080/localidade/listar">Localidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8080/cliente/listar">Gestão serviços dos clientes</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Olá,
+                              Vagner Roballo Garcia                          </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="http://localhost:8080/usuario/listar-todos-usuarios">Membros do sistema</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Alterar minha senha</a></li>
+              <li><a class="dropdown-item" href="#">Editar meus dados</a></li>
+              <li><a class="dropdown-item" href="http://localhost:8080/login/onLogout"> <i class="bi bi-person-walking"></i> Sair do sistema</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    
+<div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3 mb-3 m-3">
+<a class="btn btn-secondary btn-sm" href="http://localhost:8080/serie/listar"> <i class="bi bi-list"></i> Series</a>
+<a class="btn btn-secondary btn-sm" href="http://localhost:8080/modelo/listar"> <i class="bi bi-list"></i> Modelos</a>
+<a class="btn btn-secondary btn-sm" href="http://localhost:8080/maquinario/listar"> <i class="bi bi-list"></i> Maquinários</a>
+<a class="btn btn-secondary btn-sm" href="http://localhost:8080/estoque-pecas/listar"> <i class="bi bi-list"></i> Produtos </a>
+</div>
+
+<div class="m-3">
+    
+    </div>
+
+<!-- FUTURAMENTO FORMULARIO PARA BUSCA DE RESGISTRO -->
+
+<div class="border">
+    <h3 class="h3 text-center m-3"> <strong> Lista de Marcas </strong> </h3>
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col" class="text-start">Código</th>
+                <th scope="col" class="text-start">Nome marca</th>
+                <td scope="col" class="text-end">
+                    <a href="http://localhost:8080/marca/inserir" class="btn btn-success btn-sm m-1"> <i class="bi bi-plus"></i> Inserir </a>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+                                                <tr>
+                        <th scope="row">1</th>
+                        <td>Jonh Deere</td>
+                        <td colspan="3" class="text-end">
+                        <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"></i> Ações
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="http://localhost:8080/marca/editar/1"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"> <i class="bi bi-trash"></i> Excluir</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                                    </tbody>
+    </table>
+    <div class="m-3">
+        <!-- DEBUG-VIEW START 1 SYSTEMPATH\Pager\Views\default_full.php -->
+
+<nav aria-label="Navegação de páginas">
+	<ul class="pagination">
+		
+					<li class="active page-item">
+				<a class="page-link" href="http://localhost:8080/marca/listar?page=1">
+					1				</a>
+			</li>
+		
+			</ul>
+</nav>
+
+<!-- DEBUG-VIEW ENDED 1 SYSTEMPATH\Pager\Views\default_full.php -->
+    </div>
+</div>
+
+<!-- MODAL PARA DELETAR -->
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirmar Exclusão</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Tem certeza de que deseja excluir este registro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <a href="http://localhost:8080/marca/onDelete/1" class="btn btn-danger"> Deletar</a>
+            </div>
+        </div>
+    </div>
+</div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+  
+</body>
+
+</html>
+<!-- DEBUG-VIEW ENDED 1 APPPATH\Views\layouts\tema_um.php -->
+
+<!-- DEBUG-VIEW ENDED 2 APPPATH\Views\marca\listar.php -->
+";}

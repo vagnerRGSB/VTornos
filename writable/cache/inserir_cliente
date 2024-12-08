@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1733499249;s:3:"ttl";i:60;s:4:"data";s:9083:"<!-- DEBUG-VIEW START 2 APPPATH\Views\cliente\inserir.php -->
+a:3:{s:4:"time";i:1733597677;s:3:"ttl";i:60;s:4:"data";s:9314:"<!-- DEBUG-VIEW START 2 APPPATH\Views\cliente\inserir.php -->
 <!-- DEBUG-VIEW START 1 APPPATH\Views\layouts\tema_um.php -->
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -105,7 +105,9 @@ a:3:{s:4:"time";i:1733499249;s:3:"ttl";i:60;s:4:"data";s:9083:"<!-- DEBUG-VIEW S
                 <select class="form-select" name="idLocalidade" id="idLocalidade" aria-describedby="info-idLocalidade">
                     <option value="">Informe Localidade (Obrigatório)</option>
                                             <option value="1"> Centro - 97670000 </option>
-                                            <option value="2"> Piray - 97670000 </option>
+                                            <option value="2"> Rincão de Santa Luzia - 97670000 </option>
+                                            <option value="3"> Rincão Santo Inácio - 97670000 </option>
+                                            <option value="4"> Rincão de São Lucas - 97670000 </option>
                                     </select>
                 <div class="form-text" id="info-idLocalidade">
                     <span class="text-danger">

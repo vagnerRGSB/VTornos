@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1733581326;s:3:"ttl";i:60;s:4:"data";s:6418:"<!-- DEBUG-VIEW START 2 APPPATH\Views\localidade\inserir.php -->
+a:3:{s:4:"time";i:1733597655;s:3:"ttl";i:60;s:4:"data";s:6280:"<!-- DEBUG-VIEW START 2 APPPATH\Views\localidade\inserir.php -->
 <!-- DEBUG-VIEW START 1 APPPATH\Views\layouts\tema_um.php -->
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,8 +71,6 @@ a:3:{s:4:"time";i:1733581326;s:3:"ttl";i:60;s:4:"data";s:6418:"<!-- DEBUG-VIEW S
                     <option value="">Selecione uma cidade (Obrigatório) </option>
                                             <option value="1">
                             São Borja - RS                        </option>
-                                            <option value="2">
-                            Itaqui - RS                        </option>
                                     </select>
                 <div class="form-text" id="info-cidade">
                         <span class="text-danger">

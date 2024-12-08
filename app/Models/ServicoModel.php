@@ -15,6 +15,7 @@ class ServicoModel extends Model
     protected $allowedFields    = [
         "idOrcamento",
         "idAtividade",
+        "titulo",
         "dataCadastro",
         "descricao",
         "minutoServico"
@@ -34,8 +35,22 @@ class ServicoModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        "idAtividade" => "required",
+        "dataCadastro" => "required",
+        "titulo" => "required|min_length[3]|max_length[200]",
+        "descricao"=>"required|min_length[3]|max_length[300]",
+        "minutoServico"=>"required"
+    ];
+    protected $validationMessages   = [
+        "idAtividade"=>[
+            "required" => "O campo atividade é requerido."
+        ],
+        "dataCadastro" => [
+            "required" => "O campo data é requerido."
+        ],
+        "minutoServico" => "O campo valor é requerido."
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
