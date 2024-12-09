@@ -515,3 +515,32 @@ $routes->get(
     "ServicoController::onDelete/$1",
     ["as" => "servico.onDelete", "filter" => "auth"]
 );
+
+/**
+ * ROTAS PARA PRODUTOS QUE SERAO UTILIZADO NO SERVICO
+ */
+$routes->get(
+    "produto/listar/(:num)",
+    "ProdutoController::listar/$1",
+    ["as" => "produto.listar", "filter" => "auth"]
+);
+$routes->get(
+    "produto/inserir/(:num)",
+    "ProdutoController::inserir/$1",
+    ["as" => "produto.inserir", "filter" => "auth"]
+);
+$routes->get(
+    "produto/editar/(:num)",
+    "ProdutoController::editar/$1",
+    ["as" => "produto.editar", "filter" => "auth"]
+);
+$routes->get(
+    "produto/onSave",
+    "ProdutoController::onSave",
+    ["as" => "produto.onSave", "filter" => "auth"]
+);
+$routes->get(
+    "produto/onDelete/(:num)",
+    "ProdutoController::onDelete/$1",
+    ["as" => "produto.onDelete", "filter" => "auth"]
+);
