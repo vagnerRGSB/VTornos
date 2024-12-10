@@ -26,10 +26,6 @@ class ClienteController extends BaseController
             [
                 "clientes" => $clientes,
                 "pager" => $pager
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar_cliente"
             ]
         );
     }
@@ -41,10 +37,6 @@ class ClienteController extends BaseController
             "cliente/inserir",
             [
                 "localidades" => $localidades
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_cliente"
             ]
         );
     }
@@ -61,10 +53,6 @@ class ClienteController extends BaseController
             [
                 "cliente" => $cliente,
                 "localidades" => $localidades
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_cliente"
             ]
         );
     }

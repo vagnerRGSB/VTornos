@@ -23,10 +23,6 @@ class EstadoController extends BaseController
             [
                 "estados" => $estados,
                 "pager" => $pager
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar_estado"
             ]
         );
     }
@@ -35,11 +31,7 @@ class EstadoController extends BaseController
 
         return view(
             "estado/inserir",
-            [],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_estado"
-            ]
+            []
         );
     }
     public function editar(int $param)
@@ -48,9 +40,6 @@ class EstadoController extends BaseController
         //var_dump($dados);die;
         return view("estado/editar", [
             "estado" => $estado
-        ], [
-            "cache" => 60,
-            "cache_name" => "editar_estado"
         ]);
     }
     public function onSave()

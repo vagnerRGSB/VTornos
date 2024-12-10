@@ -24,10 +24,6 @@ class MaquinarioController extends BaseController
             [
                 "maquinarios" => $maquinarios,
                 "pager" => $pager
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar_maquinario"
             ]
         );
     }
@@ -35,11 +31,7 @@ class MaquinarioController extends BaseController
     {
         return view(
             "maquinario/inserir",
-            [],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_maquinario"
-            ]
+            []
         );
     }
     public function editar(int $param)
@@ -50,10 +42,6 @@ class MaquinarioController extends BaseController
             "maquinario/editar",
             [
                 "maquinario" => $maquinario
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_maquinario"
             ]
         );
     }

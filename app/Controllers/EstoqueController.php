@@ -47,10 +47,6 @@ class EstoqueController extends BaseController
             [
                 "estoques" => $estoques,
                 "pager" => $pager
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar.estoque"
             ]
         );
     }
@@ -73,10 +69,6 @@ class EstoqueController extends BaseController
             [
                 "marcas" => $marcas,
                 "especificacoes" => $especificacoes
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_estoque"
             ]
         );
     }
@@ -99,10 +91,6 @@ class EstoqueController extends BaseController
                 "estoque" => $estoque,
                 "marcas" => $marcas,
                 "especificacoes" => $especificacoes
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_estoque"
             ]
         );
     }

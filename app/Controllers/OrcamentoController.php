@@ -27,7 +27,7 @@ class OrcamentoController extends BaseController
     {
         $cliente = $this->cliente->find($idCliente);
         $orcamentos = $this->orcamento->select(
-            "orcamentos.idOrcamento as idOrcamento,
+            "orcamentos.idOrcamento as idOrcamento,orcamentos.observacao,
             marcas.nome as nomeMarca,
             modelos.nome as nomeModelo,
             series.descricao as descricaoSerie"
@@ -52,10 +52,6 @@ class OrcamentoController extends BaseController
                 "cliente" => $cliente,
                 "orcamentos" => $orcamentos,
                 "pager" => $pager
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar_orcamento"
             ]
         );
     }
@@ -88,10 +84,6 @@ class OrcamentoController extends BaseController
             [
                 "cliente" => $cliente,
                 "series" => $series
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_orcamento"
             ]
         );
     }
@@ -125,10 +117,6 @@ class OrcamentoController extends BaseController
                 "cliente" => $cliente,
                 "orcamento" => $orcamento,
                 "series" => $series
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_orcamento"
             ]
         );
     }

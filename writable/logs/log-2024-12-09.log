@@ -1,0 +1,697 @@
+INFO - 2024-12-09 20:13:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:13:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:13:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:13:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:13:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:13:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:13:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:14:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:19:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:19:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:19:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:20:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:28:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:28:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:30:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:46:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-09 20:46:32 --> mysqli_sql_exception: Column 'idServico' in where clause is ambiguous in C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `servico...', 0)
+#1 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `servico...')
+#2 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `servico...')
+#3 C:\xampp\htdocs\vtornos\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servico...', Array, false)
+#4 C:\xampp\htdocs\vtornos\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\vtornos\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\vtornos\app\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+#8 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+#9 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\vtornos\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\vtornos\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\vtornos\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\vtornos\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-09 20:46:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'idServico' in where clause is ambiguous
+[Method: GET, Route: produto/listar/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = :idServico:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-12-09 20:46:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'idServico' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = :idServico:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 6 APPPATH\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-12-09 20:46:32 --> [Caused by] mysqli_sql_exception: Column 'idServico' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = :idServico:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-12-09 20:48:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-09 20:48:01 --> mysqli_sql_exception: Column 'idServico' in where clause is ambiguous in C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `servico...', 0)
+#1 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `servico...')
+#2 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `servico...')
+#3 C:\xampp\htdocs\vtornos\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servico...', Array, false)
+#4 C:\xampp\htdocs\vtornos\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\vtornos\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\vtornos\app\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+#8 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+#9 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\vtornos\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\vtornos\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\vtornos\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\vtornos\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-09 20:48:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'idServico' in where clause is ambiguous
+[Method: GET, Route: produto/listar/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = :idServico:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-12-09 20:48:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'idServico' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = :idServico:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 6 APPPATH\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-12-09 20:48:01 --> [Caused by] mysqli_sql_exception: Column 'idServico' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = :idServico:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-12-09 20:48:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:48:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:48:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 20:48:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-09 20:48:17 --> mysqli_sql_exception: Column 'idServico' in where clause is ambiguous in C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `servico...', 0)
+#1 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `servico...')
+#2 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `servico...')
+#3 C:\xampp\htdocs\vtornos\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servico...', Array, false)
+#4 C:\xampp\htdocs\vtornos\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\vtornos\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\vtornos\app\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+#8 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+#9 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\vtornos\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\vtornos\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\vtornos\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\vtornos\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-09 20:48:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'idServico' in where clause is ambiguous
+[Method: GET, Route: produto/listar/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = :idServico:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-12-09 20:48:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'idServico' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = :idServico:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 6 APPPATH\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-12-09 20:48:17 --> [Caused by] mysqli_sql_exception: Column 'idServico' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = 1
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `servicos`.`titulo`, `orcamentos`.`observacao`, `orcamentos`.`idOrcamento`, `clientes`.`nome`
+FROM `produtos`
+INNER JOIN `servicos` ON `servicos`.`idServico`=`produtos`.`idServico`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `idServico` = :idServico:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Controllers\ProdutoController.php(41): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-12-09 20:49:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:01:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-09 21:01:03 --> mysqli_sql_exception: Unknown column 'orcamentos.idOrcamentos' in 'on clause' in C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `orcamen...', 0)
+#1 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `orcamen...')
+#2 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `orcamen...')
+#3 C:\xampp\htdocs\vtornos\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `orcamen...', Array, false)
+#4 C:\xampp\htdocs\vtornos\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\vtornos\system\BaseModel.php(610): CodeIgniter\Model->doFind(true, 1)
+#6 C:\xampp\htdocs\vtornos\app\Controllers\ProdutoController.php(39): CodeIgniter\BaseModel->find(1)
+#7 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+#8 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+#9 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\vtornos\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\vtornos\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\vtornos\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\vtornos\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-09 21:01:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'orcamentos.idOrcamentos' in 'on clause'
+[Method: GET, Route: produto/listar/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo`, `clientes`.`nome`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamentos`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `servicos`.`idServico` = :servicos.idServico:', [...], false)
+ 2 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(true, 1)
+ 4 APPPATH\Controllers\ProdutoController.php(39): CodeIgniter\BaseModel->find(1)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-12-09 21:01:03 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'orcamentos.idOrcamentos' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo`, `clientes`.`nome`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamentos`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `servicos`.`idServico` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo`, `clientes`.`nome`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamentos`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `servicos`.`idServico` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo`, `clientes`.`nome`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamentos`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `servicos`.`idServico` = :servicos.idServico:', [...], false)
+ 4 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(true, 1)
+ 6 APPPATH\Controllers\ProdutoController.php(39): CodeIgniter\BaseModel->find(1)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-12-09 21:01:03 --> [Caused by] mysqli_sql_exception: Unknown column 'orcamentos.idOrcamentos' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo`, `clientes`.`nome`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamentos`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `servicos`.`idServico` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo`, `clientes`.`nome`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamentos`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `servicos`.`idServico` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo`, `clientes`.`nome`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamentos`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `servicos`.`idServico` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo`, `clientes`.`nome`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamentos`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+WHERE `servicos`.`idServico` = :servicos.idServico:', [...], false)
+ 5 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(true, 1)
+ 7 APPPATH\Controllers\ProdutoController.php(39): CodeIgniter\BaseModel->find(1)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-12-09 21:01:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-09 21:01:20 --> ErrorException: Undefined property: stdClass::$descricao
+[Method: GET, Route: produto/listar/1]
+in APPPATH\Views\produto\listar.php on line 13.
+ 1 APPPATH\Views\produto\listar.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$descricao', 'C:\\xampp\\htdocs\\vtornos\\app\\Views\\produto\\listar.php', 13)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\vtornos\\app\\Views\\produto\\listar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('produto/listar', [], true)
+ 5 APPPATH\Controllers\ProdutoController.php(40): view('produto/listar', [...], [])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-12-09 21:01:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:10:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-09 21:10:51 --> mysqli_sql_exception: Unknown column 'marcas.nome as nomeMarca clientes.nome' in 'field list' in C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\vtornos\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `orcamen...', 0)
+#1 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `orcamen...')
+#2 C:\xampp\htdocs\vtornos\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `orcamen...')
+#3 C:\xampp\htdocs\vtornos\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `orcamen...', Array, false)
+#4 C:\xampp\htdocs\vtornos\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\vtornos\system\BaseModel.php(610): CodeIgniter\Model->doFind(true, 1)
+#6 C:\xampp\htdocs\vtornos\app\Controllers\ProdutoController.php(54): CodeIgniter\BaseModel->find(1)
+#7 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+#8 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+#9 C:\xampp\htdocs\vtornos\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\vtornos\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\vtornos\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\vtornos\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\vtornos\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-12-09 21:10:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'marcas.nome as nomeMarca clientes.nome' in 'field list'
+[Method: GET, Route: produto/listar/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo` as `tituloServico`, `series`.`descricao` as `descricaoSerie`, `modelos`.`nome` as `nomeModelo`, `marcas`.`nome as nomeMarca clientes`.`nome` as `nomeCliente`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+INNER JOIN `series` ON `series`.`idSerie`=`orcamentos`.`idSerie`
+INNER JOIN `modelos` ON `modelos`.`idModelo`=`series`.`idModelo`
+INNER JOIN `marcas` ON `marcas`.`idMarca`=`modelos`.`idMarca`
+WHERE `servicos`.`idServico` = :servicos.idServico:', [...], false)
+ 2 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(true, 1)
+ 4 APPPATH\Controllers\ProdutoController.php(54): CodeIgniter\BaseModel->find(1)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-12-09 21:10:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'marcas.nome as nomeMarca clientes.nome' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo` as `tituloServico`, `series`.`descricao` as `descricaoSerie`, `modelos`.`nome` as `nomeModelo`, `marcas`.`nome as nomeMarca clientes`.`nome` as `nomeCliente`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+INNER JOIN `series` ON `series`.`idSerie`=`orcamentos`.`idSerie`
+INNER JOIN `modelos` ON `modelos`.`idModelo`=`series`.`idModelo`
+INNER JOIN `marcas` ON `marcas`.`idMarca`=`modelos`.`idMarca`
+WHERE `servicos`.`idServico` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo` as `tituloServico`, `series`.`descricao` as `descricaoSerie`, `modelos`.`nome` as `nomeModelo`, `marcas`.`nome as nomeMarca clientes`.`nome` as `nomeCliente`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+INNER JOIN `series` ON `series`.`idSerie`=`orcamentos`.`idSerie`
+INNER JOIN `modelos` ON `modelos`.`idModelo`=`series`.`idModelo`
+INNER JOIN `marcas` ON `marcas`.`idMarca`=`modelos`.`idMarca`
+WHERE `servicos`.`idServico` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo` as `tituloServico`, `series`.`descricao` as `descricaoSerie`, `modelos`.`nome` as `nomeModelo`, `marcas`.`nome as nomeMarca clientes`.`nome` as `nomeCliente`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+INNER JOIN `series` ON `series`.`idSerie`=`orcamentos`.`idSerie`
+INNER JOIN `modelos` ON `modelos`.`idModelo`=`series`.`idModelo`
+INNER JOIN `marcas` ON `marcas`.`idMarca`=`modelos`.`idMarca`
+WHERE `servicos`.`idServico` = :servicos.idServico:', [...], false)
+ 4 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(true, 1)
+ 6 APPPATH\Controllers\ProdutoController.php(54): CodeIgniter\BaseModel->find(1)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+CRITICAL - 2024-12-09 21:10:51 --> [Caused by] mysqli_sql_exception: Unknown column 'marcas.nome as nomeMarca clientes.nome' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo` as `tituloServico`, `series`.`descricao` as `descricaoSerie`, `modelos`.`nome` as `nomeModelo`, `marcas`.`nome as nomeMarca clientes`.`nome` as `nomeCliente`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+INNER JOIN `series` ON `series`.`idSerie`=`orcamentos`.`idSerie`
+INNER JOIN `modelos` ON `modelos`.`idModelo`=`series`.`idModelo`
+INNER JOIN `marcas` ON `marcas`.`idMarca`=`modelos`.`idMarca`
+WHERE `servicos`.`idServico` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo` as `tituloServico`, `series`.`descricao` as `descricaoSerie`, `modelos`.`nome` as `nomeModelo`, `marcas`.`nome as nomeMarca clientes`.`nome` as `nomeCliente`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+INNER JOIN `series` ON `series`.`idSerie`=`orcamentos`.`idSerie`
+INNER JOIN `modelos` ON `modelos`.`idModelo`=`series`.`idModelo`
+INNER JOIN `marcas` ON `marcas`.`idMarca`=`modelos`.`idMarca`
+WHERE `servicos`.`idServico` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo` as `tituloServico`, `series`.`descricao` as `descricaoSerie`, `modelos`.`nome` as `nomeModelo`, `marcas`.`nome as nomeMarca clientes`.`nome` as `nomeCliente`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+INNER JOIN `series` ON `series`.`idSerie`=`orcamentos`.`idSerie`
+INNER JOIN `modelos` ON `modelos`.`idModelo`=`series`.`idModelo`
+INNER JOIN `marcas` ON `marcas`.`idMarca`=`modelos`.`idMarca`
+WHERE `servicos`.`idServico` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `orcamentos`.`idOrcamento`, `orcamentos`.`observacao`, `servicos`.`titulo` as `tituloServico`, `series`.`descricao` as `descricaoSerie`, `modelos`.`nome` as `nomeModelo`, `marcas`.`nome as nomeMarca clientes`.`nome` as `nomeCliente`
+FROM `servicos`
+INNER JOIN `orcamentos` ON `orcamentos`.`idOrcamento`=`servicos`.`idOrcamento`
+INNER JOIN `clientes` ON `clientes`.`idCliente`=`orcamentos`.`idCliente`
+INNER JOIN `series` ON `series`.`idSerie`=`orcamentos`.`idSerie`
+INNER JOIN `modelos` ON `modelos`.`idModelo`=`series`.`idModelo`
+INNER JOIN `marcas` ON `marcas`.`idMarca`=`modelos`.`idMarca`
+WHERE `servicos`.`idServico` = :servicos.idServico:', [...], false)
+ 5 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(true, 1)
+ 7 APPPATH\Controllers\ProdutoController.php(54): CodeIgniter\BaseModel->find(1)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-12-09 21:11:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:17:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:17:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:18:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:21:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:26:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:26:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:26:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:27:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:27:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:27:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:28:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:28:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:28:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:28:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:28:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:28:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:35:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:35:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:47:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:47:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:47:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:48:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:48:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:48:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:49:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:49:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:49:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:49:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:49:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:49:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:49:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:49:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:52:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-09 21:52:23 --> ErrorException: Attempt to read property "nomeCliente" on array
+[Method: GET, Route: produto/listar/3]
+in APPPATH\Views\produto\listar.php on line 13.
+ 1 APPPATH\Views\produto\listar.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nomeCliente" on array', 'C:\\xampp\\htdocs\\vtornos\\app\\Views\\produto\\listar.php', 13)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\vtornos\\app\\Views\\produto\\listar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('produto/listar', [], true)
+ 5 APPPATH\Controllers\ProdutoController.php(56): view('produto/listar', [...], [])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(3)
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-12-09 21:52:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:52:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-09 21:52:50 --> ErrorException: Attempt to read property "nomeCliente" on array
+[Method: GET, Route: produto/listar/1]
+in APPPATH\Views\produto\listar.php on line 13.
+ 1 APPPATH\Views\produto\listar.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nomeCliente" on array', 'C:\\xampp\\htdocs\\vtornos\\app\\Views\\produto\\listar.php', 13)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\vtornos\\app\\Views\\produto\\listar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('produto/listar', [], true)
+ 5 APPPATH\Controllers\ProdutoController.php(56): view('produto/listar', [...], [])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-12-09 21:53:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-09 21:53:14 --> ErrorException: Attempt to read property "nomeCliente" on array
+[Method: GET, Route: produto/listar/1]
+in APPPATH\Views\produto\listar.php on line 13.
+ 1 APPPATH\Views\produto\listar.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nomeCliente" on array', 'C:\\xampp\\htdocs\\vtornos\\app\\Views\\produto\\listar.php', 13)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\vtornos\\app\\Views\\produto\\listar.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('produto/listar', [], true)
+ 5 APPPATH\Controllers\ProdutoController.php(56): view('produto/listar', [...], [])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProdutoController->listar(1)
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProdutoController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\vtornos\\public\\index.php')
+INFO - 2024-12-09 21:53:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:54:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:54:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:55:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:55:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:56:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:56:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:56:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:56:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:56:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:56:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:56:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:56:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 21:56:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 22:06:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 22:07:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 22:07:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 22:09:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 22:09:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 22:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 22:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 22:09:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

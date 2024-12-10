@@ -1,1 +1,0 @@
-__ci_last_regenerate|i:1733607621;login|O:8:"stdClass":3:{s:9:"idUsuario";s:1:"1";s:4:"nome";s:21:"Vagner Roballo Garcia";s:5:"email";s:20:"vagnerrgsb@email.com";}_ci_previous_url|s:39:"http://localhost:8080/servico/inserir/1";errors|a:1:{s:12:"dataCadastro";s:26:"O campo data é requerido.";}__ci_vars|a:1:{s:6:"errors";s:3:"old";}

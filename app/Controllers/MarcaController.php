@@ -25,10 +25,6 @@ class MarcaController extends BaseController
             [
                 "marcas" => $marcas,
                 "pager" => $pager
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar_marca"
             ]
         );
     }
@@ -37,11 +33,7 @@ class MarcaController extends BaseController
 
         return view(
             "marca/inserir",
-            [],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_marca"
-            ]
+            []
         );
     }
 
@@ -54,10 +46,6 @@ class MarcaController extends BaseController
             "marca/editar",
             [
                 "marca" => $marca
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_marca"
             ]
         );
     }

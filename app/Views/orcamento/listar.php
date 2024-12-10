@@ -42,7 +42,7 @@
                     <tr>
                         <th scope="row" class="text-start"><?= $orcamento->idOrcamento ?></th>
                         <td>
-                            <?= $orcamento->nomeMarca." ". $orcamento->nomeModelo." ". $orcamento->descricaoSerie?>
+                            <?= $orcamento->nomeMarca." ". $orcamento->nomeModelo." ". $orcamento->descricaoSerie." ".$orcamento->observacao?>
                         </td>
                         <td class="text-end">
                             <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -50,6 +50,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?= base_url("servico/editar/".$servico->idServico) ?>"> <i class="bi bi-pencil"></i> Editar</a></li>
+                                <li><a class="dropdown-item" href="<?= base_url("produto/listar/".$servico->idServico) ?>"> <i class="bi bi-list"></i> Produtos</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

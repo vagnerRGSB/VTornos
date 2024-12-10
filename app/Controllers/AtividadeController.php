@@ -24,10 +24,6 @@ class AtividadeController extends BaseController
             [
                 "atividades" => $atividades,
                 "pager" => $pager
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar_atividade"
             ]
         );
     }
@@ -35,11 +31,7 @@ class AtividadeController extends BaseController
     {
         return view(
             "atividade/inserir",
-            [],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_atividade"
-            ]
+            []
         );
     }
     public function editar(int $param)
@@ -49,10 +41,6 @@ class AtividadeController extends BaseController
             "atividade/editar",
             [
                 "atividade" => $atividade
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_atividade"
             ]
         );
     }

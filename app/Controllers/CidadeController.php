@@ -35,10 +35,6 @@ class CidadeController extends BaseController
             [
                 "cidades" => $cidades,
                 "pager" => $pager
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar_cidade"
             ]
         );
     }
@@ -51,10 +47,6 @@ class CidadeController extends BaseController
             "cidade/inserir",
             [
                 "estados" => $estados
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_cidade"
             ]
         );
     }
@@ -69,10 +61,6 @@ class CidadeController extends BaseController
             [
                 "cidade" => $cidade,
                 "estados" => $estados
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_cidade"
             ]
         );
     }

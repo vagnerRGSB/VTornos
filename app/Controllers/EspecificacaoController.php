@@ -50,10 +50,6 @@ class EspecificacaoController extends BaseController
             "especificacao/inserir",
             [
                 "pecas" => $pecas
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_especificacao"
             ]
         );
     }
@@ -65,11 +61,7 @@ class EspecificacaoController extends BaseController
         return view("especificacao/editar", [
             "pecas" => $pecas,
             "especificacao" => $especificacao
-        ],
-    [
-        "cache"=>60,
-        "cache_name"=>"editar_especificacao"
-    ]);
+        ]);
     }
 
     public function onSave()

@@ -37,9 +37,6 @@ class LocalidadeController extends BaseController
         return view("localidade/listar", [
             "localidades" => $localidades,
             "pager" => $pager
-        ], [
-            "cache" => 60,
-            "cache_name" => "listar_localidade"
         ]);
     }
     public function inserir()
@@ -57,10 +54,6 @@ class LocalidadeController extends BaseController
             "localidade/inserir",
             [
                 "cidades" => $cidades
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_localidade"
             ]
         );
     }
@@ -80,10 +73,6 @@ class LocalidadeController extends BaseController
             [
                 "localidade" => $localidade,
                 "cidades" => $cidades
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_localidade"
             ]
         );
     }

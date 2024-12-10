@@ -48,10 +48,6 @@ class InscricaoController extends BaseController
                 "inscricoes" => $inscricoes,
                 "pager" => $pager,
                 "cliente" => $cliente
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar_incricao"
             ]
         );
     }
@@ -78,10 +74,6 @@ class InscricaoController extends BaseController
             [
                 "cliente" => $cliente,
                 "localidades" => $localidades
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_inscricao"
             ]
         );
     }
@@ -110,10 +102,6 @@ class InscricaoController extends BaseController
                 "localidades" => $localidades,
                 "inscricao" => $inscricao,
                 "cliente" => $cliente
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_inscricao"
             ]
         );
     }

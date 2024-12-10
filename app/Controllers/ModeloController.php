@@ -38,9 +38,6 @@ class ModeloController extends BaseController
         return view("modelo/listar", [
             "modelos" => $modelos,
             "pager" => $pager
-        ], [
-            "cache" => 60,
-            "cache_name" => "listar_modelo"
         ]);
     }
 
@@ -54,10 +51,6 @@ class ModeloController extends BaseController
             [
                 "marcas" => $marcas,
                 "maquinarios" => $maquinarios
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_modelo"
             ]
         );
     }
@@ -74,10 +67,6 @@ class ModeloController extends BaseController
                 "modelo" => $modelo,
                 "marcas" => $marcas,
                 "maquinarios" => $maquinarios
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_modelo"
             ]
         );
     }
