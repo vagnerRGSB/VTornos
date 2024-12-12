@@ -43,7 +43,7 @@
                     <tr>
                         <th scope="row" class="text-start"> <?= $localidade->idLocalidade ?></th>
                         <td class="text-start">
-                            <?= $localidade->nomeLocalidade . " - " . $localidade->nomeCidade . " - " . $localidade->siglaEstado ?>
+                            <?= $localidade->nomeCidade . " - " . $localidade->siglaEstado."; ".$localidade->nomeLocalidade ?>
                         </td>
                         <td class="text-end">
                             <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

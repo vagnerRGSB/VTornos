@@ -22,9 +22,6 @@ class UsuarioController extends BaseController
         return view("usuario/listarTodosUsuarios", [
             "usuarios" => $usuarios,
             "pager" => $pager
-        ], [
-            "cache" => 60,
-            "cache_name" => "listar_todos_usuarios"
         ]);
     }
     public function editarMeuPerfil()
@@ -44,11 +41,7 @@ class UsuarioController extends BaseController
     {
         return view(
             "usuario/inserir",
-            [],
-            [
-                "cache" => 60,
-                "cache_name" => "alterar_senha"
-            ]
+            []
         );
     }
     public function editar(int $param)
@@ -59,10 +52,6 @@ class UsuarioController extends BaseController
             "usuario/editar",
             [
                 "usuario" => $editar
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "editar_usuario"
             ]
         );
     }

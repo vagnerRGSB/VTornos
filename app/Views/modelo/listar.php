@@ -5,7 +5,7 @@
 <?= $this->section("conteudo") ?>
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3 mb-3">
-    <a class="btn btn-secondary btn-sm" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Series</a>
+    <a class="btn btn-secondary btn-sm" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> Séries</a>
     <a class="btn btn-secondary btn-sm" href="<?= url_to("maquinario.listar") ?>"> <i class="bi bi-list"></i> Maquinários</a>
     <a class="btn btn-secondary btn-sm" href="<?= url_to("marca.listar") ?>"> <i class="bi bi-list"></i> Marcas</a>
 </div>
@@ -26,16 +26,16 @@
     <?php endif; ?>
 </div>
 
-<div class="border m-3">
-    <h3 class="h3 text-center">Lista de modelos</h3>
+<div class="border mt-3">
+    <h3 class="h3 text-center m-3"><strong>Lista de modelos</strong></h3>
 
     <table class="table table-striped table-sm">
         <thead>
             <tr>
                 <th scope="col">Código</th>
-                <th scope="col">Maquinário / marca / modelo</th>
+                <th scope="col">Modelo</th>
                 <td colspan="3" scope="col" class="text-end">
-                    <a href="<?= url_to("modelo.inserir") ?>" class="btn btn-success btn-sm"> <i class="bi bi-plus"></i> Inserir </a>
+                    <a href="<?= url_to("modelo.inserir") ?>" class="btn btn-success btn-sm m-1"> <i class="bi bi-plus"></i> Inserir </a>
                 </td>
             </tr>
         </thead>
@@ -43,8 +43,8 @@
             <?php if (!empty($modelos)) : ?>
                 <?php foreach ($modelos as $modelo) : ?>
                     <tr>
-                        <td scope="row"><?= esc($modelo->idModelo) ?></td>
-                        <td><?= esc($modelo->nomeMaquinario) . " / " . esc($modelo->nomeMarca) . " / " . esc($modelo->nomeModelo) ?></td>
+                        <th scope="row"><?= esc($modelo->idModelo) ?></th>
+                        <td><?= $modelo->nomeMaquinario . "  " . $modelo->nomeMarca . "  " . $modelo->nomeModelo ?></td>
                         <td class="text-end">
                             <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-three-dots-vertical"></i> Ações

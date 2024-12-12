@@ -16,7 +16,7 @@
         <div class="col m-3">
             <label class="form-label" for="nomeCliente">Maquinário</label>
             <input class="form-control" type="text" name="nomeCliente" id="nomeCliente" disabled 
-            value="<?= $maquinario->nomeMarca." ". $maquinario->nomeModelo." ".$maquinario->descricaoSerie ?>">
+            value="<?= $maquinario->nomeMarca." ". $maquinario->nomeModelo." ".$maquinario->descricaoSerie." ".$maquinario->observacaoOrcamento ?>">
         </div>
         <div class="col m-3">
             <label class="form-label" for="nomeCliente">Cliente</label>

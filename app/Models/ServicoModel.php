@@ -18,7 +18,7 @@ class ServicoModel extends Model
         "titulo",
         "dataCadastro",
         "descricao",
-        "minutoServico"
+        "valor"
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -40,7 +40,7 @@ class ServicoModel extends Model
         "dataCadastro" => "required",
         "titulo" => "required|min_length[3]|max_length[200]",
         "descricao"=>"required|min_length[3]|max_length[300]",
-        "minutoServico"=>"required"
+        "valor"=>"required"
     ];
     protected $validationMessages   = [
         "idAtividade"=>[
@@ -48,8 +48,7 @@ class ServicoModel extends Model
         ],
         "dataCadastro" => [
             "required" => "O campo data é requerido."
-        ],
-        "minutoServico" => "O campo valor é requerido."
+        ]
     ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;

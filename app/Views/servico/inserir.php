@@ -31,14 +31,14 @@
             </div>
         </div>
         <div class="col-3 m-3">
-            <label class="form-label" for="minutoServico">Valor</label>
-            <input class="form-control" type="text" name="minutoServico" id="minutoServico"
+            <label class="form-label" for="valor">Valor</label>
+            <input class="form-control" type="text" name="valor" id="valor"
             placeholder="Informe valor  (Obrigatório)"
             aria-describedby="info-minuto"
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
             <div class="form-text">
                 <span class="text-danger">
-                    <?= session()->getFlashdata("errors")["minutoServico"] ?? "" ?>
+                    <?= session()->getFlashdata("errors")["valor"] ?? "" ?>
                 </span>
             </div>
         </div>

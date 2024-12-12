@@ -13,7 +13,7 @@
                 <select class="form-select" name="idModelo" id="idModelo" aria-describedby="info-idModelo">
                     <option selected value="">Seleção obrigatória</option>
                     <?php foreach ($modelos as $modelo) : ?>
-                        <option value="<?= esc($modelo->idModelo) ?>"><?= esc($modelo->nome) ?></option>
+                        <option value="<?= $modelo->idModelo ?>"><?= $modelo->nomeMarca ." ".$modelo->nomeModelo ?></option>
                     <?php endforeach; ?>
                 </select>
                 <div id="info-idModelo" class="form-label">

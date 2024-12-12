@@ -4,8 +4,8 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 
-<div class="border m-3">
-    <h3 class="h3 text-center m-3">Formulário para modelo</h3>
+<div class="border mt-3">
+    <h3 class="h3 text-center m-3"><strong>Formulário para modelo</strong></h3>
 
     <div class="container">
         <form action="<?= url_to("modelo.onSave") ?>" method="post">

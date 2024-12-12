@@ -27,7 +27,7 @@
 </div>
 
 <div class="border m3">
-    <h3 class="h3 text-center m-3">Lista de maquinários</h3>
+    <h3 class="h3 text-center m-3"><strong>Lista de maquinários</strong></h3>
 
     <table class="table table-striped table-sm">
         <thead>
@@ -43,7 +43,7 @@
             <?php if (!empty($maquinarios)) : ?>
                 <?php foreach ($maquinarios as $maquinario) : ?>
                     <tr>
-                        <td scope="row"><?= esc($maquinario->idMaquinario) ?></td>
+                        <th scope="row"><?= esc($maquinario->idMaquinario) ?></th>
                         <td><?= esc($maquinario->nome) ?></td>
                         <td colspan="3" class="text-end">
                         <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,7 +61,7 @@
                 <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="3" scope="row" class="text-center"> Nenhum maquinário encontrado </td>
+                    <td colspan="3" scope="row" class="text-center"> Nenhum registro encontrado no sistema </td>
                 </tr>
             <?php endif; ?>
         </tbody>

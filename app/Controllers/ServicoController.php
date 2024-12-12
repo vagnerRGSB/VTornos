@@ -28,7 +28,8 @@ class ServicoController extends BaseController
     {
         $orcamento = $this->orcamento->find($idOrcamento);
         $maquinario = $this->orcamento->select(
-            "marcas.nome as nomeMarca,
+            "orcamentos.observacao as observacaoOrcamento,
+            marcas.nome as nomeMarca,
             modelos.nome as nomeModelo,
             series.descricao as descricaoSerie"
         )->join(
@@ -56,10 +57,6 @@ class ServicoController extends BaseController
                 "cliente" => $cliente,
                 "servicos" => $servicos,
                 "pager" => $pager
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar_servico"
             ]
         );
     }
@@ -74,10 +71,6 @@ class ServicoController extends BaseController
             [
                 "orcamento" => $orcamento,
                 "atividades" => $atividades
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_servico"
             ]
         );
     }
@@ -105,12 +98,12 @@ class ServicoController extends BaseController
             "dataCadastro" => $this->request->getPost("dataCadastro"),
             "titulo" => $this->request->getPost("titulo"),
             "descricao" => $this->request->getPost("descricao"),
-            "minutoServico" => $this->request->getPost("minutoServico")
+            "valor" => $this->request->getPost("valor")
         ];
         //var_dump($dados);die;
         if (empty($dados["idServico"])) {
             if ($this->servico->save($dados)) {
-                return redirect()->to(base_url("servico/listar" . $dados["idOrcamento"]))->with(
+                return redirect()->to(base_url("servico/listar/" . $dados["idOrcamento"]))->with(
                     "info",
                     "<strong> <i class='bi bi-check-circle-fill'></i> Inserção realizada com sucesso </strong>"
                 );

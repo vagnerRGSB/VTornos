@@ -36,9 +36,8 @@ class Servico extends Migration
                 "type"=>"varchar",
                 "constraint"=>300
             ],
-            "minutoServico"=>[
-                "type"=>"int",
-                "constraint"=>5
+            "valor"=>[
+                "type"=>"double"
             ]
         ]);
         $this->forge->addPrimaryKey("idServico");

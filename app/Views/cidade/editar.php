@@ -4,10 +4,10 @@
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
 <div class="border m-3">
-    <h3 class="h3 text-center m-3">Formulário Cidade</h3>
+    <h3 class="h3 text-center m-3"><strong>Formulário Cidade</strong></h3>
     <form action="<?= url_to("cidade.onSave") ?>" method="post">
-
-        <div class="m-3">
+        <div class="row">
+        <div class="col-5 m-3">
             <input type="hidden" name="idCidade" value="<?= esc($cidade->idCidade) ?>">
             <label for="idEstado" class="form-label"> Estado </label>
             <select class="form-select" name="idEstado" id="idEstado" aria-describedby="info-idEstado">
@@ -22,8 +22,7 @@
                 </span>
             </div>
         </div>
-
-        <div class="m-3">
+        <div class="col-6 m-3">
             <label for="nome" class="form-label"> Nome da cidade </label>
             <input type="text" name="nome" id="nome" class="form-control" placeholder="Informe nome cidade (Obrigatório)"
                 aria-describedby="info-nome"
@@ -33,6 +32,7 @@
                     <?= session()->getFlashdata("errors")["nome"] ?? "" ?>
                 </span>
             </div>
+        </div>
         </div>
         <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar </button>
         <a class="btn btn-secondary" href="<?= url_to("cidade.listar") ?>"> <i class="bi bi-list"></i> Cidades</a>

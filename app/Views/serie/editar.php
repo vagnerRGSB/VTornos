@@ -3,7 +3,6 @@
 
 <?= $this->endSection() ?>
 <?= $this->section("conteudo") ?>
-
 <div class="border m-3">
     <h3 class="h3 text-center m-3"><strong>Formulário Serie</strong></h3>
     <div class="container">
@@ -14,7 +13,7 @@
                 <select class="form-select" name="idModelo" id="idModelo" aria-describedby="info-idModelo">
                     <?php foreach ($modelos as $modelo) : ?>
                         <option <?= $modelo->idModelo == $serie->idSerie ? "selected" : " " ?>
-                        value="<?= esc($modelo->idModelo) ?>"><?= esc($modelo->nome) ?></option>
+                        value="<?= $modelo->idModelo ?>"><?= $modelo->nomeMarca." ".$modelo->nomeModelo ?></option>
                     <?php endforeach; ?>
                 </select>
                 <div id="info-idModelo" class="form-label">
@@ -41,7 +40,6 @@
         </form>
     </div>
 </div>
-
 <?= $this->endSection() ?>
 <?= $this->section("script") ?>
 

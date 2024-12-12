@@ -534,7 +534,7 @@ $routes->get(
     "ProdutoController::editar/$1",
     ["as" => "produto.editar", "filter" => "auth"]
 );
-$routes->get(
+$routes->post(
     "produto/onSave",
     "ProdutoController::onSave",
     ["as" => "produto.onSave", "filter" => "auth"]

@@ -38,24 +38,23 @@ class SerieController extends BaseController
             [
                 "series" => $series,
                 "pager" => $pager
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "listar_serie"
             ]
         );
     }
     public function inserir()
     {
-        $modelos = $this->modelo->findAll();
+        $modelos = $this->modelo->select(
+            "marcas.nome as nomeMarca,
+            modelos.idModelo as idModelo, modelos.nome as nomeModelo"
+        )->join(
+            "marcas",
+            "marcas.idMarca=modelos.idMarca",
+            "inner"
+        )->findAll();
         return view(
             "serie/inserir",
             [
                 "modelos" => $modelos
-            ],
-            [
-                "cache" => 60,
-                "cache_name" => "inserir_serie"
             ]
         );
     }
@@ -63,14 +62,18 @@ class SerieController extends BaseController
     public function editar(int $param)
     {
         $serie = $this->serie->find($param);
-        $modelos = $this->modelo->findAll();
+        $modelos = $this->modelo->select(
+            "marcas.nome as nomeMarca,
+            modelos.idModelo as idModelo, modelos.nome as nomeModelo"
+        )->join(
+            "marcas",
+            "marcas.idMarca=modelos.idMarca",
+            "inner"
+        )->findAll();
 
         return view("serie/editar", [
             "serie" => $serie,
             "modelos" => $modelos
-        ], [
-            "cache" => 60,
-            "cache_name" => "editar_serie"
         ]);
     }
 
