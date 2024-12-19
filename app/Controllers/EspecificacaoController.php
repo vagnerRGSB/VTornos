@@ -37,9 +37,6 @@ class EspecificacaoController extends BaseController
         return view("especificacao/listar", [
             "especificacoes" => $especificacoes,
             "pager" => $pager
-        ], [
-            "cache" => 60,
-            "cache_name" => "listar_especificacao"
         ]);
     }
 

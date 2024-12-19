@@ -42,9 +42,9 @@ class ClienteModel extends Model
         "categoria" => "required",
         "nome" => "required|min_length[3]|max_length[200]",
         "cpfCnpj" => "required",
-        "endereco" => "required|min_length[3]|max_length[200]",
         "numero" => "required",
-        "email" => "valid_email|is_unique[clientes.email]|max_length[200]|min_length[3]",
+        "endereco" => "required|min_length[3]|max_length[200]",
+        "email" => "valid_email|max_length[200]|min_length[3]",
         "complemento" => "max_length[200]"
     ];
     protected $validationMessages   = [
