@@ -31,7 +31,6 @@
             <tr>
                 <th scope="col" class="text-start">Código</th>
                 <th scope="col" class="text-start">Atividade</th>
-                <th scope="col" class="text-start">Valor</th>
                 <th scope="col" class="text-end">
                     <a class="btn btn-success btn-sm m-1" href="<?= url_to("atividade.inserir") ?>"> <i class="bi bi-plus"></i> Inserir </a>
                     </td>
@@ -43,7 +42,6 @@
                     <tr>
                         <th scope="row" class="text-start"><?= $atividade->idAtividade ?></th>
                         <td class="text-start"><?= $atividade->nome ?></td>
-                        <td class="text-start">R$<?=" ".$atividade->valor ?></td>
                         <td class="text-end">
                         <a class="dropdown-togglebtn btn btn-primary btn-sm m-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-three-dots-vertical"></i> Ações

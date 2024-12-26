@@ -13,8 +13,7 @@ class AtividadeModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "nome",
-        "valor"
+        "nome"
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -33,7 +32,6 @@ class AtividadeModel extends Model
     // Validation
     protected $validationRules      = [
         "nome" => "required|min_length[5]|max_length[200]",
-        "valor" => "required"
     ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;

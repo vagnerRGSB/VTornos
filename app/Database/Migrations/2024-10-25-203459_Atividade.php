@@ -18,11 +18,6 @@ class Atividade extends Migration
             "nome" => [
                 "type" => "varchar",
                 "constraint" => 200,
-            ],
-            "valor" => [
-                "type" => "double",
-                "null" => true,
-                "default" => 0
             ]
         ]);
         $this->forge->addPrimaryKey("idAtividade");

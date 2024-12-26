@@ -18,18 +18,6 @@
             </span>
         </div>
     </div>
-    <div class="m-3">
-        <label class="form-label" for="valor"> Valor da hora </label>
-        <input class="form-control" type="text" name="valor" id="valor" 
-        placeholder="Inform valor cobrado (Obrigatório)" aria-describedby="info-valor"
-        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-        value="<?= $atividade->valor ?>">
-        <div class="form-text" id="info-valor">
-            <span class="text-danger">
-                <?= session()->getFlashdata("errors")["valor"] ?? "" ?>
-            </span>
-        </div>
-    </div>
     <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar</button>
     <a class="btn btn-secondary" href="<?= url_to("atividade.listar") ?>"> <i class="bi bi-list"></i> Atividades </a>
     </form>
