@@ -7,7 +7,6 @@
   <meta content="" name="description">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Sistema V.Tornos</title>
- <!-- <?= $this->include("layouts/partials/styles") ?> LINHA COMENTADA -->
   <?= view("layouts/partials/styles",[],["cache"=>60,"cache_name"=>"partials_styles"]) ?>
   <?= $this->renderSection("style") ?>
 </head>
@@ -16,7 +15,6 @@
   <div class="container-fluid position-relative">
     <?= $this->renderSection("conteudo") ?>
   </div>
- <!-- <?= $this->include("layouts/partials/scripts") ?> LINHA COMENTADA -->
   <?= view("layouts/partials/scripts",[],["cache"=>60,"cache_name"=>"partials_scripts"]) ?>
   <?= $this->renderSection("script") ?>
 </body>
