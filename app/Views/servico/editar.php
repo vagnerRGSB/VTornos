@@ -30,7 +30,7 @@
                     <option value="">Informe uma atividade (Obrigatório)</option>
                     <?php foreach ($atividades as $atividade) : ?>
                         <option <?= $atividade->idAtividade == $servico->idServico ? "selected" : "" ?>
-                        value="<?= $atividade->idAtividade ?>"><?= $atividade->nome . " - R$" . $atividade->valor ?></option>
+                        value="<?= $atividade->idAtividade ?>"><?= $atividade->nome ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>

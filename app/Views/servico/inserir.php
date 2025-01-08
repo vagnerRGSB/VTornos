@@ -25,7 +25,7 @@
                 <select class="form-select" name="idAtividade" id="idAtividade">
                     <option value="">Informe uma atividade (Obrigatório)</option>
                     <?php foreach ($atividades as $atividade) : ?>
-                        <option value="<?= $atividade->idAtividade ?>"><?= $atividade->nome . " - R$" . $atividade->valor ?></option>
+                        <option value="<?= $atividade->idAtividade ?>"><?= $atividade->nome ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
