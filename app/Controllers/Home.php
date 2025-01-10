@@ -45,12 +45,29 @@ class Home extends BaseController
         $query = $consulta->get();
         $total_produtos = $query->getRow();
 
+        $consulta = $this->db->query("select count(*) as total, concat( '\"',month(dataCadastro), '-' ,year(dataCadastro),'\"' ) as mes
+from servicos group by 2;");
+        $total_servicos = $consulta->getResultArray();//var_dump($query);die;
+        $eixoX = "[";
+        $quantidade_servicos = "[";
+
+        foreach($total_servicos as $row){
+            //var_dump($row);die;
+            $eixoX .= $row["total"].",";
+            $quantidade_servicos .= $row["mes"].",";
+        }
+        $eixoX .= "]";
+        $quantidade_servicos .= "]";
+
+        //var_dump($eixoX);var_dump($quantidade_servicos);die;
         $consulta = $this->db->table("estoques");
         return view('home/principal', [
             "count_clientes" => $total_clientes != null ? $total_clientes : 0,
             "count_series" => $total_series != null ? $total_series : 0,
             "count_atividades" => $total_atividades != null ? $total_atividades : 0,
-            "count_produtos" => $total_produtos != null ? $total_produtos : 0
+            "count_produtos" => $total_produtos != null ? $total_produtos : 0,
+            "eixoX" => $eixoX,
+            "quantidade_servicos" => $quantidade_servicos
         ]);
     }
 }

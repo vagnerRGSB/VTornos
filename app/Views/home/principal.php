@@ -18,7 +18,7 @@
                                 </h6>
                                 <a class="btn btn-success" href="<?= url_to("cliente.inserir") ?>"><i class="bi bi-plus"></i> </a>
                                 <a class="btn btn-secondary" href="<?= url_to("cliente.listar") ?>"> <i class="bi bi-list"></i> </a>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 </h6>
                                 <a class="btn btn-success" href="<?= url_to("serie.inserir") ?>"><i class="bi bi-plus"></i> </a>
                                 <a class="btn btn-secondary" href="<?= url_to("serie.listar") ?>"> <i class="bi bi-list"></i> </a>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -88,9 +88,57 @@
         </div>
     </div>
 
+    <div id="container">
+        Ola
+    </div>
+
 
 </div>
 <?= $this->endSection() ?>
 <?= $this->section("script") ?>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/dashboards/dashboards.js"></script>
+<script src="https://code.highcharts.com/dashboards/modules/layout.js"></script>
 
+<script type="text/javascript">
+    $(function() {
+        Highcharts.chart('container', {
+            title: {
+                text: 'Orçamentos por mês'
+            },
+
+            accessibility: {
+                point: {
+                    valueDescriptionFormat: '{xDescription}{separator}{value} million(s)'
+                }
+            },
+
+            xAxis: {
+                title: {
+                    text: 'Meses'
+                },
+                categories: <?= $quantidade_servicos ?>
+            },
+
+            yAxis: {
+                type: 'Quantidade',
+                title: {
+                    text: 'Quantia de orçamentos'
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br />',
+                pointFormat: '{point.y} million(s)'
+            },
+
+            series: [{
+                name: 'Serviços',
+                keys: ['y', 'color'],
+                data: <?= $eixoX ?>
+            }]
+        });
+
+    });
+</script>
 <?= $this->endSection() ?>
