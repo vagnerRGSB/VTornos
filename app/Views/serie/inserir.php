@@ -5,8 +5,7 @@
 <?= $this->section("conteudo") ?>
 
 <div class="border m-3">
-    <h3 class="h3 text-center m-3"><strong>Formulário Serie</strong></h3>
-    <div class="container">
+    <h3 class="h3 text-center m-3"><strong>Formulário Série</strong></h3>
         <form action="<?= url_to("serie.onSave") ?>" method="post">
             <div class="col m-3">
                 <label for="idModelo" class="form-label">Modelo</label>
@@ -23,7 +22,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col mt-3 mb-3">
+                <div class="col m-3">
                     <label for="descricao" class="form-label">Descrição serie</label>
                     <input type="text" name="descricao" class="form-control" aria-describedby="info-descricao"
                         placeholder="Informe descrição (Obrigatório)">
@@ -37,7 +36,6 @@
             <button class="btn btn-success m-3" type="submit"> <i class="bi bi-floppy"></i> Salvar </button>
             <a class="btn btn-secondary" href="<?= url_to("serie.listar")?>"> <i class="bi bi-list"></i> Series </a>
         </form>
-    </div>
 </div>
 
 <?= $this->endSection() ?>

@@ -35,7 +35,11 @@ class SerieModel extends Model
         "idModelo" => "required",
         "descricao" => "required|max_length[200]|min_length[1]"
     ];
-    protected $validationMessages   = [];
+    protected $validationMessages   = [
+        "idModelo" => [
+            "required" => "O campo modelo é requirido."
+        ]
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

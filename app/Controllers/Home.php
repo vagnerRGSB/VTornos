@@ -45,8 +45,7 @@ class Home extends BaseController
         $query = $consulta->get();
         $total_produtos = $query->getRow();
 
-        $consulta = $this->db->query("select count(*) as total, concat( '\"',month(dataCadastro), '-' ,year(dataCadastro),'\"' ) as mes
-from servicos group by 2;");
+        $consulta = $this->db->query("select count(*) as total, concat( '\"',month(dataCadastro), '-' ,year(dataCadastro),'\"' ) as mes from servicos group by 2;");
         $total_servicos = $consulta->getResultArray();//var_dump($query);die;
         $eixoX = "[";
         $quantidade_servicos = "[";
